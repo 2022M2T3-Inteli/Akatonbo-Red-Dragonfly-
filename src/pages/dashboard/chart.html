@@ -50,8 +50,16 @@
     </nav>
     <main class="flex-fill p-5">
       <h1 class="text-center mb-4">Dashboard | Gráfico</h1>
+      <div>
+        <a class="btn btn-secondary" href="table.html">Tabela</a>
+        <a class="btn btn-primary" href="#">Gráfico</a>
+      </div>
+      <canvas id="hrChart" class="mt-2" style="max-height:70vh;"></canvas>
     </main>
   </div>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.1/dist/chart.min.js"
+    integrity="sha256-ErZ09KkZnzjpqcane4SCyyHsKAXMvID9/xwbl/Aq1pc=" crossorigin="anonymous"></script>
+  <script src="../../js/chart.js"></script>
 </body>
 
 </html>
