@@ -14,7 +14,7 @@
 /* SIDEBAR */
 
 .sidebar {
-  height: 100vh;
+  min-height: 100vh;
   overflow: scroll;
   background-color: #c3c4ca;
   font-size: 1.4rem;
