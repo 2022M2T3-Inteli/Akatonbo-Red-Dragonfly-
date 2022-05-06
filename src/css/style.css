@@ -10,7 +10,6 @@
   Detalhes secundário: #636363
 */
 
-
 /* SIDEBAR */
 
 .sidebar {
@@ -28,7 +27,9 @@
   fill: currentColor;
 }
 
-/*Projetos em formato de lista*/ 
+/* PROJETOS (LISTA) */
+
+/* Search Bar */
 .search-container {
   position: relative;
   width: 40px;
@@ -48,7 +49,7 @@
 }
 
 .search-icon::before {
-  content: '';
+  content: "";
   width: 25%;
   height: 25%;
   border-radius: 50%;
@@ -56,7 +57,7 @@
 }
 
 .search-icon::after {
-  content: '';
+  content: "";
   width: 20%;
   height: 2px;
   background-color: black;
@@ -80,27 +81,4 @@
 
 .search-input:valid {
   width: 985px;
-}
-
-table {
-  width: 100%;
-}
-
-th, td {
-  padding: 10px;
-  text-align: left;
-/*  border-bottom: 1px solid #ddd;*/
-  font-family: Arial, Helvetica, sans-serif;
-  /*border-radius: 5px;*/
-}
-
-tr {background-color: white;
-}
-
-.p{
-  background-color: #A8CCF6;  
-}
-
-.text{
-  font-family: Estricta, sans-serif;
 }
