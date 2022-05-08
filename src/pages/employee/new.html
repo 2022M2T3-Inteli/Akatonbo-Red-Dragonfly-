@@ -52,16 +52,16 @@
 
 
     <main class="flex-fill p-5">
-      <h1 class="text-center mb-4">Novo funcionário</h1>
+      <h1 class="text-center mb-4">Cadastrar Funcionário</h1>
 
       <form name="add-new-employee" action="">
-        <section class="new-employee-section">
+        <section class="new-section">
           Nome:
           <br>
           <input id="newEmployeeName" type="text" required>
           <br>
         </section>
-        <section class="new-employee-section">
+        <section class="new-section">
           Unidade:
           <br>
           <input id="manaus" type="checkbox">
@@ -71,7 +71,7 @@
           <label for="sp">São Paulo</label>
           <br>
         </section>
-        <section class="new-employee-section">
+        <section class="new-section">
           Competencias:
           <br>
           <input id="python" type="checkbox">
@@ -83,12 +83,14 @@
           <input id="database" type="checkbox">
           <label for="database">Banco de dados</label>
         </section>
-        <section class="new-employee-section">
+        <section class="new-section">
           Capacidade horária:
           <br>
           <input id="employee-capacity" type="number" step="10" required> h/mês
         </section>
-        <input type="button" id="save-new-employee" value="Cadastrar" onclick="saveNewEmployee();">
+        <section class="new-section">
+          <input type="button" id="save-new-employee" value="Cadastrar" onclick="saveNewEmployee();">
+        </section>
       </form>
 
     </main>

@@ -84,12 +84,12 @@
 }
 
 /* NEW EMPLOYEE */
-.new-employee-section {
+.new-section {
   padding-top: 8px;
   padding-bottom: 8px;
 }
 
-#save-new-employee {
+#save-new {
   background-color: #0d6efd;
   color: white;
   border-radius: 5px;
