@@ -12,7 +12,89 @@
 </head>
 
 <body>
-  <h1>Cadastrar Funcionário</h1>
+
+  <div class="d-flex flex-row">
+    <nav class="sidebar d-flex flex-column flex-shrink-0 p-3">
+      <a href="#" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
+        <img src="../../img/sidebar-logo.svg" alt="Logo Yamaha" class="img-fluid" />
+      </a>
+      <hr>
+      <ul class="nav nav-pills flex-column mb-auto">
+        <li class="nav-item">
+          <a href="../project/list.html" class="nav-link link-dark" aria-current="page">
+            <i class="bi bi-kanban-fill"></i>Projetos
+          </a>
+        </li>
+        <li>
+          <a href="../manager/list.html" class="nav-link link-dark">
+            <i class="bi bi-person-lines-fill"></i>Gerentes
+          </a>
+        </li>
+        <li>
+          <a href="../employee/list.html" class="nav-link link-dark">
+            <i class="bi bi-people-fill"></i>Funcionários
+          </a>
+        </li>
+        <li>
+          <a href="../dashboard/table.html" class="nav-link link-dark">
+            <i class="bi bi-speedometer"></i>Dashboard
+          </a>
+        </li>
+      </ul>
+      <hr>
+      <a href="#" class="d-flex align-items-center link-dark text-decoration-none">
+        <span class="me-2">
+          <i class="bi bi-person-fill"></i>
+        </span>
+        <strong>jailson</strong>
+      </a>
+    </nav>
+
+
+    <main class="flex-fill p-5">
+      <h1 class="text-center mb-4">Novo funcionário</h1>
+
+      <form name="add-new-employee" action="">
+        <section class="new-employee-section">
+          Nome:
+          <br>
+          <input id="newEmployeeName" type="text" required>
+          <br>
+        </section>
+        <section class="new-employee-section">
+          Unidade:
+          <br>
+          <input id="manaus" type="checkbox">
+          <label for="manaus">Manaus</label>
+          <br>
+          <input id="sp" type="checkbox">
+          <label for="sp">São Paulo</label>
+          <br>
+        </section>
+        <section class="new-employee-section">
+          Competencias:
+          <br>
+          <input id="python" type="checkbox">
+          <label for="python">Python</label>
+          <br>
+          <input id="delphi" type="checkbox">
+          <label for="delphi">Delphi</label>
+          <br>
+          <input id="database" type="checkbox">
+          <label for="database">Banco de dados</label>
+        </section>
+        <section class="new-employee-section">
+          Capacidade horária:
+          <br>
+          <input id="employee-capacity" type="number" step="10" required> h/mês
+        </section>
+        <input type="button" id="save-new-employee" value="Cadastrar" onclick="saveNewEmployee();">
+      </form>
+
+    </main>
+
+
+  </div>
 </body>
 
 </html>

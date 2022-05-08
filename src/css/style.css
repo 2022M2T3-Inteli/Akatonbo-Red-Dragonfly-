@@ -82,3 +82,24 @@
 .search-input:valid {
   width: 985px;
 }
+
+/* NEW EMPLOYEE */
+.new-employee-section {
+  padding-top: 8px;
+  padding-bottom: 8px;
+}
+
+#save-new-employee {
+  background-color: #0d6efd;
+  color: white;
+  border-radius: 5px;
+  height: 40px;
+  width: 100px;
+  margin: 0;
+  border: 0;
+  padding: 0;
+}
+
+#employee-capacity {
+  width: 50px;
+}
