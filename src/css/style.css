@@ -83,23 +83,23 @@
   width: 985px;
 }
 
-/* NEW EMPLOYEE */
+/* NEW EMPLOYEE - NEW MANAGER */
 .new-section {
   padding-top: 8px;
   padding-bottom: 8px;
 }
 
-#save-new {
-  background-color: #0d6efd;
+#employee-capacity {
+  width: 50px;
+}
+
+.save-button {
+  background-color: #0729d8;
   color: white;
   border-radius: 5px;
-  height: 40px;
-  width: 100px;
+  height: 35px;
+  width: 90px;
   margin: 0;
   border: 0;
   padding: 0;
-}
-
-#employee-capacity {
-  width: 50px;
 }
