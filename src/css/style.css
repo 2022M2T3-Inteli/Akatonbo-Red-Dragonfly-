@@ -104,3 +104,30 @@ tr {background-color: white;
 .text{
   font-family: Estricta, sans-serif;
 }
+
+.p1{
+  background-color: #7ECC84;
+}
+
+.p2{
+  background-color: #E7DE7C;
+}
+
+.p3{
+  background-color: #DA6565;
+}
+
+button{
+  margin-left: 960px;
+  margin-top: 150px;
+  border:none;
+  border-radius: 5px;
+  background-color: #0A2D82;
+  height: 30px;
+  width: 30px;
+
+}
+
+.bi-plus-lg{
+  color: white;
+}
