@@ -61,6 +61,7 @@ const data = {
       backgroundColor: CHART_COLORS.green,
       hidden: false,
       fill: false,
+      pointRadius: 0,
     },
     {
       label: "Limitação com recursos internos + externos",
@@ -72,6 +73,7 @@ const data = {
       backgroundColor: CHART_COLORS.purple,
       hidden: false,
       fill: false,
+      pointRadius: 0,
     },
     {
       label: "Capacidade necessária",
@@ -83,6 +85,7 @@ const data = {
       backgroundColor: CHART_COLORS.yellow,
       hidden: false,
       fill: false,
+      pointRadius: 0,
     },
     {
       label: "Horas alocadas atualmente",
