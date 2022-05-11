@@ -103,3 +103,92 @@
   border: 0;
   padding: 0;
 }
+
+/* TELA DE LOGIN */
+@import url('http://fonts.cdnfonts.com/css/estricta');
+
+body {  
+    background-image: linear-gradient(to bottom, #3d5656, #759bd4, white);
+    font-family: 'Estricta', sans-serif;
+}
+
+h1 {
+
+    position: relative;
+    left: 0px;
+    bottom: 0px;
+
+}
+
+h2 {
+    position: relative;
+    left: 90px;
+
+    
+}
+
+p {
+    position: relative;
+    left: 204px;
+}
+
+p1{
+    position: relative;
+    left:225px;
+    top: 110px;
+    font-size: 25px;
+}
+
+p2 {
+    position: relative;
+    left: 225px;
+    top: 120px;
+    font-size: 25px;
+}
+
+p3 {
+    position: relative;
+    left: 220px;
+    top: 118px
+}
+
+p4 {
+    position: relative;
+    left: 350px;
+    top: 150px;
+}
+
+h3 {
+    position: relative;
+    left: 830px;
+    bottom: 450px;
+    max-width:750px;
+    max-height:1550px;
+    width: auto;
+    height: auto;  
+}
+
+footer {
+    position: relative;
+    left: 0px;
+    bottom: 520px;
+}
+
+html{
+    overflow-y:hidden;
+    overflow-x:hidden;
+    
+}
+
+input {
+    border: none;
+    border-radius: 5px;
+    font-size: 25px;
+}
+
+
+button {
+    font-size: 20px;
+    border-radius: 10px;
+}
+
