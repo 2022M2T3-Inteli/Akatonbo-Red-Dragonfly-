@@ -83,6 +83,35 @@
   width: 985px;
 }
 
+/*EMPLOYEE (LIST) */ 
+
+table {
+  width: 100%;
+}
+
+th, td {
+  padding: 10px;
+  text-align: left;
+/*  border-bottom: 1px solid #ddd;*/
+  font-family: system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans","Liberation Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";;
+  /*border-radius: 5px;*/
+}
+
+tr {background-color: #e7e7e7;
+}
+
+.p1{
+  background-color: #7ECC84;
+}
+
+.p2{
+  background-color: #E7DE7C;
+}
+
+.p3{
+  background-color: #DA6565;
+}
+
 /* NEW EMPLOYEE - NEW MANAGER */
 .new-section {
   padding-top: 8px;
