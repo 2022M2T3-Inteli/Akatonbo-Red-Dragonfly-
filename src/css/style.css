@@ -10,7 +10,7 @@
   Detalhes secundário: #636363
 */
 
-/* SIDEBAR */
+/* BARRA LATERAL */
 
 .sidebar {
   min-height: 100vh;
@@ -29,7 +29,7 @@
 
 /* PROJETOS (LISTA) */
 
-/* Search Bar */
+/* Barra de Pesquisa */
 .search-container {
   position: relative;
   width: 40px;
@@ -83,7 +83,7 @@
   width: 985px;
 }
 
-/* NEW EMPLOYEE - NEW MANAGER */
+/* NOVO FUNCIONÁRIO - NOVO GESTOR */
 .new-section {
   padding-top: 8px;
   padding-bottom: 8px;
@@ -102,4 +102,14 @@
   margin: 0;
   border: 0;
   padding: 0;
+}
+
+/* LOGIN */
+
+.login {
+  background-image: linear-gradient(to bottom, #3d5656, #759bd4, white);
+}
+
+.login__hero {
+  mix-blend-mode: multiply;
 }
