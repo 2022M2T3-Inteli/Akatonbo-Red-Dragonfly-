@@ -51,45 +51,46 @@
     <main class="flex-fill p-5">
       <h1 class="text-center mb-4">Cadastrar Funcionário</h1>
 
-      <form name="add-new-employee" action="">
-        <section class="new-section">
-          Nome:
-          <br>
-          <input id="newEmployeeName" type="text" required>
-          <br>
-        </section>
+      <form name="add-new-employee" action="profile.html" method="get">
+        <div class="mb-3">
+          <label for="newEmployeeName" class="form-label">Nome:</label>
+          <input class="form-control" id="newEmployeeName" type="text" required>
+        </div>
 
-        <section class="new-section">
+        <div class="mb-3">
           Unidade:
-          <br>
-          <input id="manaus" type="checkbox">
-          <label for="manaus">Manaus</label>
-          <br>
-          <input id="sp" type="checkbox">
-          <label for="sp">São Paulo</label>
-          <br>
-        </section>
+          <div class="form-check">
+            <input id="manaus" class="form-check-input" type="checkbox">
+            <label class="form-check-label" for="manaus">Manaus</label>
+          </div>
+          <div class="form-check">
+            <input id="sp" class="form-check-input" type="checkbox">
+            <label class=" form-check-label" for="sp">São Paulo</label>
+          </div>
+        </div>
 
-        <section class="new-section">
-          Competencias:
-          <br>
-          <input id="python" type="checkbox">
-          <label for="python">Python</label>
-          <br>
-          <input id="delphi" type="checkbox">
-          <label for="delphi">Delphi</label>
-          <br>
-          <input id="database" type="checkbox">
-          <label for="database">Banco de dados</label>
-        </section>
-        
-        <section class="new-section">
-          Capacidade horária:
-          <br>
-          <input id="employee-capacity" type="number" step="10" required> h/mês
-        </section>
+        <div class="mb-3">
+          Área:
+          <div class="form-check">
+            <input class="form-check-input" id="pm" type="checkbox">
+            <label class=" form-check-label" for="pm">Project Manager</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" id="dba" type="checkbox">
+            <label class=" form-check-label" for="dba">Analista de Banco de Dados</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" id="python" type="checkbox">
+            <label class=" form-check-label" for="python">Programador Backend Python</label>
+          </div>
+        </div>
 
-        <section class="new-section">
+        <div class="mb-3">
+          <label class="form-check-label" for="employee-capacity">Capacidade horária:</label>
+          <input id="employee-capacity" type="number" step="10" required placeholder="h/mês">
+        </div>
+
+        <div class="mb-3">
           <div class="form-check">
             <input class="form-check-input" type="radio" id="flexRadioDefault1" name="flexRadioDefault">
             <label for="flexRadioDefault1">Funcionário Yamaha</label>
@@ -98,14 +99,12 @@
             <input class="form-check-input" type="radio" id="flexRadioDefault2" name="flexRadioDefault">
             <label for="flexRadioDefault2">Terceiro</label>
           </div>
-        </section>
+        </div>
 
-        <section class="new-section">
-          <a href="profile.html">
-            <input type="button" id="save-new-employee" class="save-button" value="Cadastrar"
-              onclick="saveNewEmployee();">
-          </a>
-        </section>
+        <div class="mb-3">
+          <input type="submit" id="save-new-employee" class="save-button" value="Cadastrar"
+            onclick="saveNewEmployee();">
+        </div>
       </form>
     </main>
   </div>
