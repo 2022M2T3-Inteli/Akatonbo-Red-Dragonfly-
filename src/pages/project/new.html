@@ -51,6 +51,49 @@
     </nav>
     <main class="flex-fill p-5">
       <h1 class="text-center mb-4">Cadastrar Projeto</h1>
+      <form name="add-new-employee" action="">
+        <section class="new-section">
+          Nome:
+          <br>
+          <input id="newEmployeeName" type="text" required>
+          <br>
+        </section>
+
+        <section class="new-section">
+          Unidade requerente:
+          <br>
+          <input id="manaus" type="checkbox">
+          <label for="manaus">Manaus</label>
+          <br>
+          <input id="sp" type="checkbox">
+          <label for="sp">São Paulo</label>
+          <br>
+        </section>
+
+        <section class="new-section">
+          Setor requerente:
+          <br>
+          <input id="t-i" type="checkbox">
+          <label for="t-i"> T.I </label>
+          <br>
+          <input id="financeiro" type="checkbox">
+          <label for="financeiro"> Financeiro </label>
+          <br>
+          <input id="r-h" type="checkbox">
+          <label for="r-h"> Recursos Humanos </label>
+        </section>
+        
+        <section class="new-section">
+          Estimativa de horas necessárias: 
+          <br>
+          <input id="project-hours" type="number" step="10" required> horas(h)
+        </section>
+
+        <section class="new-section">
+          <a href="profile.html">
+            <input type="button" id="save-new-employee" class="save-button" value="Cadastrar"
+              onclick="saveNewEmployee();">
+          </a>    
     </main>
   </div>
 </body>
