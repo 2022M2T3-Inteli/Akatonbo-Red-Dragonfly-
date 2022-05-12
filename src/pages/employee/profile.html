@@ -12,7 +12,7 @@
 </head>
 
 <body>
-  <div class="d-flex flex-row">
+  <div class="d-flex">
     <nav class="sidebar d-flex flex-column flex-shrink-0 p-3">
       <a href="../../index.html"
         class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
@@ -49,8 +49,29 @@
         <strong>jailson</strong>
       </a>
     </nav>
-    <main>
+    <main class="flex-fill p-5">
       <h1 class="text-center mb-4">Perfil do Funcionário</h1>
+      <div class="d-flex flex-row justify-content-center">
+        <img class="" src="../../img/funcionario.png" alt="avatar" style="max-width:20%;" class="rounded img-fluid">
+        <table class=" table table-bordered ms-5">
+          <tr>
+            <th scope="row">Nome:</th>
+            <td>Bruno Liao</td>
+          </tr>
+          <tr>
+            <th scope="row">Função:</th>
+            <td>Analista de Banco de Dados</td>
+          </tr>
+          <tr>
+            <th scope="row">E-mail:</th>
+            <td>bruno.liao@sou.inteli.edu.br</td>
+          </tr>
+          <tr>
+            <th scope="row">Carga Horária:</th>
+            <td>190 horas</td>
+          </tr>
+        </table>
+      </div>
       <div class="position-absolute bottom-0 end-0 mb-3 mx-5">
         <a href="edit.html" href="" class="btn btn-warning btn-lg"><i class="bi bi-plus-lg"></i> Editar Funcionário</a>
         <a href="#" href="" class="btn btn-danger btn-lg"><i class="bi bi-plus-lg"></i> Excluir Funcionário</a>

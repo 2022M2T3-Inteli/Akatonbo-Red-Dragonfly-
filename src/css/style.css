@@ -113,3 +113,9 @@
 .login__hero {
   mix-blend-mode: multiply;
 }
+
+/* PERFIL DO FUNCIONARIO */
+
+.employee__avatar {
+  width: 20%;
+}
