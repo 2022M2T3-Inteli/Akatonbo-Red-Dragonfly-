@@ -1,6 +1,9 @@
 /* BOOTSTRAP (ICONES) */
 @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css");
 
+/* FONTES */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
 /*
   CORES (Referência)
   Background: #c3c4ca
@@ -10,6 +13,12 @@
   Detalhes secundário: #636363
 */
 
+/* GLOBAIS */
+body {
+  font-family: 'Roboto', sans-serif;
+}
+
+
 /* BARRA LATERAL */
 
 .sidebar {
@@ -18,7 +27,7 @@
   background-color: #c3c4ca;
   font-size: 1.4rem;
   line-height: 200%;
-  width: 300px;
+  width: 305px;
 }
 
 .sidebar .bi {
@@ -120,7 +129,7 @@
   width: 20%;
 }
 
-/* CADASTRAR NOVO PROJETO */ 
+/* CADASTRAR NOVO PROJETO */
 #project-hours {
   width: 80px;
 }
