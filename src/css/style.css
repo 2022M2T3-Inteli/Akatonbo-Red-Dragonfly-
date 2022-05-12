@@ -119,3 +119,9 @@
 .employee__avatar {
   width: 20%;
 }
+
+/* CADASTRAR NOVO PROJETO */ 
+#project-hours {
+  width: 80px;
+}
+
