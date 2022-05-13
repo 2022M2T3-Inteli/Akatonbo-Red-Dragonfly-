@@ -14,7 +14,8 @@
 <body>
   <div class="d-flex flex-row">
     <nav class="sidebar d-flex flex-column flex-shrink-0 p-3">
-      <a href="../../index.html" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
+      <a href="../../index.html"
+        class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
         <img src="../../img/sidebar-logo.svg" alt="Logo Yamaha" class="img-fluid" />
       </a>
       <hr>
@@ -53,57 +54,53 @@
 
       <form name="add-new-employee" action="profile.html" method="get">
         <div class="mb-3">
-          <label for="newEmployeeName" class="form-label">Nome:</label>
-          <input class="form-control" id="newEmployeeName" type="text" value="Bruno Liao" required>
+          <label for="name" class="form-label">Nome:</label>
+          <input class="form-control" id="name" type="text" required value="Bruno Liao">
         </div>
 
         <div class="mb-3">
-          Unidade:
-          <div class="form-check">
-            <input id="manaus" class="form-check-input" type="checkbox" checked>
-            <label class="form-check-label" for="manaus">Manaus</label>
-          </div>
-          <div class="form-check">
-            <input id="sp" class="form-check-input" type="checkbox">
-            <label class=" form-check-label" for="sp" checked>São Paulo</label>
-          </div>
+          <label for="email" class="form-label">Email:</label>
+          <input class="form-control" id="email" type="email" required value="bruno.liao@sou.inteli.edu.br">
         </div>
 
         <div class="mb-3">
-          Área:
-          <div class="form-check">
-            <input class="form-check-input" id="pm" type="checkbox" checked>
-            <label class=" form-check-label" for="pm" checked>Project Manager</label>
-          </div>
-          <div class="form-check">
-            <input class="form-check-input" id="dba" type="checkbox">
-            <label class=" form-check-label" for="dba">Analista de Banco de Dados</label>
-          </div>
-          <div class="form-check">
-            <input class="form-check-input" id="python" type="checkbox">
-            <label class=" form-check-label" for="python">Programador Backend Python</label>
+          <p>Unidade:</p>
+          <div class="row g-0">
+            <div class="col form-check">
+              <input id="sp" class="form-check-input" type="checkbox" checked>
+              <label class="form-check-label" for="sp">São Paulo</label>
+            </div>
+            <div class="col form-check">
+              <input id="manaus" class="form-check-input" type="checkbox">
+              <label class="form-check-label" for="manaus">Manaus</label>
+            </div>
           </div>
         </div>
 
         <div class="mb-3">
-          <label class="form-check-label" for="employee-capacity">Capacidade horária:</label>
-          <input id="employee-capacity" type="number" step="10" required placeholder="h/mês" value="190">
+          <p>Área:</p>
+          <select class="form-select" required>
+            <option value="" readonly="true" hidden="true">Selecione a área</option>
+            <option value="1">Project Manager</option>
+            <option value="2" selected>Analista de Banco de Dados</option>
+            <option value="3">Programador Backend Python</option>
+          </select>
         </div>
 
         <div class="mb-3">
-          <div class="form-check">
-            <input class="form-check-input" type="radio" id="flexRadioDefault1" name="flexRadioDefault" checked>
-            <label for="flexRadioDefault1">Funcionário Yamaha</label>
-          </div>
-          <div class="form-check">
-            <input class="form-check-input" type="radio" id="flexRadioDefault2" name="flexRadioDefault">
-            <label for="flexRadioDefault2">Terceiro</label>
+          <label class="form-label" for="employee-capacity">Capacidade horária:</label>
+          <input class="form-control" id="employee-capacity" type="number" step="10" required placeholder="h/mês" value="190">
+        </div>
+
+        <div class="mb-3">
+          <div class="form-check form-switch">
+            <input class="form-check-input" type="checkbox" id="outsourced">
+            <label class="form-check-label" for="outsourced">Funcionário Externo</label>
           </div>
         </div>
 
         <div class="mb-3">
-          <input type="button" id="save-new-employee" class="save-button" value="Cadastrar"
-            onclick="saveNewEmployee();">
+          <input type="submit" id="save-new-employee" class="save-button" value="Cadastrar">
         </div>
       </form>
     </main>

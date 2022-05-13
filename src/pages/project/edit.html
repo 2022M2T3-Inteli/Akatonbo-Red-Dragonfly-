@@ -51,61 +51,64 @@
     </nav>
     <main class="flex-fill p-5">
       <h1>Editar Projeto</h1>
-      <form name="add-new-employee" action="profile.html" method="get">
+      <form name="edit-project" action="profile.html" method="get">
         <div class="mb-3">
-          <label for="newProjectName" class="form-label">Nome:</label>
-          <input id="newProjectName" class="form-control" type="text" value="Red Dragonfly (Yakatonbo)" required>
+          <label for="name" class="form-label">Nome:</label>
+          <input id="name" class="form-control" type="text" required value="Red Dragonfly (Yakatonbo)">
         </div>
 
         <div class="mb-3">
-          Unidade requerente:
-          <div class="form-check">
-            <input class="form-check-input" id="manaus" type="checkbox">
-            <label class="form-check-label" for="manaus">Manaus</label>
-          </div>
-          <div class="form-check">
-            <input class="form-check-input" id="sp" type="checkbox" checked>
-            <label class="form-check-label" for="sp">São Paulo</label>
-          </div>
-        </div>
-
-        <select class="form-select" aria-label="Default select example">
-          <option value="1" >Gerente 1</option>
-          <option value="2">Gerente 2</option>
-          <option value="3" selected>Gerente 3</option>
-        </select>
-
-        <div class="mb-3">
-          Setor requerente:
-          <div class="form-check">
-            <input class="form-check-input" id="t-i" type="checkbox" checked>
-            <label class="form-check-label" for="t-i"> T.I </label>
-          </div>
-          <div class="form-check">
-            <input class="form-check-input" id="financeiro" type="checkbox">
-            <label class="form-check-label" for="financeiro"> Financeiro </label>
-          </div>
-
-          <div class="form-check">
-            <input class="form-check-input" id="r-h" type="checkbox">
-            <label class="form-check-label" for="r-h"> Recursos Humanos </label>
+          <p>Unidade requerente:</p>
+          <div class="row g-0">
+            <div class="form-check col">
+              <input class="form-check-input" id="sp" type="checkbox" checked>
+              <label class="form-check-label" for="sp">São Paulo</label>
+            </div>
+            <div class="form-check col">
+              <input class="form-check-input" id="manaus" type="checkbox">
+              <label class="form-check-label" for="manaus">Manaus</label>
+            </div>
           </div>
         </div>
 
         <div class="mb-3">
-          <label for="project-hours">Estimativa de horas necessárias:</label>
-          <input id="project-hours" type="number" step="10" value="200" required> horas(h)
+          <p>Gerente:</p>
+          <select class="form-select" required>
+            <option value="" readonly="true" hidden="true">Selecione o gerente</option>
+            <option value="1">Gerente 1</option>
+            <option value="2">Gerente 2</option>
+            <option value="3" selected>Gerente 3</option>
+          </select>
         </div>
 
         <div class="mb-3">
-          <label class="form-check-label" for="start-date">Data de Inicio:</label>
-          <input id="start-date" value="2022-01-01" type="date" required placeholder="h/mês">
-          <label class="form-check-label" for="end-date">Data Estimada de Conclusão:</label>
-          <input id="end-date" value="2022-12-30" type="date" required placeholder="h/mês">
+          <p>Setor responsável:</p>
+          <select class="form-select" required>
+            <option value="" readonly="true" hidden="true">Selecione o setor</option>
+            <option value="ti" selected>TI</option>
+            <option value="financeiro">Financeiro</option>
+            <option value="rh">Recursos Humanos</option>
+          </select>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="project-hours">Estimativa de horas necessárias:</label>
+          <input class="form-control" id="project-hours" type="number" step="10" placeholder="h" required value="1000">
+        </div>
+
+        <div class="row mb-3">
+          <div class="col">
+            <label class="form-label" for="start-date">Data de Inicio:</label>
+            <input class="form-control" id="start-date" type="date" required placeholder="h/mês" value="2022-01-01">
+          </div>
+          <div class="col">
+            <label class="form-label" for="end-date">Data Estimada de Conclusão:</label>
+            <input class="form-control" id="end-date" type="date" required placeholder="h/mês" value="2023-01-01">
+          </div>
         </div>
 
         <div>
-          <input type="submit" id="save-new-project" class="save-button" value="Editar" onclick="saveNewProject();">
+           <input type="submit" id="save-new-project" class="save-button" value="Cadastrar">
         </div>
       </form>
     </main>

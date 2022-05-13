@@ -4,6 +4,16 @@
 /* FONTES */
 @import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,400;0,700;1,400;1,700&family=Roboto:wght@400;700&display=swap');
 
+
+/* ESTILOS GLOBAIS */
+body {
+  font-family: 'Roboto', sans-serif;
+}
+
+p, td, th, label {
+  font-family: 'Raleway', sans-serif;
+}
+
 /*
   CORES (Referência)
   Background: #c3c4ca
@@ -13,14 +23,7 @@
   Detalhes secundário: #636363
 */
 
-/* GLOBAIS */
-body {
-  font-family: 'Roboto', sans-serif;
-}
 
-p, td, th {
-  font-family: 'Raleway', sans-serif;
-}
 
 
 /* BARRA LATERAL */
@@ -102,10 +105,6 @@ p, td, th {
   padding-bottom: 8px;
 }
 
-#employee-capacity {
-  width: 50px;
-}
-
 .save-button {
   background-color: #0729d8;
   color: white;
@@ -132,9 +131,3 @@ p, td, th {
 .employee__avatar {
   width: 20%;
 }
-
-/* CADASTRAR NOVO PROJETO */
-#project-hours {
-  width: 80px;
-}
-
