@@ -7,11 +7,11 @@
 
 /* ESTILOS GLOBAIS */
 body {
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Raleway', sans-serif;
 }
 
 p, td, th, label {
-  font-family: 'Raleway', sans-serif;
+  font-family: 'Roboto', sans-serif;
 }
 
 /*
@@ -57,7 +57,7 @@ p, td, th, label {
   background-color: #c3c4ca;
   font-size: 1.4rem;
   line-height: 200%;
-  width: 305px;
+  width: 320px;
 }
 
 .sidebar .bi {
