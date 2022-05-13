@@ -23,8 +23,31 @@ p, td, th, label {
   Detalhes secundário: #636363
 */
 
+.btn-primary, .nav-link.active {
+  background-color: #0729d8 !important;
+  border-color: #0729d8 !important;
+}
 
+.btn-primary:hover, .nav-link.active:hover {
+  background-color: #0a2d82 !important;
+  border-color: #0729d8 !important;
+}
 
+.nav-link:hover {
+  background-color: #636363 !important;
+  border-color: #636363 !important;
+  color: white;
+}
+
+.btn-warning {
+  background-color: #e7de7c;
+  border-color: #e7de7c;
+}
+
+.btn-success {
+  background-color: #da6565 !important;
+  border-color: #da6565;
+}
 
 /* BARRA LATERAL */
 
@@ -103,17 +126,6 @@ p, td, th, label {
 .new-section {
   padding-top: 8px;
   padding-bottom: 8px;
-}
-
-.save-button {
-  background-color: #0729d8;
-  color: white;
-  border-radius: 5px;
-  height: 35px;
-  width: 90px;
-  margin: 0;
-  border: 0;
-  padding: 0;
 }
 
 /* LOGIN */
