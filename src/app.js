@@ -17,6 +17,11 @@ var dashboardRouter = require('./routes/dashboard');
 
 var app = express();
 
+// sequelize ORM
+const sequelize = require('./database');
+
+sequelize.sync().then(() => console.log('Conectado ao banco de dados'));
+
 // Permite acesso externo
 app.use(cors());
 // Desativa o X-Powered-By: Express

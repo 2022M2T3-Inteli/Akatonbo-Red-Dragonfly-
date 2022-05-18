@@ -1,9 +1,13 @@
+const Employee = require('../models/employee');
+
 exports.getAllEmployees = (req, res) => {
   res.render('pages/employee');
 };
 
 exports.createEmployee = (req, res) => {
-  res.render('pages/employee/new');
+  Employee.create(req.body).then(() => {
+    res.send('Funcionário cadastrado com sucesso!');
+  });
 };
 
 exports.getEmployee = (req, res) => {
