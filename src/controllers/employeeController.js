@@ -14,7 +14,7 @@ exports.getEmployee = async (req, res) => {
   const employee = await Employee.findByPk(req.params.id);
 
   if (employee) {
-    res.render('pages/employee/show', { employee });
+    res.render('pages/employee/profile', { employee });
   } else {
     res.status(404).send('Funcionário não encontrado!');
   }
