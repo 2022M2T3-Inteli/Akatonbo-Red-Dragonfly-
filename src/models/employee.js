@@ -15,6 +15,7 @@ Employee.init(
   {
     sequelize,
     modelName: 'employee',
+    timestamps: false,
   }
 );
 

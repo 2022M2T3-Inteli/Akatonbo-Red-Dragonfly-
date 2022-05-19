@@ -20,7 +20,9 @@ var app = express();
 // sequelize ORM
 const sequelize = require('./database');
 
-sequelize.sync().then(() => console.log('Conectado ao banco de dados'));
+sequelize
+  .sync({ force: true })
+  .then(() => console.log('Conectado ao banco de dados'));
 
 // Permite acesso externo
 app.use(cors());

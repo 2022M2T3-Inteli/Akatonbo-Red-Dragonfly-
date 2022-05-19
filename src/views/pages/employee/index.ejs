@@ -61,27 +61,35 @@
               <tr>
                 <th>Nome</th>
                 <th>Carga Horária (horas alocadas/horas contratadas)</th>
-                <th>Projeto(s) atual(is)</th>
+                <th>E-mail</th>
               </tr>
               <tr class="table-success">
                 <th scope="row"><a href="/employees/1">Fulano</a></th>
                 <td>47/190</td>
-                <td> Z </td>
+                <td>fulano@gmail.com</td>
               </tr>
               <tr class="table-success">
                 <th scope="row"><a href="/employees/2">Beltrana</a></th>
                 <td>150/190</td>
-                <td>X,Y</td>
+                <td>beltrana@gmail.com</td>
               </tr>
               <tr class="table-warning">
                 <th scope="row"><a href="/employees/3">Ciclano</a></th>
                 <td>180/190</td>
-                <td>X,Y,Z</td>
+                <td>ciclano@gmail.com</td>
               </tr>
               <tr class="table-danger">
                 <th scope="row"><a href="/employees/4">Claudete</a></th>
                 <td>210/190</td>
-                <td>W,Y</td>
+                <td>claudete@gmail.com</td>
+              </tr>
+              <% employees.forEach(function(employee) { %>
+                <tr class="table-success">
+                  <th scope="row"><a href="/employees/<%= employee.id %>"><%= employee.name %></a></th>
+                  <td>210/190</td>
+                  <td><%= employee.email %></td>
+                </tr>
+              <% }); %>
           </table>
         </div>
       </div>
