@@ -53,7 +53,7 @@ p, td, th, label {
 
 .sidebar {
   min-height: 100vh;
-  overflow: scroll;
+  overflow: hidden;
   background-color: #c3c4ca;
   font-size: 1.4rem;
   line-height: 200%;
