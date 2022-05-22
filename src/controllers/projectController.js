@@ -1,19 +1,43 @@
-exports.getAllProjects = (req, res) => {
-  res.render('pages/project');
+const Project = require('../models/project');
+
+exports.getAllProjects = async (req, res) => {
+  const projects = await Project.findAll();
+  res.render('pages/project/index', { projects });
 };
 
-exports.createProject = (req, res) => {
-  res.render('pages/project/new');
+exports.createProject = async (req, res) => {
+  await Project.create(req.body);
+  res.send('Projeto cadastrado com sucesso!');
 };
 
-exports.getProject = (req, res) => {
-  res.render('pages/project/show');
+exports.getProject = async (req, res) => {
+  const project = await Project.findByPk(req.params.id);
+
+  if (project) {
+    res.render('pages/project/profile', { project });
+  } else {
+    res.status(404).send('Projeto não encontrado!');
+  }
 };
 
-exports.updateProject = (req, res) => {
-  res.render('pages/project/edit');
+exports.updateProject = async (req, res) => {
+  const project = await Project.findByPk(req.params.id);
+
+  if (project) {
+    await project.update(req.body);
+    res.send('Projeto atualizado com sucesso!');
+  } else {
+    res.status(404).send('Projeto não encontrado!');
+  }
 };
 
-exports.deleteProject = (req, res) => {
-  res.render('pages/project/profile');
+exports.deleteProject = async (req, res) => {
+  const project = await Project.findByPk(req.params.id);
+
+  if (project) {
+    await project.destroy();
+    res.send('Projeto excluído com sucesso!');
+  } else {
+    res.status(404).send('Projeto não encontrado!');
+  }
 };
