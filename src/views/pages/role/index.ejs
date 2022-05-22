@@ -59,18 +59,17 @@
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <th scope="row">Project Manager</th>
-              <td>130</td>
-            </tr>
-            <tr>
-              <th scope="row">Analista de Banco de Dados</th>
-              <td>110</td>
-            </tr>
-            <tr>
-              <th scope="row">Programador Backend Python</th>
-              <td>120</td>
-            </tr>
+            <% if (roles.length === 0) { %>
+              <tr>
+                <td colspan="10">Nenhuma função encontrada</td>
+              </tr>
+            <% } %>
+            <% roles.forEach(role => { %>
+              <tr>
+                <th scope="row"><%= role.name %></th>
+                <td><%= role.defaultWorkload %></td>
+              </tr>
+            <% }) %>
           </tbody>
         </table>
       </div>
