@@ -11,6 +11,9 @@ Employee.init(
     email: {
       type: DataTypes.STRING,
     },
+    customWorkload: {
+      type: DataTypes.INTEGER,
+    },
   },
   {
     sequelize,

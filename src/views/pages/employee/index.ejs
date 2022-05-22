@@ -60,33 +60,18 @@
           <table class="table table-hover">
               <tr>
                 <th>Nome</th>
-                <th>Carga Horária (horas alocadas/horas contratadas)</th>
+                <th>Carga Horária (horas alocadas/horas disponíveis/horas contratadas)</th>
                 <th>E-mail</th>
               </tr>
-              <tr class="table-success">
-                <th scope="row"><a href="/employees/1">Fulano</a></th>
-                <td>47/190</td>
-                <td>fulano@gmail.com</td>
-              </tr>
-              <tr class="table-success">
-                <th scope="row"><a href="/employees/2">Beltrana</a></th>
-                <td>150/190</td>
-                <td>beltrana@gmail.com</td>
-              </tr>
-              <tr class="table-warning">
-                <th scope="row"><a href="/employees/3">Ciclano</a></th>
-                <td>180/190</td>
-                <td>ciclano@gmail.com</td>
-              </tr>
-              <tr class="table-danger">
-                <th scope="row"><a href="/employees/4">Claudete</a></th>
-                <td>210/190</td>
-                <td>claudete@gmail.com</td>
-              </tr>
+              <% if (employees.length === 0) { %>
+                <tr>
+                  <td colspan="10">Nenhum funcionário encontrado</td>
+                </tr>
+              <% } %>
               <% employees.forEach(function(employee) { %>
                 <tr class="table-success">
                   <th scope="row"><a href="/employees/<%= employee.id %>"><%= employee.name %></a></th>
-                  <td>210/190</td>
+                  <td>0/<%= employee.customWorkload %>/176</td>
                   <td><%= employee.email %></td>
                 </tr>
               <% }); %>
