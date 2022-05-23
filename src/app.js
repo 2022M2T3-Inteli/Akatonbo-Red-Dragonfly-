@@ -13,6 +13,8 @@ var employeesRouter = require('./routes/employees');
 var projectsRouter = require('./routes/projects');
 var rolesRouter = require('./routes/roles');
 var assignmentsRouter = require('./routes/assignments');
+var departmentsRouter = require('./routes/departments');
+var locationsRouter = require('./routes/locations');
 var dashboardRouter = require('./routes/dashboard');
 
 var app = express();
@@ -46,6 +48,8 @@ app.use('/employees', employeesRouter);
 app.use('/projects', projectsRouter);
 app.use('/roles', rolesRouter);
 app.use('/assignments', assignmentsRouter);
+app.use('/locations', locationsRouter);
+app.use('/departments', departmentsRouter);
 app.use('/dashboard', dashboardRouter);
 
 // pegar erros 404 e tratar
