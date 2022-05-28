@@ -1,25 +1,29 @@
-const { Model, DataTypes } = require('sequelize');
-const sequelize = require('../database');
+'use strict';
+const { Model } = require('sequelize');
 
-class Employee extends Model {}
-
-Employee.init(
-  {
-    name: {
-      type: DataTypes.STRING,
-    },
-    email: {
-      type: DataTypes.STRING,
-    },
-    customWorkload: {
-      type: DataTypes.INTEGER,
-    },
-  },
-  {
-    sequelize,
-    modelName: 'employee',
-    timestamps: false,
+module.exports = (sequelize, DataTypes) => {
+  class Employee extends Model {
+    static associate(models) {
+      Employee.belongsToMany(models.Project, {
+        through: models.Assignment,
+        foreignKey: 'employeeId',
+      });
+      Employee.belongsTo(models.Department, { foreignKey: 'departmentId' });
+      Employee.belongsTo(models.Location, { foreignKey: 'locationId' });
+      Employee.belongsTo(models.Role, { foreignKey: 'roleId' });
+    }
   }
-);
-
-module.exports = Employee;
+  Employee.init(
+    {
+      name: DataTypes.STRING,
+      email: DataTypes.STRING,
+      isOutsourced: DataTypes.BOOLEAN,
+      customWorkload: DataTypes.INTEGER,
+    },
+    {
+      sequelize,
+      modelName: 'Employee',
+    }
+  );
+  return Employee;
+};

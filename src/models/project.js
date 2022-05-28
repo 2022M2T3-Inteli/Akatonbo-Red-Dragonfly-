@@ -1,25 +1,27 @@
-const { Model, DataTypes } = require('sequelize');
-const sequelize = require('../database');
+'use strict';
+const { Model } = require('sequelize');
 
-class Project extends Model {}
-
-Project.init(
-  {
-    name: {
-      type: DataTypes.STRING,
-    },
-    startDate: {
-      type: DataTypes.DATEONLY,
-    },
-    endDate: {
-      type: DataTypes.DATEONLY,
-    },
-  },
-  {
-    sequelize,
-    modelName: 'project',
-    timestamps: false,
+module.exports = (sequelize, DataTypes) => {
+  class Project extends Model {
+    static associate(models) {
+      Project.belongsToMany(models.Employee, {
+        through: models.Assignment,
+        foreignKey: 'projectId',
+      });
+      Project.belongsTo(models.Department, { foreignKey: 'departmentId' });
+      Project.belongsTo(models.Location, { foreignKey: 'locationId' });
+    }
   }
-);
-
-module.exports = Project;
+  Project.init(
+    {
+      name: DataTypes.STRING,
+      startDate: DataTypes.DATEONLY,
+      endDate: DataTypes.DATEONLY,
+    },
+    {
+      sequelize,
+      modelName: 'Project',
+    }
+  );
+  return Project;
+};

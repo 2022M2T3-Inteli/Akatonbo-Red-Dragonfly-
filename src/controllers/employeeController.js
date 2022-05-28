@@ -1,7 +1,7 @@
-const Employee = require('../models/employee');
+const Employee = require('../models').Employee;
 
 exports.getAllEmployees = async (req, res) => {
-  const employees = await Employee.findAll();
+  const employees = await Employee.findAll({ include: [{ all: true }] });
   res.render('pages/employee/index', { employees });
 };
 

@@ -1,4 +1,4 @@
-const Assignment = require('../models/assignment');
+const Assignment = require('../models').Assignment;
 
 exports.createAssignment = async (req, res) => {
   await Assignment.create(req.body);

@@ -1,4 +1,4 @@
-const Location = require('../models/location');
+const Location = require('../models').Location;
 
 exports.createLocation = async (req, res) => {
   await Location.create(req.body);

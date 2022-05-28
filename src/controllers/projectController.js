@@ -1,4 +1,4 @@
-const Project = require('../models/project');
+const Project = require('../models').Project;
 
 exports.getAllProjects = async (req, res) => {
   const projects = await Project.findAll();

@@ -19,10 +19,11 @@ var dashboardRouter = require('./routes/dashboard');
 
 var app = express();
 
-// sequelize ORM
-const sequelize = require('./database');
+// Inicialização do Sequelize (Banco de Dados)
+const db = require('./models');
 
-sequelize
+db.sequelize
+  // Se houver qualquer alteração no código, limpar o banco de dados
   .sync({ force: true })
   .then(() => console.log('Conectado ao banco de dados'));
 
