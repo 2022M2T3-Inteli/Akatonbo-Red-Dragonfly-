@@ -18,6 +18,7 @@ module.exports = {
         },
         {
           name: 'Bia',
+          email: 'bia@example.com',
           roleId: 2,
           departmentId: 2,
           locationId: 2,
@@ -27,6 +28,7 @@ module.exports = {
         },
         {
           name: 'Moisés',
+          email: 'moises@example.com',
           roleId: 3,
           departmentId: 3,
           locationId: 1,

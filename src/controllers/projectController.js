@@ -1,7 +1,7 @@
 const Project = require('../models').Project;
 
 exports.getAllProjects = async (req, res) => {
-  const projects = await Project.findAll();
+  const projects = await Project.findAll({ include: [{ all: true }] });
   res.render('pages/project/index', { projects });
 };
 
