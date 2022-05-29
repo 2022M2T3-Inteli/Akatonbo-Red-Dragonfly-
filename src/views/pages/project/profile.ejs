@@ -14,8 +14,7 @@
 <body>
   <div class="d-flex flex-row">
     <nav class="sidebar d-flex flex-column flex-shrink-0 p-3">
-      <a href="/"
-        class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
+      <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
         <img src="../../images/sidebar-logo.svg" alt="Logo Yamaha" class="img-fluid" />
       </a>
       <hr>
@@ -55,34 +54,75 @@
         <table class=" table table-bordered ms-5">
           <tr>
             <th scope="row">Nome:</th>
-            <td><%= project.name %></td>
+            <td class="fw-bold">
+              <%= project.name %>
+            </td>
           </tr>
           <tr>
             <th scope="row">Departamento:</th>
-            <td><%= project.Department.name %></td>
+            <td>
+              <%= project.Department.name %>
+            </td>
           </tr>
           <tr>
             <th scope="row">Local:</th>
-            <td><%= project.Location.name %></td>
+            <td>
+              <%= project.Location.name %>
+            </td>
           </tr>
           <tr>
             <th scope="row">Data de Início:</th>
-            <td><%= dayjs(project.startDate).format('DD/MM/YYYY') %></td>
+            <td>
+              <%= dayjs(project.startDate).format('DD/MM/YYYY') %>
+            </td>
           </tr>
           <tr>
             <th scope="row">Estimativa de entrega:</th>
-            <td><%= dayjs(project.endDate).format('DD/MM/YYYY') %></td>
+            <td>
+              <%= dayjs(project.endDate).format('DD/MM/YYYY') %>
+            </td>
           </tr>
           <tr>
             <th scope="row">Carga horária necessária:</th>
-            <td>horas</td>
+            <td class="fw-bold"><%= projectHours %> horas</td>
           </tr>
         </table>
       </div>
-        <div class="position-absolute bottom-0 end-0 mb-3 mx-5">
-          <a href="edit.html" href="" class="btn btn-warning"><i class="bi bi-plus-lg"></i> Editar Projeto</a>
-          <a href="#" href="" class="btn btn-danger"><i class="bi bi-plus-lg"></i>Excluir Projeto</a>
-        </div>
+      <h2 class="text-center my-4">Alocações</h2>
+      <div class="d-flex flex-row justify-content-center">
+        <table class=" table table-bordered table-hover ms-5">
+          <thead>
+            <tr>
+              <th sccope="col">Funcionário:</th>
+              <th scope="col">Mês:</th>
+              <th scope="col">Ano:</th>
+              <th scope="col">Carga horária:</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% assignments.forEach(assignment => { %>
+              <tr>
+                <td>
+                  <%= assignment.Employee.name %>
+                </td>
+                <td>
+                  <%= MONTHS[assignment.month] %>
+                </td>
+                <td>
+                  <%= assignment.year %>
+                </td>
+                <td>
+                  <%= assignment.workHours %>
+                </td>
+              </tr>
+              <% }) %>
+          </tbody>
+        </table>
+      </div>
+      <div class="position-absolute bottom-0 end-0 mb-3 mx-5">
+        <a href="edit.html" href="" class="btn btn-warning"><i class="bi bi-plus-lg"></i> Editar Projeto</a>
+        <a href="#" href="" class="btn btn-danger"><i class="bi bi-plus-lg"></i>Excluir Projeto</a>
+      </div>
     </main>
   </div>
 </body>

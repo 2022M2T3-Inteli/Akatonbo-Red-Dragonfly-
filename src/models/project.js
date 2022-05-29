@@ -4,10 +4,7 @@ const { Model } = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
   class Project extends Model {
     static associate(models) {
-      Project.belongsToMany(models.Employee, {
-        through: models.Assignment,
-        foreignKey: 'projectId',
-      });
+      Project.hasMany(models.Assignment, { foreignKey: 'projectId' });
       Project.belongsTo(models.Department, { foreignKey: 'departmentId' });
       Project.belongsTo(models.Location, { foreignKey: 'locationId' });
     }

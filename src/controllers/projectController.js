@@ -1,6 +1,11 @@
 const dayjs = require('dayjs');
+const { MONTHS } = require('../public/javascripts/months');
 
 const Project = require('../models').Project;
+const Assignment = require('../models').Assignment;
+const Employee = require('../models').Employee;
+const Department = require('../models').Department;
+const Location = require('../models').Location;
 
 exports.getAllProjects = async (req, res) => {
   const projects = await Project.findAll({ include: [{ all: true }] });
@@ -14,11 +19,31 @@ exports.createProject = async (req, res) => {
 
 exports.getProject = async (req, res) => {
   const project = await Project.findByPk(req.params.id, {
-    include: [{ all: true }],
+    include: [Department, Location],
   });
 
   if (project) {
-    res.render('pages/project/profile', { project, dayjs });
+    const assignments = await Assignment.findAll({
+      where: { projectId: req.params.id },
+      order: [
+        ['year', 'ASC'],
+        ['month', 'ASC'],
+      ],
+      include: [Employee],
+    });
+
+    // Calcular horas totais do projeto
+    const projectHours = assignments.reduce((acc, curr) => {
+      return acc + curr.workHours;
+    }, 0);
+
+    res.render('pages/project/profile', {
+      project,
+      assignments,
+      projectHours,
+      dayjs,
+      MONTHS,
+    });
   } else {
     res.status(404).send('Projeto não encontrado!');
   }
