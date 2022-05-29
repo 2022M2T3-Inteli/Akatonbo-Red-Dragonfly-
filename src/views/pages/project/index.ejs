@@ -75,8 +75,8 @@
               <% projects.forEach(project => { %>
                 <tr>
                   <th scope="row"><a href="/projects/<%= project.id %>"><%= project.name %></a></th>
-                  <td><%= project.startDate.split('-')[2] %>/<%= project.startDate.split('-')[1] %>/<%= project.startDate.split('-')[0] %></td>
-                  <td><%= project.endDate.split('-')[2] %>/<%= project.endDate.split('-')[1] %>/<%= project.endDate.split('-')[0] %></td>
+                  <td><%= dayjs(project.startDate).format('DD/MM/YYYY') %></td>
+                  <td><%= dayjs(project.endDate).format('DD/MM/YYYY') %></td>
                   <td><%= project.Department.name %></td>
                   <td><%= project.Location.name %></td>
                 </tr>

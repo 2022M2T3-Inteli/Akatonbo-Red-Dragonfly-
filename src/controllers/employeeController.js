@@ -1,4 +1,7 @@
 const Employee = require('../models').Employee;
+const Department = require('../models').Department;
+const Location = require('../models').Location;
+const Role = require('../models').Role;
 
 exports.getAllEmployees = async (req, res) => {
   const employees = await Employee.findAll({ include: [{ all: true }] });
@@ -11,7 +14,9 @@ exports.createEmployee = async (req, res) => {
 };
 
 exports.getEmployee = async (req, res) => {
-  const employee = await Employee.findByPk(req.params.id);
+  const employee = await Employee.findByPk(req.params.id, {
+    include: [Department, Location, Role],
+  });
 
   if (employee) {
     res.render('pages/employee/profile', { employee });

@@ -52,27 +52,30 @@
     <main class="flex-fill p-5">
       <h1 class="text-center mb-4">Informações do Projeto</h1>
       <div class="d-flex flex-row justify-content-center">
-        <img class="" src="../../images/akatonbo_login.png" alt="avatar" style="max-width:20%;" class="rounded img-fluid">
         <table class=" table table-bordered ms-5">
           <tr>
             <th scope="row">Nome:</th>
-            <td><% project.name %></td>
+            <td><%= project.name %></td>
           </tr>
           <tr>
-            <th scope="row">Setor Responsável:</th>
-            <td> TI </td>
+            <th scope="row">Departamento:</th>
+            <td><%= project.Department.name %></td>
+          </tr>
+          <tr>
+            <th scope="row">Local:</th>
+            <td><%= project.Location.name %></td>
           </tr>
           <tr>
             <th scope="row">Data de Início:</th>
-            <td>01/01/2022</td>
+            <td><%= dayjs(project.startDate).format('DD/MM/YYYY') %></td>
           </tr>
           <tr>
             <th scope="row">Estimativa de entrega:</th>
-            <td>01/01/2023</td>
+            <td><%= dayjs(project.endDate).format('DD/MM/YYYY') %></td>
           </tr>
           <tr>
-            <th scope="row">Carga horária necessária (h):</th>
-            <td>1000</td>
+            <th scope="row">Carga horária necessária:</th>
+            <td>horas</td>
           </tr>
         </table>
       </div>

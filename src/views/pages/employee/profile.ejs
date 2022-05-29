@@ -52,27 +52,34 @@
     <main class="flex-fill p-5">
       <h1 class="text-center mb-4">Perfil do Funcionário</h1>
       <div class="d-flex flex-row justify-content-center">
-        <img class="" src="../../images/funcionario.png" alt="avatar" style="max-width:20%;" class="rounded img-fluid">
         <table class=" table table-bordered ms-5">
           <tr>
             <th scope="row">Nome:</th>
             <td><%= employee.name %></td>
           </tr>
           <tr>
+            <th scope="row">Carga Horária:</th>
+            <td><%= employee.customWorkload || employee.Role.defaultWorkload %> horas</td>
+          </tr>
+          <tr>
+            <th scope="row">Função:</th>
+            <td><%= employee.Role.name %></td>
+          </tr>
+          <tr>
+            <th scope="row">Tipo de Contrato:</th>
+            <td><%= employee.isOutsourced ? 'Externo' : 'Interno' %></td>
+          </tr>
+          <tr>
             <th scope="row">E-mail:</th>
             <td><%= employee.email %></td>
           </tr>
           <tr>
-            <th scope="row">Função:</th>
-            <td>Analista de Banco de Dados</td>
+            <th scope="row">Departamento:</th>
+            <td><%= employee.Department.name %></td>
           </tr>
           <tr>
-            <th scope="row">Carga Horária:</th>
-            <td><%= employee.customWorkload %> horas</td>
-          </tr>
-          <tr>
-            <th scope="row">Unidade(s):</th>
-            <td>São Paulo</td>
+            <th scope="row">Local:</th>
+            <td><%= employee.Location.name %></td>
           </tr>
         </table>
       </div>

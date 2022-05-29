@@ -1,8 +1,10 @@
+const dayjs = require('dayjs');
+
 const Project = require('../models').Project;
 
 exports.getAllProjects = async (req, res) => {
   const projects = await Project.findAll({ include: [{ all: true }] });
-  res.render('pages/project/index', { projects });
+  res.render('pages/project/index', { projects, dayjs });
 };
 
 exports.createProject = async (req, res) => {
@@ -11,10 +13,12 @@ exports.createProject = async (req, res) => {
 };
 
 exports.getProject = async (req, res) => {
-  const project = await Project.findByPk(req.params.id);
+  const project = await Project.findByPk(req.params.id, {
+    include: [{ all: true }],
+  });
 
   if (project) {
-    res.render('pages/project/profile', { project });
+    res.render('pages/project/profile', { project, dayjs });
   } else {
     res.status(404).send('Projeto não encontrado!');
   }
