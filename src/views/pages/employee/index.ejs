@@ -145,7 +145,7 @@
               <!-- Definir a carga de trabalho disponíveis para projetos -->
               <% const workload = employee.customWorkload || employee.Role.defaultWorkload %>
               <!-- Definir as horas de trabalho contratuais -->
-              <% const legalWorkload = 176 %>
+              <% const legalWorkload = employee.contractedHours %>
               <!-- Definir as horas alocadas -->
               <% const totalHours = employee.Assignments
                 .filter((assignment) => assignment.year === year && assignment.month === month)

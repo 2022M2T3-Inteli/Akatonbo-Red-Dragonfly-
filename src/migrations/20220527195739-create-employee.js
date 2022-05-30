@@ -44,6 +44,9 @@ module.exports = {
       customWorkload: {
         type: Sequelize.INTEGER,
       },
+      contractedHours: {
+        type: Sequelize.INTEGER,
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE,

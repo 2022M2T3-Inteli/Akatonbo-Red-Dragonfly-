@@ -16,6 +16,7 @@ module.exports = (sequelize, DataTypes) => {
       email: DataTypes.STRING,
       isOutsourced: DataTypes.BOOLEAN,
       customWorkload: DataTypes.INTEGER,
+      contractedHours: DataTypes.INTEGER,
     },
     {
       sequelize,
