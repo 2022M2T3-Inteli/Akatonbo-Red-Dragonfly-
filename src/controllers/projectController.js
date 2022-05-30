@@ -26,6 +26,7 @@ exports.getProject = async (req, res) => {
     const assignments = await Assignment.findAll({
       where: { projectId: req.params.id },
       order: [
+        ['Employee', 'name', 'ASC'],
         ['year', 'ASC'],
         ['month', 'ASC'],
       ],
