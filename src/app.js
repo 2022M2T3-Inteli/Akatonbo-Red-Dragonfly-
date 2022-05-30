@@ -24,7 +24,7 @@ const db = require('./models');
 
 db.sequelize
   // Se houver qualquer alteração no código, limpar o banco de dados
-  .sync({ force: true })
+  .sync({ force: false })
   .then(() => console.log('Conectado ao banco de dados'));
 
 // Permite acesso externo

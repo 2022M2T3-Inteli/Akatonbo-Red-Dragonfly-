@@ -50,46 +50,145 @@
     </nav>
     <main class="flex-fill p-5">
       <h1 class="text-center mb-4">Lista de Funcionários</h1>
-      <div class="w3-container">
-        <div class="search-container">
-          <label for="search-input" class="search-icon"></label>
-          <input type="text" class="search-input" id="search-input">
-        </div>
-        <hr>
-        <div>
-          <table class="table table-hover">
-              <tr>
-                <th>Nome</th>
-                <th>Horas alocadas/disponíveis/contratadas</th>
-                <th>E-mail</th>
-                <th>Tipo de Contrato</th>
-                <th>Departamento</th>
-                <th>Local</th>
-              </tr>
-              <% if (employees.length === 0) { %>
-                <tr>
-                  <td colspan="10">Nenhum funcionário encontrado</td>
-                </tr>
-              <% } %>
-              <% employees.forEach(function(employee) { %>
-                <tr class="table-success">
-                  <th scope="row"><a href="/employees/<%= employee.id %>"><%= employee.name %></a></th>
-                  <td>0/<%= employee.customWorkload || employee.Role.defaultWorkload %>/176</td>
-                  <td><%= employee.email %></td>
-                  <td><%= employee.isOutsourced ? 'Externo' : 'Interno' %></td>
-                  <td><%= employee.Department.name %></td>
-                  <td><%= employee.Location.name %></td>
-                </tr>
-              <% }); %>
-          </table>
-        </div>
+      <div>
+        <form method="get" action="/employees">
+          <fieldset>
+            <legend>Mês e Ano (Obrigatório)</legend>
+            <div class="row">
+              <div class="col form-group mb-3">
+                <label for="filter-month">Mês:</label>
+                <select class="form-control" id="filter-month" name="month">
+                  <option value="">-</option>
+                  <option value="0">Janeiro</option>
+                  <option value="1">Fevereiro</option>
+                  <option value="2">Março</option>
+                  <option value="3">Abril</option>
+                  <option value="4">Maio</option>
+                  <option value="5">Junho</option>
+                  <option value="6">Julho</option>
+                  <option value="7">Agosto</option>
+                  <option value="8">Setembro</option>
+                  <option value="9">Outubro</option>
+                  <option value="10">Novembro</option>
+                  <option value="11">Dezembro</option>
+                </select>
+              </div>
+              <div class="col form-group mb-3">
+                <label for="filter-year">Ano:</label>
+                <select class="form-control" id="filter-year" name="year">
+                  <option value="">-</option>
+                  <option value="2022">2022</option>
+                  <option value="2023">2023</option>
+                  <option value="2024">2024</option>
+                </select>
+              </div>
+            </div>
+          </fieldset>
+          <fieldset>
+            <legend>Outros Filtros (Opcionais)</legend>
+            <div class="row">
+              <div class="col form-group mb-3">
+                <label for="filter">Nome:</label>
+                <input type="search" class="form-control" id="filter-name" placeholder="Ex: João" name="name">
+              </div>
+              <div class="col form-group mb-3">
+                <label for="filter-department">Departamento:</label>
+                <select class="form-control" id="filter-department" name="departmentId">
+                  <option value="">Todos</option>
+                  <option value="1">Governança</option>
+                  <option value="2">Sistemas</option>
+                  <option value="3">Infraestrutura</option>
+                  <option value="4">Segurança da Informação</option>
+                </select>
+              </div>
+              <div class="col form-group mb-3">
+                <label for="filter-location">Local:</label>
+                <select class="form-control" id="filter-location" name="locationId">
+                  <option value="">Todas</option>
+                  <option value="1">São Paulo</option>
+                  <option value="2">Manaus</option>
+                </select>
+              </div>
+              <div class="col form-group mb-3">
+                <label for="filter-location">Tipo de Contrato:</label>
+                <select class="form-control" id="filter-outsourced" name="isOutsourced">
+                  <option value="">Todos</option>
+                  <option value="0">Interno</option>
+                  <option value="1">Externo</option>
+                </select>
+              </div>
+            </div>
+          </fieldset>
+          <div class="row">
+            <div class="col form-group mb-3 text-center">
+              <button type="submit" class="text-center btn btn-lg btn-primary">Filtrar</button>
+            </div>
+          </div>
+        </form>
       </div>
-      <div class="position-absolute bottom-0 end-0 mb-3 mx-5">
+      <div>
+        <table class="table table-hover">
+            <tr>
+              <th>Nome</th>
+              <th>Horas alocadas/disponíveis/contratadas</th>
+              <th>E-mail</th>
+              <th>Tipo de Contrato</th>
+              <th>Departamento</th>
+              <th>Local</th>
+            </tr>
+            <% if (employees.length === 0) { %>
+              <tr>
+                <td colspan="6">Nenhum funcionário encontrado</td>
+              </tr>
+            <% } %>
+            <% employees.forEach(function(employee) { %>
+              <!-- Definir a carga de trabalho disponíveis para projetos -->
+              <% const workload = employee.customWorkload || employee.Role.defaultWorkload %>
+              <!-- Definir as horas de trabalho contratuais -->
+              <% const legalWorkload = 176 %>
+              <!-- Definir as horas alocadas -->
+              <% const totalHours = employee.Assignments
+                .filter((assignment) => assignment.year === year && assignment.month === month)
+                .reduce((acc, curr) => acc + curr.workHours, 0) %>
+              <tr class=
+                <% if (totalHours >= 1 * workload) { %>
+                  "table-danger"
+                <% } else if (totalHours >= 0.8 * workload) { %>
+                  "table-warning"
+                <% } else { %>
+                  "table-success"
+                <% } %>
+              >
+                <th scope="row"><a href="/employees/<%= employee.id %>"><%= employee.name %></a></th>
+                <td>
+                  <%= employee.Assignments.length > 0 ? totalHours : 0 %>
+                  /
+                  <%= workload %>
+                  /
+                  <%= legalWorkload %>
+                </td>
+                <td><%= employee.email %></td>
+                <td><%= employee.isOutsourced ? 'Externo' : 'Interno' %></td>
+                <td><%= employee.Department.name %></td>
+                <td><%= employee.Location.name %></td>
+              </tr>
+            <% }); %>
+        </table>
+      </div>
+      <div class="position-absolute top-0 end-0 my-5 mx-5">
         <a href="employees/new" href="" class="btn btn-primary btn-lg"><i class="bi
                                             bi-plus-lg"></i> Novo Funcionário</a>
       </div>
     </main>
   </div>
+  <script>
+    document.querySelector('#filter-month').value = "<%= month %>";
+    document.querySelector('#filter-year').value = "<%= year %>";
+    document.querySelector('#filter-name').value = "<%= name %>";
+    document.querySelector('#filter-department').value = "<%= departmentId %>";
+    document.querySelector('#filter-location').value = "<%= locationId %>";
+    document.querySelector('#filter-outsourced').value = "<%= isOutsourced %>";
+  </script>
 </body>
 
 </html>

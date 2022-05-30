@@ -1,11 +1,33 @@
+const { Op } = require('sequelize');
+
 const Employee = require('../models').Employee;
 const Department = require('../models').Department;
 const Location = require('../models').Location;
 const Role = require('../models').Role;
 
 exports.getAllEmployees = async (req, res) => {
-  const employees = await Employee.findAll({ include: [{ all: true }] });
-  res.render('pages/employee/index', { employees });
+  const { month, year, name, departmentId, locationId, isOutsourced } =
+    req.query;
+
+  const whereStatement = {};
+  if (name) whereStatement.name = { [Op.like]: `%${name}%` };
+  if (departmentId) whereStatement.departmentId = parseInt(departmentId);
+  if (locationId) whereStatement.locationId = parseInt(locationId);
+  if (isOutsourced) whereStatement.isOutsourced = !!parseInt(isOutsourced);
+
+  const employees = await Employee.findAll({
+    where: whereStatement,
+    include: [{ all: true }],
+  });
+  res.render('pages/employee/index', {
+    employees,
+    month: parseInt(month),
+    year: parseInt(year),
+    name,
+    departmentId,
+    locationId,
+    isOutsourced,
+  });
 };
 
 exports.createEmployee = async (req, res) => {
