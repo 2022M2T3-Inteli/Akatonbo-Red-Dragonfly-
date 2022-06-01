@@ -5,14 +5,19 @@ const Project = require('../models').Project;
 exports.createAssignment = async (req, res) => {
   // verificar se o projeto existe
   const project = await Project.findByPk(req.body.projectId);
+  if (!project) {
+    res.status(404).send('Projeto não encontrado!');
+    return;
+  }
   // verificar se o funcionario existe
   const employee = await Employee.findByPk(req.body.employeeId);
-  if (project && employee) {
-    await Assignment.create(req.body);
-    res.send('Alocação cadastrada com sucesso!');
-  } else {
-    res.status(404).send('Projeto ou funcionário não encontrado!');
+  if (!employee) {
+    res.status(404).send('Funcionário não encontrado!');
+    return;
   }
+
+  await Assignment.create(req.body);
+  res.send('Alocação cadastrada com sucesso!');
 };
 
 exports.updateAssignment = async (req, res) => {
@@ -39,7 +44,7 @@ exports.updateAssignment = async (req, res) => {
     await assignment.update(req.body);
     res.send('Alocação atualizada com sucesso!');
   } else {
-    res.status(404).send('Alocação, projeto ou funcionário não encontrado!');
+    res.status(404).send('Alocação não encontrada!');
   }
 };
 
