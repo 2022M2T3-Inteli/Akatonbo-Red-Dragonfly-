@@ -6,7 +6,7 @@
     "start": "node ./bin/www",
     "devstart": "nodemon ./bin/www",
     "serverstart": "DEBUG=yamaha-planning:* npm run devstart",
-    "startwindows": "set DEBUG=myapp:* & npm run devstart"
+    "startwindows": "set DEBUG=yamaha-planning:* & npm run devstart"
   },
   "dependencies": {
     "cookie-parser": "~1.4.4",
