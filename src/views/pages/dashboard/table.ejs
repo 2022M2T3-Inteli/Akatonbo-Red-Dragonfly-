@@ -62,16 +62,11 @@
           </tr>
           <tr>
             <th scope="col">FUNÇÃO</th>
-            <th scope="col">Set</th>
-            <th scope="col">Out</th>
-            <th scope="col">Nov</th>
-            <th scope="col">Dez</th>
             <th scope="col">Jan</th>
             <th scope="col">Fev</th>
             <th scope="col">Mar</th>
             <th scope="col">Abr</th>
             <th scope="col">Mai</th>
-            <th scope="col">Jun</th>
             <th scope="col">Jun</th>
             <th scope="col">Jul</th>
             <th scope="col">Ago</th>
@@ -82,86 +77,29 @@
           </tr>
         </thead>
         <tbody>
+          <% roles.forEach(role => { %>
           <tr>
-            <th scope="row">Project Manager</th>
-            <td class="table-success">90</td>
-            <td class="table-success">90</td>
-            <td class="table-success">90</td>
-            <td class="table-success">90</td>
-            <td class="table-success">90</td>
-            <td class="table-success">90</td>
-            <td class="table-success">90</td>
-            <td class="table-success">90</td>
-            <td class="table-success">90</td>
-            <td class="table-success">90</td>
-            <td class="table-success">90</td>
-            <td class="table-success">50</td>
-            <td class="table-success">50</td>
-            <td class="table-success">50</td>
-            <td class="table-success">50</td>
-            <td class="table-success">50</td>
-            <td class="table-success">50</td>
+            <th scope="row"><%= role.name %></th>
+            <% for (let i = 0; i < 12; i++) { %>
+              <!-- Calcular médias mensais das horas trabalhadas por todos os empregados naquela função -->
+              <% let monthlyAssignmentsHours = 0; %>
+              <% role.Employees.forEach(employee => { %>
+                <% const monthlyAssignments = employee.Assignments.filter(assignment => assignment.month === i) %>
+                <% monthlyAssignmentsHours += monthlyAssignments.reduce((acc, curr) => acc + curr.workHours, 0) %>
+              <% }) %>
+              <% const average = monthlyAssignmentsHours / role.Employees.length %>
+              <!-- Verificar se vai mostrar verde, amarelo ou vermelho -->
+              <% const roleWorkload = role.defaultWorkload %>
+              <% if (average >= roleWorkload) { %>
+                <td class="table-danger"><%= average %></td>
+              <% } else if (average >= 0.8 * roleWorkload) { %>
+                <td class="table-warning"><%= average %></td>
+              <% } else { %>
+                <td class="table-success"><%= average %></td>
+              <% } %>
+            <% } %>
           </tr>
-          <tr>
-            <th scope="row">Analista de Banco de Dados</th>
-            <td class="table-success">120</td>
-            <td class="table-success">120</td>
-            <td class="table-warning">170</td>
-            <td class="table-danger">210</td>
-            <td class="table-danger">210</td>
-            <td class="table-danger">210</td>
-            <td class="table-danger">210</td>
-            <td class="table-danger">210</td>
-            <td class="table-warning">170</td>
-            <td class="table-warning">160</td>
-            <td class="table-success">130</td>
-            <td class="table-success">130</td>
-            <td class="table-success">130</td>
-            <td class="table-success">130</td>
-            <td class="table-success">130</td>
-            <td class="table-success">50</td>
-            <td class="table-success">50</td>
-          </tr>
-          <tr>
-            <th scope="row">Programador Backend Python</th>
-            <td class="table-success">120</td>
-            <td class="table-success">120</td>
-            <td class="table-warning">170</td>
-            <td class="table-danger">210</td>
-            <td class="table-danger">210</td>
-            <td class="table-danger">210</td>
-            <td class="table-danger">210</td>
-            <td class="table-danger">210</td>
-            <td class="table-warning">170</td>
-            <td class="table-warning">160</td>
-            <td class="table-success">130</td>
-            <td class="table-success">130</td>
-            <td class="table-success">130</td>
-            <td class="table-success">130</td>
-            <td class="table-success">130</td>
-            <td class="table-success">50</td>
-            <td class="table-success">50</td>
-          </tr>
-          <tr>
-            <th scope="row">TOTAL</th>
-            <td>330</td>
-            <td>330</td>
-            <td>430</td>
-            <td>510</td>
-            <td>510</td>
-            <td>510</td>
-            <td>510</td>
-            <td>510</td>
-            <td>430</td>
-            <td>410</td>
-            <td>350</td>
-            <td>310</td>
-            <td>310</td>
-            <td>310</td>
-            <td>310</td>
-            <td>150</td>
-            <td>150</td>
-          </tr>
+          <% }) %>
         </tbody>
       </table>
     </main>
