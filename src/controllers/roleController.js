@@ -5,6 +5,10 @@ exports.getAllRoles = async (req, res) => {
   res.render('pages/role/index', { roles });
 };
 
+exports.newRole = async (req, res) => {
+  res.render('pages/role/new');
+};
+
 exports.createRole = async (req, res) => {
   await Role.create(req.body);
   res.send('Função cadastrada com sucesso!');

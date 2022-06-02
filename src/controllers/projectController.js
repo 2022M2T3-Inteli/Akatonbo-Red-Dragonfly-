@@ -12,6 +12,10 @@ exports.getAllProjects = async (req, res) => {
   res.render('pages/project/index', { projects, dayjs });
 };
 
+exports.newProject = async (req, res) => {
+  res.render('pages/project/new');
+};
+
 exports.createProject = async (req, res) => {
   await Project.create(req.body);
   res.send('Projeto cadastrado com sucesso!');

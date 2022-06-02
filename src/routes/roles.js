@@ -9,6 +9,9 @@ router
   .post(roleController.createRole);
 
 router
+.route('/new').get(roleController.newRole);
+
+router
   .route('/:id')
   .patch(roleController.updateRole)
   .delete(roleController.deleteRole);
