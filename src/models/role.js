@@ -9,8 +9,12 @@ module.exports = (sequelize, DataTypes) => {
   }
   Role.init(
     {
-      name: DataTypes.STRING,
-      defaultWorkload: DataTypes.INTEGER,
+      name: { type: DataTypes.STRING, allowNull: false },
+      defaultWorkload: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+        validate: { isInt: true },
+      },
     },
     {
       sequelize,

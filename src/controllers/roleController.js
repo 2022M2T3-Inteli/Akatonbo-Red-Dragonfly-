@@ -10,8 +10,12 @@ exports.newRole = async (req, res) => {
 };
 
 exports.createRole = async (req, res) => {
-  await Role.create(req.body);
-  res.send('Função cadastrada com sucesso!');
+  try {
+    await Role.create(req.body);
+    res.send('Função cadastrada com sucesso!');
+  } catch {
+    res.send('Erro no cadastro da função!');
+  }
 };
 
 exports.updateRole = async (req, res) => {
