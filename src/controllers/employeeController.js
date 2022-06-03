@@ -19,8 +19,14 @@ exports.getAllEmployees = async (req, res) => {
     where: whereStatement,
     include: [{ all: true }],
   });
+
+  const departments = await Department.findAll();
+  const locations = await Location.findAll();
+
   res.render('pages/employee/index', {
     employees,
+    departments,
+    locations,
     month: parseInt(month),
     year: parseInt(year),
     name,

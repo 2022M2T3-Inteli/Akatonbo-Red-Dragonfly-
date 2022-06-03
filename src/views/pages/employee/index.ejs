@@ -92,29 +92,29 @@
                 <input type="search" class="form-control" id="filter-name" placeholder="Ex: João" name="name">
               </div>
               <div class="col form-group mb-3">
+                <label for="filter-location">Tipo de Contrato:</label>
+                <select class="form-control" id="filter-outsourced" name="isOutsourced">
+                  <option value="">Todos</option>
+                  <option value="0">Interno</option>
+                  <option value="1">Externo</option>
+                </select>
+              </div>
+              <div class="col form-group mb-3">
                 <label for="filter-department">Departamento:</label>
                 <select class="form-control" id="filter-department" name="departmentId">
                   <option value="">Todos</option>
-                  <option value="1">Governança</option>
-                  <option value="2">Sistemas</option>
-                  <option value="3">Infraestrutura</option>
-                  <option value="4">Segurança da Informação</option>
+                  <% departments.forEach(department => { %>
+                  <option value="<%= department.id %>"><%= department.name %></option>
+                  <% }) %>
                 </select>
               </div>
               <div class="col form-group mb-3">
                 <label for="filter-location">Local:</label>
                 <select class="form-control" id="filter-location" name="locationId">
                   <option value="">Todas</option>
-                  <option value="1">São Paulo</option>
-                  <option value="2">Manaus</option>
-                </select>
-              </div>
-              <div class="col form-group mb-3">
-                <label for="filter-location">Tipo de Contrato:</label>
-                <select class="form-control" id="filter-outsourced" name="isOutsourced">
-                  <option value="">Todos</option>
-                  <option value="0">Interno</option>
-                  <option value="1">Externo</option>
+                  <% locations.forEach(location => { %>
+                  <option value="<%= location.id %>"><%= location.name %></option>
+                  <% }) %>
                 </select>
               </div>
             </div>
@@ -131,7 +131,7 @@
             <tr>
               <th>Nome</th>
               <th>Horas alocadas/disponíveis/contratadas</th>
-              <th>E-mail</th>
+              <th>Função</th>
               <th>Tipo de Contrato</th>
               <th>Departamento</th>
               <th>Local</th>
@@ -167,7 +167,7 @@
                   /
                   <%= legalWorkload %>
                 </td>
-                <td><%= employee.email %></td>
+                <td><%= employee.Role.name %></td>
                 <td><%= employee.isOutsourced ? 'Externo' : 'Interno' %></td>
                 <td><%= employee.Department.name %></td>
                 <td><%= employee.Location.name %></td>
