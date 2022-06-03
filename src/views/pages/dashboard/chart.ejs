@@ -59,7 +59,120 @@
   </div>
   <script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.1/dist/chart.min.js"
     integrity="sha256-ErZ09KkZnzjpqcane4SCyyHsKAXMvID9/xwbl/Aq1pc=" crossorigin="anonymous"></script>
-  <script src="../../javascripts/chart.js"></script>
+  <script>
+    const labels = "<%= MONTHS %>".split(',');
+
+    const ctx = document.getElementById("hrChart").getContext("2d");
+
+    function months(config) {
+      var cfg = config || {};
+      var count = cfg.count || 12;
+      var section = cfg.section;
+      var values = [];
+      var i, value;
+
+      for (i = 0; i < count; ++i) {
+        value = labels[Math.ceil(i) % 12];
+        values.push(value.substring(0, section));
+      }
+
+      return values;
+    }
+
+    const generateLabels = () => {
+      return months({ count: 12 });
+    };
+
+    const CHART_COLORS = {
+      red: "rgb(255, 99, 132)",
+      orange: "rgb(255, 159, 64)",
+      yellow: "rgb(255, 205, 86)",
+      green: "rgb(75, 192, 192)",
+      blue: "rgb(54, 162, 235)",
+      purple: "rgb(153, 102, 255)",
+      grey: "rgb(201, 203, 207)",
+    };
+
+    const data = {
+      labels: generateLabels(),
+      datasets: [
+        {
+          label: "Limitação com recursos internos",
+          data: [<%= internalEmployeeHours %>],
+          borderColor: CHART_COLORS.green,
+          backgroundColor: CHART_COLORS.green,
+          hidden: false,
+          fill: false,
+          pointRadius: 0,
+        },
+        {
+          label: "Limitação com recursos internos + externos",
+          data: [<%= employeeHours %>],
+          borderColor: CHART_COLORS.purple,
+          backgroundColor: CHART_COLORS.purple,
+          hidden: false,
+          fill: false,
+          pointRadius: 0,
+        },
+        {
+          label: "Capacidade necessária",
+          data:[<%= requiredCapacityHours %>],
+          borderColor: CHART_COLORS.yellow,
+          backgroundColor: CHART_COLORS.yellow,
+          hidden: false,
+          fill: false,
+          pointRadius: 0,
+        },
+        {
+          label: "Horas alocadas atualmente",
+          data: [<%= assignmentHours %>],
+          borderColor: CHART_COLORS.blue,
+          backgroundColor: CHART_COLORS.blue,
+          hidden: false,
+          fill: "origin",
+        },
+      ],
+    };
+
+    const config = {
+      type: "line",
+      data: data,
+      options: {
+        plugins: {
+          filler: {
+            propagate: false,
+          },
+          title: {
+            display: true,
+            text: "",
+          },
+        },
+        interaction: {
+          intersect: false,
+        },
+        scales: {
+          y: {
+            beginAtZero: true,
+            title: {
+              display: true,
+              text: "Horas",
+            },
+          },
+          x: {
+            title: {
+              display: true,
+              text: "Mês",
+            },
+          },
+        },
+        legend: {
+          display: false,
+        },
+      },
+    };
+
+    const hrChart = new Chart(ctx, config);
+  </script>
 </body>
 
 </html>
