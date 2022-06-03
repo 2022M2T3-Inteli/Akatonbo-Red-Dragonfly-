@@ -9,16 +9,35 @@ const Location = require('../models').Location;
 
 exports.getAllProjects = async (req, res) => {
   const projects = await Project.findAll({ include: [{ all: true }] });
-  res.render('pages/project/index', { projects, dayjs });
+  
+  const departments = await Department.findAll();
+  const locations = await Location.findAll();
+  
+  res.render('pages/project/index', {
+     projects, 
+     dayjs,
+     departments,
+     locations,
+    });
 };
 
 exports.newProject = async (req, res) => {
-  res.render('pages/project/new');
+  const departments = await Department.findAll();
+  const locations = await Location.findAll();
+  
+  res.render('pages/project/new', {
+    departments,
+    locations,
+   });
 };
 
 exports.createProject = async (req, res) => {
-  await Project.create(req.body);
-  res.send('Projeto cadastrado com sucesso!');
+  try {
+    await Project.create(req.body);
+    res.send('Projeto cadastrado com sucesso!');
+  } catch {
+    res.send('Erro no cadastro do projeto!');
+  }
 };
 
 exports.getProject = async (req, res) => {
@@ -48,6 +67,7 @@ exports.getProject = async (req, res) => {
       projectHours,
       dayjs,
       MONTHS,
+
     });
   } else {
     res.status(404).send('Projeto não encontrado!');
