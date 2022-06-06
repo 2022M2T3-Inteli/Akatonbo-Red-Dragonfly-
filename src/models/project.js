@@ -11,9 +11,42 @@ module.exports = (sequelize, DataTypes) => {
   }
   Project.init(
     {
-      name: DataTypes.STRING,
-      startDate: DataTypes.DATEONLY,
-      endDate: DataTypes.DATEONLY,
+      name: {
+        type: DataTypes.STRING,
+        allowNull: false,
+        validate: {
+          notEmpty: {
+            msg: 'O nome do projeto não pode ser vazio',
+          },
+          notNull: {
+            msg: 'O nome do projeto não pode ser nulo',
+          },
+        },
+      },
+      startDate: {
+        type: DataTypes.DATEONLY,
+        allowNull: false,
+        validate: {
+          notNull: {
+            msg: 'A data de início do projeto não pode ser vazia',
+          },
+          isDate: {
+            msg: 'A data de início do projeto deve ser uma data válida',
+          },
+        },
+      },
+      endDate: {
+        type: DataTypes.DATEONLY,
+        allowNull: false,
+        validate: {
+          notNull: {
+            msg: 'A data de término do projeto não pode ser vazia',
+          },
+          isDate: {
+            msg: 'A data de início do projeto deve ser uma data válida',
+          },
+        },
+      },
     },
     {
       sequelize,
