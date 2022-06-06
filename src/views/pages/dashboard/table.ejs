@@ -87,7 +87,6 @@
                 <% const monthlyAssignments = employee.Assignments.filter(assignment => assignment.month === i) %>
                 <% monthlyAssignmentsHours += monthlyAssignments.reduce((acc, curr) => acc + curr.workHours, 0) %>
               <% }) %>
-              <% console.log(role.Employees.length) %>
               <% const average = monthlyAssignmentsHours / (role.Employees.length || 1) %>
               <!-- Verificar se vai mostrar verde, amarelo ou vermelho -->
               <% const roleWorkload = role.defaultWorkload %>
