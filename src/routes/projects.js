@@ -8,9 +8,7 @@ router
   .get(projectController.getAllProjects)
   .post(projectController.createProject);
 
-router
-  .route('/new')
-  .get(projectController.newProject);
+router.route('/new').get(projectController.newProject);
 
 router
   .route('/:id')
