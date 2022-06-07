@@ -21,12 +21,12 @@ exports.createAssignment = async (req, res) => {
     // se existir, atualizar, se não, criar
     const [assignment, created] = await Assignment.findOrCreate({
       where: {
+        projectId: req.body.projectId,
         employeeId: req.body.employeeId,
         month: req.body.month,
         year: req.body.year,
       },
       defaults: {
-        projectId: req.body.projectId,
         workHours: req.body.workHours,
       },
     });
