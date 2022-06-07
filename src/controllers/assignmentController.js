@@ -16,8 +16,35 @@ exports.createAssignment = async (req, res) => {
     return;
   }
 
-  await Assignment.create(req.body);
-  res.send('Alocação cadastrada com sucesso!');
+  try {
+    // verificar se a alocação já existe para aquele funcionário, mês e ano
+    // se existir, atualizar, se não, criar
+    const [assignment, created] = await Assignment.findOrCreate({
+      where: {
+        employeeId: req.body.employeeId,
+        month: req.body.month,
+        year: req.body.year,
+      },
+      defaults: {
+        projectId: req.body.projectId,
+        workHours: req.body.workHours,
+      },
+    });
+
+    if (created) {
+      // se a alocação não existe, informar que foi cadastrada
+      res.send('Alocação cadastrada com sucesso!');
+    } else {
+      // se a alocação já existe, adicionar as horas
+      workHours = assignment.workHours + req.body.workHours;
+      await assignment.update({ workHours });
+      res.send(
+        'Alocação já existente. As horas foram adicionadas com sucesso!'
+      );
+    }
+  } catch (err) {
+    res.send(err.errors[0].message);
+  }
 };
 
 exports.updateAssignment = async (req, res) => {
