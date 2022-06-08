@@ -1,4 +1,4 @@
-exports.MONTHS = [
+module.exports = [
   'Janeiro',
   'Fevereiro',
   'Março',

@@ -2,7 +2,7 @@ const Assignment = require('../models').Assignment;
 const Role = require('../models').Role;
 const Employee = require('../models').Employee;
 
-const { MONTHS } = require('../public/javascripts/months');
+const MONTHS = require('../public/javascripts/months');
 
 exports.getTable = async (req, res) => {
   const roles = await Role.findAll({

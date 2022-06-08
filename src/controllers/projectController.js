@@ -1,5 +1,5 @@
 const dayjs = require('dayjs');
-const { MONTHS } = require('../public/javascripts/months');
+const MONTHS = require('../public/javascripts/months');
 
 const Project = require('../models').Project;
 const Assignment = require('../models').Assignment;
