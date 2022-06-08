@@ -25,7 +25,7 @@
           </a>
         </li>
         <li>
-          <a href="/roles" class="nav-link link-dark">
+          <a href="/departments" class="nav-link link-dark">
             <i class="bi bi-person-lines-fill"></i>Funções
           </a>
         </li>
@@ -51,52 +51,64 @@
     <main class="flex-fill p-5">
       <h1 class="text-center mb-4">Cadastrar Funcionário</h1>
 
-      <form name="add-new-employee" action="/employees/1" method="get">
+      <form action="/employees" method="post">
         <div class="mb-3">
           <label for="name" class="form-label">Nome:</label>
-          <input class="form-control" id="name" type="text" required>
+          <input class="form-control" id="name" type="text" name="name" required>
         </div>
 
         <div class="mb-3">
-          <label for="email" class="form-label">Email:</label>
-          <input class="form-control" id="email" type="email" required>
+          <label for="email" class="form-label">Email</label>
+          <input class="form-control" id="email" type="text" name="email" required>
         </div>
 
         <div class="mb-3">
-          <p>Unidade:</p>
-          <div class="row g-0">
-            <div class="col form-check">
-              <input id="sp" class="form-check-input" type="checkbox">
-              <label class="form-check-label" for="sp">São Paulo</label>
-            </div>
-            <div class="col form-check">
-              <input id="manaus" class="form-check-input" type="checkbox">
-              <label class="form-check-label" for="manaus">Manaus</label>
-            </div>
-          </div>
-        </div>
-
-        <div class="mb-3">
-          <p>Área:</p>
-          <select class="form-select" required>
-            <option value="" readonly="true" hidden="true" selected>Selecione a área</option>
-            <option value="1">Project Manager</option>
-            <option value="2">Analista de Banco de Dados</option>
-            <option value="3">Programador Backend Python</option>
+          <label for="filter-location"> Sede: </label>
+          <select class="form-control" id="filter-location" name="locationId" required>
+            <option value = ""> Todos </option>
+            <% locations.forEach(location => {%>  
+            <option value="<%= location.id %>"><%= location.name %></option>
+            <% }) %>
           </select>
         </div>
 
         <div class="mb-3">
-          <label class="form-label" for="employee-capacity">Capacidade horária:</label>
-          <input class="form-control" id="employee-capacity" type="number" step="10" required placeholder="h/mês">
+          <label for="filter-department"> Departamento: </label>
+          <select class="form-select" id="filter-department" name="departmentId" required>
+            <option value="" readonly="true" hidden="true" selected> Todos </option>
+            <% departments.forEach(department => {%>  
+            <option value="<%= department.id %>"><%= department.name %></option>
+            <% }) %>
+          </select>
+        </div>
+
+        <div class="mb-3">
+          <label for="filter-role"> Função: </label>
+          <select class="form-select" id="filter-role" name="roleId" required>
+            <option value="" readonly="true" hidden="true" selected>Selecione a função</option>
+            <% roles.forEach(role => {%>  
+            <option value="<%= role.id %>"><%= role.name %></option>
+            <% }) %>
+          </select>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="employee-capacity">Carga horária contratada:</label>
+          <input class="form-control" id="employee-capacity" type="number" step="1" name="contractedHours" required placeholder="h/mês">
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="employee-capacity">Capacidade horária (Opcional):</label>
+          <input class="form-control" id="employee-capacity" type="number" step="1" name="customWorkload" required placeholder="h/mês">
         </div>
 
         <div class="mb-3">
           <div class="form-check form-switch">
-            <input class="form-check-input" type="checkbox" id="outsourced">
             <label class="form-check-label" for="outsourced">Funcionário Externo</label>
+            <input class="form-check-input" value="1" type="checkbox" id="outsourced" name="isOutsourced">
           </div>
         </div>
+
 
         <div class="mb-3">
           <input type="submit" id="save-new-employee" class="btn btn-primary" value="Cadastrar">
