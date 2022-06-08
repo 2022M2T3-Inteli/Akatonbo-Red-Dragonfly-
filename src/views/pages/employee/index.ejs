@@ -167,10 +167,10 @@
                   /
                   <%= legalWorkload %>
                 </td>
-                <td><%= employee.Role.name %></td>
+                <td><%= employee.Role?.name %></td>
                 <td><%= employee.isOutsourced ? 'Externo' : 'Interno' %></td>
-                <td><%= employee.Department.name %></td>
-                <td><%= employee.Location.name %></td>
+                <td><%= employee.Department?.name %></td>
+                <td><%= employee.Location?.name %></td>
               </tr>
             <% }); %>
         </table>

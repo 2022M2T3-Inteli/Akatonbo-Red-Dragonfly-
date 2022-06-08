@@ -36,9 +36,25 @@ exports.getAllEmployees = async (req, res) => {
   });
 };
 
+exports.newEmployee = async (req, res) => {
+  const departments = await Department.findAll();
+  const locations = await Location.findAll(); 
+  const roles = await Role.findAll();
+  res.render('pages/employee/new', {
+    departments,
+    locations,
+    roles,
+  });
+};
+
 exports.createEmployee = async (req, res) => {
-  await Employee.create(req.body);
-  res.send('Funcionário cadastrado com sucesso!');
+  try {
+    await Employee.create(req.body);
+    res.send('Funcionário cadastrado com sucesso!');
+  } catch {
+    res.send('Erro no cadastro do funcionário');
+  }
+  
 };
 
 exports.getEmployee = async (req, res) => {

@@ -7,6 +7,8 @@ router
   .route('/')
   .get(employeeController.getAllEmployees)
   .post(employeeController.createEmployee);
+  
+router.route('/new').get(employeeController.newEmployee);
 
 router
   .route('/:id')
