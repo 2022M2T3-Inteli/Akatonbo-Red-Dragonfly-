@@ -25,7 +25,7 @@
           </a>
         </li>
         <li>
-          <a href="/departments" class="nav-link link-dark">
+          <a href="/roles" class="nav-link link-dark">
             <i class="bi bi-person-lines-fill"></i>Funções
           </a>
         </li>
@@ -66,7 +66,7 @@
           <label for="filter-location"> Sede: </label>
           <select class="form-control" id="filter-location" name="locationId" required>
             <option value = ""> Todos </option>
-            <% locations.forEach(location => {%>  
+            <% locations.forEach(location => {%>
             <option value="<%= location.id %>"><%= location.name %></option>
             <% }) %>
           </select>
@@ -76,7 +76,7 @@
           <label for="filter-department"> Departamento: </label>
           <select class="form-select" id="filter-department" name="departmentId" required>
             <option value="" readonly="true" hidden="true" selected> Todos </option>
-            <% departments.forEach(department => {%>  
+            <% departments.forEach(department => {%>
             <option value="<%= department.id %>"><%= department.name %></option>
             <% }) %>
           </select>
@@ -86,7 +86,7 @@
           <label for="filter-role"> Função: </label>
           <select class="form-select" id="filter-role" name="roleId" required>
             <option value="" readonly="true" hidden="true" selected>Selecione a função</option>
-            <% roles.forEach(role => {%>  
+            <% roles.forEach(role => {%>
             <option value="<%= role.id %>"><%= role.name %></option>
             <% }) %>
           </select>
