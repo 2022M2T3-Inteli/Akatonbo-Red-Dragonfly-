@@ -96,9 +96,10 @@
         <table class=" table table-bordered table-hover ms-5">
           <thead>
             <tr>
-              <th sccope="col">Funcionário:</th>
-              <th scope="col">Mês:</th>
-              <th scope="col">Ano:</th>
+              <th scope="col">Funcionário:</th>
+              <th scope="col">Função:</th>
+              <th scope="col">Mês da Alocação:</th>
+              <th scope="col">Ano da Alocação:</th>
               <th scope="col">Carga horária:</th>
             </tr>
           </thead>
@@ -107,6 +108,9 @@
               <tr>
                 <td>
                   <%= assignment.Employee.name %>
+                </td>
+                <td>
+                  <%= assignment.Employee.Role.name %>
                 </td>
                 <td>
                   <%= MONTHS[assignment.month] %>

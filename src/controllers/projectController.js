@@ -6,9 +6,10 @@ const Assignment = require('../models').Assignment;
 const Employee = require('../models').Employee;
 const Department = require('../models').Department;
 const Location = require('../models').Location;
+const Role = require('../models').Role;
 
 exports.getAllProjects = async (req, res) => {
-  const projects = await Project.findAll({ include: [{ all: true }] });
+  const projects = await Project.findAll({ include: [Department, Location] });
   const departments = await Department.findAll();
   const locations = await Location.findAll();
 
@@ -52,7 +53,7 @@ exports.getProject = async (req, res) => {
         ['year', 'ASC'],
         ['month', 'ASC'],
       ],
-      include: [Employee],
+      include: { model: Employee, include: [Role] },
     });
 
     // Calcular horas totais do projeto
