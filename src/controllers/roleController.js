@@ -3,7 +3,7 @@ const Role = require('../models').Role;
 
 // Exporta o método de requisição para ser referenciado pelo Router
 exports.getAllRoles = async (req, res) => {
-  // Usa sequelize para achar todos os 
+  // Usa sequelize para achar todos os roles no BD
   const roles = await Role.findAll();
   // Manda resposta para o front
   res.render('pages/role/index', { roles });

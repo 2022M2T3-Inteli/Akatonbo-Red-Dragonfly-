@@ -18,7 +18,7 @@ router
   .get(roleController.newRole);
 
 router
-  // Métodos que selecionam o role pela Pk 
+  // Métodos que selecionam o role pela Pk id
   .route('/:id')
   .patch(roleController.updateRole)
   .delete(roleController.deleteRole);

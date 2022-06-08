@@ -1,4 +1,5 @@
 'use strict';
+// Declara o uso do Sequelize
 const { Model } = require('sequelize');
 
 module.exports = (sequelize, DataTypes) => {
@@ -18,7 +19,6 @@ module.exports = (sequelize, DataTypes) => {
         validate: { isInt: true },
       },
     },
-    // 
     {
       sequelize,
       modelName: 'Role',
