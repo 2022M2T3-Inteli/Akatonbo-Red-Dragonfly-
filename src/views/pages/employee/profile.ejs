@@ -85,7 +85,10 @@
       </div>
       <div class="position-absolute top-0 end-0 m-5">
         <a href="employees/edit" href="" class="btn btn-warning"><i class="bi bi-plus-lg"></i> Editar Funcionário</a>
-        <a href="#" href="" class="btn btn-danger"><i class="bi bi-plus-lg"></i> Excluir Funcionário</a>
+        <!-- mandar uma requisição DELETE para o controller de employees -->
+        <form action="/employees/<%= employee.id %>?_method=DELETE" method="POST" class="d-inline">
+          <button type="submit" class="btn btn-danger"><i class="bi bi-trash-lg"></i> Excluir Funcionário</button>
+        </form>
       </div>
     </main>
   </div>
