@@ -17,6 +17,9 @@ var departmentsRouter = require('./routes/departments');
 var locationsRouter = require('./routes/locations');
 var dashboardRouter = require('./routes/dashboard');
 
+// Esse pacote é necessário para enviar requisições PATCH e DELETE nos forms
+var methodOverride = require('method-override');
+
 var app = express();
 
 // Inicialização do Sequelize (Banco de Dados)
@@ -35,6 +38,9 @@ app.disable('x-powered-by');
 // setup da view engine
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
+
+// sobrecarregar requisições POST que tem ?_method=DELETE ou ?_method=PATCH
+app.use(methodOverride('_method'));
 
 app.use(logger('dev'));
 app.use(express.json());
