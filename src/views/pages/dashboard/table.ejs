@@ -91,11 +91,11 @@
               <!-- Verificar se vai mostrar verde, amarelo ou vermelho -->
               <% const roleWorkload = role.defaultWorkload %>
               <% if (average >= roleWorkload) { %>
-                <td class="table-danger"><%= average %></td>
+                <td class="table-danger"><%= average.toFixed(0) %></td>
               <% } else if (average >= 0.8 * roleWorkload) { %>
-                <td class="table-warning"><%= average %></td>
+                <td class="table-warning"><%= average.toFixed(0) %></td>
               <% } else { %>
-                <td class="table-success"><%= average %></td>
+                <td class="table-success"><%= average.toFixed(0) %></td>
               <% } %>
             <% } %>
           </tr>
