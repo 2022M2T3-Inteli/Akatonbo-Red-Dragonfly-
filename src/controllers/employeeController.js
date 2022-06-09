@@ -6,14 +6,16 @@ const Location = require('../models').Location;
 const Role = require('../models').Role;
 
 exports.getAllEmployees = async (req, res) => {
-  const { month, year, name, departmentId, locationId, isOutsourced } =
-    req.query;
+  const { name, departmentId, locationId, isOutsourced } = req.query;
+  let { month, year } = req.query;
 
   const whereStatement = {};
   if (name) whereStatement.name = { [Op.like]: `%${name}%` };
   if (departmentId) whereStatement.departmentId = parseInt(departmentId);
   if (locationId) whereStatement.locationId = parseInt(locationId);
   if (isOutsourced) whereStatement.isOutsourced = !!parseInt(isOutsourced);
+  month = month ? parseInt(month) : '';
+  year = year ? parseInt(year) : '';
 
   const employees = await Employee.findAll({
     where: whereStatement,
@@ -27,8 +29,8 @@ exports.getAllEmployees = async (req, res) => {
     employees,
     departments,
     locations,
-    month: parseInt(month),
-    year: parseInt(year),
+    month,
+    year,
     name,
     departmentId,
     locationId,
@@ -38,7 +40,7 @@ exports.getAllEmployees = async (req, res) => {
 
 exports.newEmployee = async (req, res) => {
   const departments = await Department.findAll();
-  const locations = await Location.findAll(); 
+  const locations = await Location.findAll();
   const roles = await Role.findAll();
   res.render('pages/employee/new', {
     departments,
@@ -54,7 +56,6 @@ exports.createEmployee = async (req, res) => {
   } catch {
     res.send('Erro no cadastro do funcionário');
   }
-  
 };
 
 exports.getEmployee = async (req, res) => {

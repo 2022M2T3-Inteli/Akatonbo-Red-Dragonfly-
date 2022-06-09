@@ -58,7 +58,7 @@
               <div class="col form-group mb-3">
                 <label for="filter-month">Mês:</label>
                 <select class="form-control" id="filter-month" name="month">
-                  <option value="">-</option>
+                  <option value="">---</option>
                   <option value="0">Janeiro</option>
                   <option value="1">Fevereiro</option>
                   <option value="2">Março</option>
@@ -76,7 +76,7 @@
               <div class="col form-group mb-3">
                 <label for="filter-year">Ano:</label>
                 <select class="form-control" id="filter-year" name="year">
-                  <option value="">-</option>
+                  <option value="">---</option>
                   <option value="2022">2022</option>
                   <option value="2023">2023</option>
                   <option value="2024">2024</option>
@@ -161,7 +161,7 @@
               >
                 <th scope="row"><a href="/employees/<%= employee.id %>"><%= employee.name %></a></th>
                 <td>
-                  <%= employee.Assignments.length > 0 ? totalHours : 0 %>
+                  <%= totalHours === 0 ? "-" : totalHours %>
                   /
                   <%= workload %>
                   /
