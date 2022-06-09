@@ -52,7 +52,7 @@ exports.createAssignment = async (req, res) => {
       res.send('Alocação cadastrada com sucesso!');
     } else {
       // se a alocação já existe, adicionar as horas
-      workHours = assignment.workHours + req.body.workHours;
+      workHours = parseInt(assignment.workHours) + parseInt(req.body.workHours);
       await assignment.update({ workHours });
       res.send(
         'Alocação já existente. As horas foram adicionadas com sucesso!'
