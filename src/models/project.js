@@ -3,13 +3,16 @@ const { Model } = require('sequelize');
 
 module.exports = (sequelize, DataTypes) => {
   class Project extends Model {
+    // Define as relações/cadinalidade entre tabelas do banco de dados
     static associate(models) {
       Project.hasMany(models.Assignment, { foreignKey: 'projectId' });
       Project.belongsTo(models.Department, { foreignKey: 'departmentId' });
       Project.belongsTo(models.Location, { foreignKey: 'locationId' });
     }
   }
+  // Inicializa um modelo espelhado na tabela do banco de dados
   Project.init(
+    // Define os campos da tabela
     {
       name: {
         type: DataTypes.STRING,
