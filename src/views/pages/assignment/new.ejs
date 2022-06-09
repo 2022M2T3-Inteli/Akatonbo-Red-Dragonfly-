@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cadastro de Alocação</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="../../stylesheets/style.css">
+</head>
+
+<body>
+  <div class="d-flex flex-row">
+    <nav class="sidebar d-flex flex-column flex-shrink-0 p-3">
+      <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
+        <img src="../../images/sidebar-logo.svg" alt="Logo Yamaha" class="img-fluid" />
+      </a>
+      <hr>
+      <ul class="nav nav-pills flex-column mb-auto">
+        <li class="nav-item">
+          <a href="/projects" class="nav-link active">
+            <i class="bi bi-kanban-fill"></i>Projetos
+          </a>
+        </li>
+        <li>
+          <a href="/roles" class="nav-link link-dark">
+            <i class="bi bi-person-lines-fill"></i>Funções
+          </a>
+        </li>
+        <li>
+          <a href="/employees" class="nav-link link-dark">
+            <i class="bi bi-people-fill"></i>Funcionários
+          </a>
+        </li>
+        <li>
+          <a href="/dashboard/table" class="nav-link link-dark">
+            <i class="bi bi-speedometer"></i>Dashboard
+          </a>
+        </li>
+      </ul>
+      <hr>
+      <a href="/login" class="d-flex align-items-center link-dark text-decoration-none">
+        <span class="me-2">
+          <i class="bi bi-person-fill"></i>
+        </span>
+        <strong>jailson</strong>
+      </a>
+    </nav>
+    <main class="flex-fill p-5">
+      <h1 class="text-center mb-4">Cadastrar Alocação</h1>
+
+      <form action="/assignments" method="post">
+        <!-- Campo escondido com id do projeto, preenchido automaticamente a partir do ID da URL -->
+        <input type="hidden" name="projectId" value="<%= project.id %>">
+
+        <div class="mb-3">
+          <label for="employee">Funcionário: </label>
+          <select class="form-control" id="employee" name="employeeId" required>
+            <option value=""></option>
+            <% employees.forEach((employee)=> {%>
+            <option value="<%= employee.id %>"><%= employee.name %> (<%= employee.Role.name %>)</option>
+            <% }) %>
+         </select>
+        </div>
+
+        <div class="row">
+          <div class="col mb-3">
+            <label for="month">Mês: </label>
+            <select class="form-control" id="month" name="month" required>
+              <option value=""></option>
+              <% MONTHS.forEach((month, index)=> {%>
+              <option value="<%= index %>"><%= month %></option>
+              <% }) %>
+            </select>
+          </div>
+
+          <div class="col mb-3">
+            <label for="year">Ano: </label>
+            <select class="form-control" id="year" name="year" required>
+              <option value=""></option>
+              <option value="2022">2022</option>
+              <option value="2023">2023</option>
+              <option value="2024">2024</option>
+            </select>
+          </div>
+        </div>
+
+
+        <div class="mb-3">
+          <label for="hours">Horas de Trabalho: </label>
+          <input type="number" class="form-control" id="hours" name="workHours" min="1" required>
+        </div>
+
+
+        <div class="mb-3">
+          <input type="submit" class="btn btn-primary" value="Cadastrar">
+        </div>
+      </form>
+    </main>
+  </div>
+</body>
+
+</html>

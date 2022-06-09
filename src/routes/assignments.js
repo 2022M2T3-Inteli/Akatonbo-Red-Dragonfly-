@@ -5,6 +5,8 @@ const assignmentController = require('./../controllers/assignmentController');
 
 router.route('/').post(assignmentController.createAssignment);
 
+router.route('/new/:id').get(assignmentController.newAssignment);
+
 router
   .route('/:id')
   .patch(assignmentController.updateAssignment)

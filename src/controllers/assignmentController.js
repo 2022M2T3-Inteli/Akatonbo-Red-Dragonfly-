@@ -1,6 +1,22 @@
+const MONTHS = require('../public/javascripts/months');
+
 const Assignment = require('../models').Assignment;
 const Employee = require('../models').Employee;
 const Project = require('../models').Project;
+const Role = require('../models').Role;
+
+exports.newAssignment = async (req, res) => {
+  const project = await Project.findByPk(req.params.id);
+  const employees = await Employee.findAll({
+    include: [Role],
+  });
+
+  res.render(`pages/assignment/new`, {
+    employees,
+    project,
+    MONTHS,
+  });
+};
 
 exports.createAssignment = async (req, res) => {
   // verificar se o projeto existe
