@@ -19,7 +19,7 @@ exports.createRole = async (req, res) => {
   try {
     // Executa a requisição de crate acessando o Model (BD)
     await Role.create(req.body);
-    res.send('Função cadastrada com sucesso!');
+    res.redirect('/roles');
   } catch {
     res.send('Erro no cadastro da função!');
   }
