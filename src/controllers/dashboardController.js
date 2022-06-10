@@ -40,7 +40,7 @@ exports.getChart = async (req, res) => {
   );
 
   const totalInternalEmployeeHours = employees
-    .filter((employee) => !!employee.isOutsourced)
+    .filter((employee) => !employee.isOutsourced)
     .reduce((acc, employee) => acc + getWorkload(employee), 0);
 
   const assignmentHours = [];
