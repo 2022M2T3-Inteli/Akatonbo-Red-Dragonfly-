@@ -20,14 +20,13 @@ var dashboardRouter = require('./routes/dashboard');
 // Esse pacote é necessário para enviar requisições PATCH e DELETE nos forms
 var methodOverride = require('method-override');
 
-var app = express();
+var app = express(); // instancia do express
 
-// Inicialização do Sequelize (Banco de Dados)
+// Inicialização do Sequelize (ORM para manipular o Banco de Dados)
 const db = require('./models');
 
 db.sequelize
-  // Se houver qualquer alteração no código, limpar o banco de dados
-  .sync({ force: false })
+  .sync({ force: false }) // Se true, apaga o banco de dados quando qualquer código é alterado
   .then(() => console.log('Conectado ao banco de dados'));
 
 // Permite acesso externo
@@ -40,13 +39,14 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
 // sobrecarregar requisições POST que tem ?_method=DELETE ou ?_method=PATCH
+// esse pacote é necessário para enviar requisições PATCH e DELETE nos forms
 app.use(methodOverride('_method'));
 
-app.use(logger('dev'));
-app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
-app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(logger('dev')); // logar requisições para o console
+app.use(express.json()); // receber o corpo (body) de requisições em formato JSON
+app.use(express.urlencoded({ extended: false })); // para parse de querystrings -- false, usa a biblioteca 'querystring', true, usa a biblioteca 'qs'
+app.use(cookieParser()); // ler cookies
+app.use(express.static(path.join(__dirname, 'public'))); // arquivos estáticos
 
 // rotas
 app.use('/', indexRouter);
