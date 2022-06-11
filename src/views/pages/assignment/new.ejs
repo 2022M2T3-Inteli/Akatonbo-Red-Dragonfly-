@@ -60,39 +60,32 @@
           <select class="form-control" id="employee" name="employeeId" required>
             <option value=""></option>
             <% employees.forEach((employee)=> {%>
-            <option value="<%= employee.id %>"><%= employee.name %> (<%= employee.Role.name %>)</option>
-            <% }) %>
-         </select>
-        </div>
-
-        <div class="row">
-          <div class="col mb-3">
-            <label for="month">Mês: </label>
-            <select class="form-control" id="month" name="month" required>
-              <option value=""></option>
-              <% MONTHS.forEach((month, index)=> {%>
-              <option value="<%= index %>"><%= month %></option>
+              <option value="<%= employee.id %>">
+                <%= employee.name %> (<%= employee.Role.name %>)
+              </option>
               <% }) %>
-            </select>
-          </div>
-
-          <div class="col mb-3">
-            <label for="year">Ano: </label>
-            <select class="form-control" id="year" name="year" required>
-              <option value=""></option>
-              <option value="2022">2022</option>
-              <option value="2023">2023</option>
-              <option value="2024">2024</option>
-            </select>
-          </div>
+          </select>
         </div>
-
-
-        <div class="mb-3">
-          <label for="hours">Horas de Trabalho: </label>
-          <input type="number" class="form-control" id="hours" name="workHours" min="1" required>
+        <div class="col mb-3">
+          <label for="year">Ano: </label>
+          <select class="form-control" id="year" name="year" required>
+            <option value=""></option>
+            <option value="2022">2022</option>
+            <option value="2023">2023</option>
+            <option value="2024">2024</option>
+          </select>
         </div>
-
+        <div class="row">
+          <h5 class="text-center">Horas de Trabalho por Mês</h5>
+          <% MONTHS.forEach((month, index)=> {%>
+            <div class="col mb-3">
+              <label for="<%= month %>>">
+                <%= month %>:
+              </label>
+              <input id="<%= month %>" type="number" name="workHours[<%= index %>]" min="1">
+            </div>
+            <% }) %>
+        </div>
 
         <div class="mb-3">
           <input type="submit" class="btn btn-primary" value="Cadastrar">

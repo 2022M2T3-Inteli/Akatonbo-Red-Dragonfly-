@@ -33,31 +33,34 @@ exports.createAssignment = async (req, res) => {
   }
 
   try {
-    // verificar se a alocação já existe para aquele funcionário, mês e ano
-    // se existir, atualizar, se não, criar
-    const [assignment, created] = await Assignment.findOrCreate({
-      where: {
-        projectId: req.body.projectId,
-        employeeId: req.body.employeeId,
-        month: req.body.month,
-        year: req.body.year,
-      },
-      defaults: {
-        workHours: req.body.workHours,
-      },
-    });
+    // cadastrar uma alocação para cada campo de mês do form que não estiver vazio
+    for (let i = 0; i <= MONTHS.length; i++) {
+      let workHours = req.body[`workHours[${i}]`];
+      // verificar se existe uma entrada de horas no form para aquele mês
+      if (workHours) {
+        // verificar se a alocação já existe para aquele projeto, funcionário, mês e ano
+        // se existir, atualizar a alocação existente, se não, criar uma nova alocação
+        const [assignment, created] = await Assignment.findOrCreate({
+          where: {
+            projectId: req.body.projectId,
+            employeeId: req.body.employeeId,
+            year: req.body.year,
+            month: i,
+          },
+          defaults: {
+            workHours,
+          },
+        });
 
-    if (created) {
-      // se a alocação não existe, informar que foi cadastrada
-      res.send('Alocação cadastrada com sucesso!');
-    } else {
-      // se a alocação já existe, adicionar as horas
-      workHours = parseInt(assignment.workHours) + parseInt(req.body.workHours);
-      await assignment.update({ workHours });
-      res.send(
-        'Alocação já existente. As horas foram adicionadas com sucesso!'
-      );
+        if (!created) {
+          // se a alocação já existe, adicionar as horas na alocação existente
+          workHours = parseInt(assignment.workHours) + parseInt(workHours);
+          await assignment.update({ workHours });
+        }
+      }
     }
+
+    res.send('Alocação(ões) cadastrada(s) com sucesso!');
   } catch (err) {
     res.send(err.errors[0].message);
   }
