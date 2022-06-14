@@ -60,9 +60,9 @@ exports.getChart = async (req, res) => {
     internalEmployeeHours.push(totalInternalEmployeeHours);
   });
 
-  // Computar horas necessárias (capacity) para atender a carga de trabalho
+  // Computar horas necessárias (capacity) para atender à carga de trabalho
   const requiredCapacity = Math.max(...assignmentHours);
-  assignmentHours.forEach((_) => requiredCapacityHours.push(requiredCapacity));
+  assignmentHours.forEach(() => requiredCapacityHours.push(requiredCapacity));
 
   res.render('pages/dashboard/chart', {
     assignments,
