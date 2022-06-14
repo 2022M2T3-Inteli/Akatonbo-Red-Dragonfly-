@@ -128,9 +128,12 @@
       </div>
       <div class="position-absolute top-0 end-0 my-5 mx-5">
         <a href="edit.html" href="" class="btn btn-warning"><i class="bi bi-plus-lg"></i> Editar Projeto</a>
-        <a href="#" href="" class="btn btn-danger"><i class="bi bi-plus-lg"></i>Excluir Projeto</a>
+        <form action="/projects/<%= project.id %>?_method=DELETE" method="POST" class="d-inline">
+          <button type="submit" class="btn btn-danger"><i class="bi bi-trash"></i> Excluir Projeto</button>
+        </form>
       </div>
     </main>
+    
   </div>
 </body>
 
