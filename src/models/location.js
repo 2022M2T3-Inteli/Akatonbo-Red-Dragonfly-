@@ -10,10 +10,18 @@ module.exports = (sequelize, DataTypes) => {
       Location.hasMany(models.Project, { foreignKey: 'locationId' });
     }
   }
-  // Inicializa um modelo espelhado na tabela/entidade do DB 
+  // Inicializa um modelo espelhado na tabela/entidade do DB
   Location.init(
     {
-      name: DataTypes.STRING,
+      name: {
+        type: DataTypes.STRING,
+        allowNull: false,
+        validate: {
+          notEmpty: {
+            msg: 'Nome não pode estar vazio',
+          },
+        },
+      },
     },
     {
       sequelize,

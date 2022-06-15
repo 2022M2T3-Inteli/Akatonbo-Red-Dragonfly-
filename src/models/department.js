@@ -12,7 +12,15 @@ module.exports = (sequelize, DataTypes) => {
   // Inicializa um modelo espelhado na tabela do DB
   Department.init(
     {
-      name: DataTypes.STRING,
+      name: {
+        type: DataTypes.STRING,
+        allowNull: false,
+        validate: {
+          notEmpty: {
+            msg: 'Nome não pode estar vazio',
+          },
+        },
+      },
     },
     {
       sequelize,

@@ -15,13 +15,14 @@ exports.newRole = async (req, res) => {
 };
 
 exports.createRole = async (req, res) => {
-  // Testa se todos os requisitos do BD foram atendidos 
+  // Testa se todos os requisitos do BD foram atendidos
   try {
     // Executa a requisição de crate acessando o Model (BD)
+    console.log(req.body);
     await Role.create(req.body);
     res.redirect('/roles');
-  } catch {
-    res.send('Erro no cadastro da função!');
+  } catch (err) {
+    res.send(err.errors[0].message);
   }
 };
 
@@ -31,8 +32,12 @@ exports.updateRole = async (req, res) => {
 
   if (role) {
     // Executa a requisição update do role selecionado
-    await role.update(req.body);
-    res.send('Função atualizada com sucesso!');
+    try {
+      await role.update(req.body);
+      res.send('Função atualizada com sucesso!');
+    } catch (err) {
+      res.send(err.errors[0].message);
+    }
   } else {
     res.status(404).send('Função não encontrada!');
   }

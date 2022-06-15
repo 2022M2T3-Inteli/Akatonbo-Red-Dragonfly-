@@ -53,8 +53,8 @@ exports.createEmployee = async (req, res) => {
   try {
     await Employee.create(req.body);
     res.send('Funcionário cadastrado com sucesso!');
-  } catch {
-    res.send('Erro no cadastro do funcionário');
+  } catch (err) {
+    res.send(err.errors[0].message);
   }
 };
 
@@ -74,8 +74,12 @@ exports.updateEmployee = async (req, res) => {
   const employee = await Employee.findByPk(req.params.id);
 
   if (employee) {
-    await employee.update(req.body);
-    res.send('Funcionário atualizado com sucesso!');
+    try {
+      await employee.update(req.body);
+      res.send('Funcionário atualizado com sucesso!');
+    } catch (err) {
+      res.send(err.errors[0].message);
+    }
   } else {
     res.status(404).send('Funcionário não encontrado!');
   }
