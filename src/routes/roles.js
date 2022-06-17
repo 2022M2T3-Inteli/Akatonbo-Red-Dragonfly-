@@ -10,7 +10,7 @@ router
   .get(roleController.getAllRoles)
   .post(roleController.createRole);
   /* Estrutura:
-  .tipoDeRequisição(arquivoRolerController.métodoDaRequisição) 
+  route('/caminho da rota').tipoDeRequisição(arquivoRolerController.métodoDaRequisição) 
   */
 
 router

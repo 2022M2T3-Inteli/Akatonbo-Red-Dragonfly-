@@ -1,15 +1,20 @@
 'use strict';
+// Declara o uso do Sequelize
 const { Model } = require('sequelize');
 
 module.exports = (sequelize, DataTypes) => {
   class Assignment extends Model {
+    // Define as relações/cadinalidade (associações) entre tabelas do DB
     static associate(models) {
       Assignment.belongsTo(models.Employee, { foreignKey: 'employeeId' });
       Assignment.belongsTo(models.Project, { foreignKey: 'projectId' });
     }
   }
+  // Inicializa um modelo espelhado na tabela do DB
   Assignment.init(
     {
+      // Cada coluna/atributo da entidade Assignments (id, workHours, month, year) é correspondente a um objeto no código
+      // São definidas as características de cada atributo dentro do objeto
       id: {
         type: DataTypes.INTEGER,
         primaryKey: true,
@@ -19,6 +24,7 @@ module.exports = (sequelize, DataTypes) => {
       workHours: {
         type: DataTypes.INTEGER,
         allowNull: false,
+        // Validações de dados inseridos pelo usuário
         validate: {
           notEmpty: {
             msg: 'Horas de trabalho não pode estar vazio',
@@ -39,6 +45,7 @@ module.exports = (sequelize, DataTypes) => {
       month: {
         type: DataTypes.INTEGER,
         allowNull: false,
+        // Validações de dados inseridos pelo usuário
         validate: {
           notEmpty: {
             msg: 'Mês não pode estar vazio',

@@ -1,16 +1,21 @@
+// Importa o arquivo de meses a serem referenciados
 const MONTHS = require('../public/javascripts/months');
 
+// Importa o index.js do Model gerado automaticamente pelo Sequelize
 const Assignment = require('../models').Assignment;
 const Employee = require('../models').Employee;
 const Project = require('../models').Project;
 const Role = require('../models').Role;
 
+// Endpoint para um nova alocação
 exports.newAssignment = async (req, res) => {
+  // Exporta as chaves estrangeiras do funcionário e projeto
   const project = await Project.findByPk(req.params.id);
   const employees = await Employee.findAll({
     include: [Role],
   });
 
+  // Renderiza a página de criação dos funcionários no final da requisição 
   res.render(`pages/assignment/new`, {
     employees,
     project,
