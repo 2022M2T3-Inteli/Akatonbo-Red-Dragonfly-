@@ -10,6 +10,8 @@ module.exports = {
       },
       projectId: {
         type: Sequelize.INTEGER,
+        allowNull: false,
+        onDelete: 'cascade',
         references: {
           model: 'Projects',
           key: 'id',
@@ -18,6 +20,8 @@ module.exports = {
       },
       employeeId: {
         type: Sequelize.INTEGER,
+        allowNull: false,
+        onDelete: 'cascade',
         references: {
           model: 'Employees',
           key: 'id',

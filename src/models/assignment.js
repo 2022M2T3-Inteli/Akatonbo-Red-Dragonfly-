@@ -2,12 +2,19 @@
 // Declara o uso do Sequelize
 const { Model } = require('sequelize');
 
+// Modelo de Alocações, gerencia a tabela no banco de dados de alocações de horas em projetos
 module.exports = (sequelize, DataTypes) => {
   class Assignment extends Model {
     // Define as relações/cadinalidade (associações) entre tabelas do DB
     static associate(models) {
-      Assignment.belongsTo(models.Employee, { foreignKey: 'employeeId' });
-      Assignment.belongsTo(models.Project, { foreignKey: 'projectId' });
+      Assignment.belongsTo(models.Employee, {
+        foreignKey: 'employeeId',
+        onDelete: 'cascade',
+      });
+      Assignment.belongsTo(models.Project, {
+        foreignKey: 'projectId',
+        onDelete: 'cascade',
+      });
     }
   }
   // Inicializa um modelo espelhado na tabela do DB

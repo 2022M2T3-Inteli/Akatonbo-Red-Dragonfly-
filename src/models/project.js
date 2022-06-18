@@ -5,7 +5,10 @@ module.exports = (sequelize, DataTypes) => {
   class Project extends Model {
     // Define as relações/cadinalidade entre tabelas do banco de dados
     static associate(models) {
-      Project.hasMany(models.Assignment, { foreignKey: 'projectId' });
+      Project.hasMany(models.Assignment, {
+        foreignKey: 'projectId',
+        onDelete: 'cascade',
+      });
       Project.belongsTo(models.Department, { foreignKey: 'departmentId' });
       Project.belongsTo(models.Location, { foreignKey: 'locationId' });
     }
