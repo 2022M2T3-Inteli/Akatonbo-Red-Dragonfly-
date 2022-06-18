@@ -1,18 +1,23 @@
 var express = require('express');
 var router = express.Router();
 
-// Referencia o arquivo do Controller
+// Importar os métodos do Controller
 const locationController = require('../controllers/locationController');
 
-// Envia o tipo de requisição do Router para o Controller
+// Encaminha a requisição para o método adequado do Controller
+/* Formato:
+  route('/caminho da rota').tipoDeRequisição(arquivoController.método)
+*/
+
 router
-  .route('/')
-  .post(locationController.createLocation);
+  .route('/') // GET /locations
+  .post(locationController.createLocation); // POST /locations
 
 router
   // Métodos que selecionam a location pela Pk id
   .route('/:id')
-  .patch(locationController.updateLocation)
-  .delete(locationController.deleteLocation);
+  .patch(locationController.updateLocation) // PATCH /locations/:id
+  .delete(locationController.deleteLocation); // DELETE /locations/:id
 
+// Exporta as rotas para serem utilizadas pelo app.js
 module.exports = router;

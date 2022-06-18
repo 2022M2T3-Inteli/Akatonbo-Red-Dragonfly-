@@ -4,19 +4,24 @@ var router = express.Router();
 // Referencia o arquivo do Controller
 const projectController = require('./../controllers/projectController');
 
-// Envia o tipo de requisição do Router para o Controller
+// Encaminha a requisição para o método adequado do Controller
+/* Formato:
+  route('/caminho da rota').tipoDeRequisição(arquivoController.método)
+*/
+
 router
   .route('/')
-  .get(projectController.getAllProjects)
-  .post(projectController.createProject);
+  .get(projectController.getAllProjects) // GET /projects
+  .post(projectController.createProject); // POST /projects
 
 router.route('/new').get(projectController.newProject);
 
 // Métodos que selecionam o project pela Pk id
 router
   .route('/:id')
-  .get(projectController.getProject)
-  .patch(projectController.updateProject)
-  .delete(projectController.deleteProject);
+  .get(projectController.getProject) // GET /projects/:id
+  .patch(projectController.updateProject) // PATCH /projects/:id
+  .delete(projectController.deleteProject); // DELETE /projects/:id
 
+// Exporta as rotas para serem utilizadas pelo app.js
 module.exports = router;

@@ -1,22 +1,22 @@
 var express = require('express');
 var router = express.Router();
 
-// Referencia o arquivo do Controller
+// Importar os métodos do Controller
 const assignmentController = require('./../controllers/assignmentController');
 
-// Envia o tipo de requisição do Router para o Controller
-/* Estrutura:
-  route('/caminho da rota').tipoDeRequisição(arquivoRolerController.métodoDaRequisição) 
+// Encaminha a requisição para o método adequado do Controller
+/* Formato:
+  route('/caminho da rota').tipoDeRequisição(arquivoController.método)
 */
-router
-  .route('/').post(assignmentController.createAssignment);
 
-router
-  .route('/new/:id').get(assignmentController.newAssignment);
+router.route('/').post(assignmentController.createAssignment); // POST /assignments
+
+router.route('/new/:id').get(assignmentController.newAssignment); // GET /assignments/new/:id
 
 router
   .route('/:id')
-  .patch(assignmentController.updateAssignment)
-  .delete(assignmentController.deleteAssignment);
+  .patch(assignmentController.updateAssignment) // PATCH /assignments/:id
+  .delete(assignmentController.deleteAssignment); // DELETE /assignments/:id
 
+// Exporta as rotas para serem utilizadas pelo app.js
 module.exports = router;
