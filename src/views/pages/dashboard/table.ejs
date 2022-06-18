@@ -77,16 +77,23 @@
           </tr>
         </thead>
         <tbody>
+          <!-- Percorrer todas as funções -->
           <% roles.forEach(role => { %>
           <tr>
             <th scope="row"><%= role.name %></th>
+            <!-- Percorrer todos os meses (0=janeiro, 11=dezembro) -->
             <% for (let i = 0; i < 12; i++) { %>
-              <!-- Calcular médias mensais das horas trabalhadas por todos os empregados naquela função -->
+              <!-- Varíavel contendo as horas alocadas para todos os empregados naquela função e mês -->
               <% let monthlyAssignmentsHours = 0; %>
+              <!-- Percorrer todos os funcionários naquela função -->
               <% role.Employees.forEach(employee => { %>
+                <!-- Filtrar para que sejam somadas apenas as horas do mês sendo percorrido atualmente  -->
                 <% const monthlyAssignments = employee.Assignments.filter(assignment => assignment.month === i) %>
+                <!-- Somar as horas desse funcionário no total de horas de todos os funcionários  -->
                 <% monthlyAssignmentsHours += monthlyAssignments.reduce((acc, curr) => acc + curr.workHours, 0) %>
               <% }) %>
+              <!-- Aplicar a fórmula da média (m = total de horas / número de funcionários) -->
+              <!-- O "|| 1" abaixo é necessário pois se não tiver nenhum funcionário na função ocorrerá divisão por 0 -->
               <% const average = monthlyAssignmentsHours / (role.Employees.length || 1) %>
               <!-- Verificar se vai mostrar verde, amarelo ou vermelho -->
               <% const roleWorkload = role.defaultWorkload %>
