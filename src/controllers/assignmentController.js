@@ -1,21 +1,27 @@
 // Importa o arquivo de meses a serem referenciados
 const MONTHS = require('../public/javascripts/months');
 
-// Importa o index.js do Model gerado automaticamente pelo Sequelize
+// Importa os Models do banco de dados gerados pelo Sequelize
 const Assignment = require('../models').Assignment;
 const Employee = require('../models').Employee;
 const Project = require('../models').Project;
 const Role = require('../models').Role;
 
-// Endpoint para um nova alocação
+// Esse método retorna um formulário HTML para o cadastro de uma nova alocação
 exports.newAssignment = async (req, res) => {
-  // Exporta as chaves estrangeiras do funcionário e projeto
+  // Buscar o projeto pelo ID passado na URL
   const project = await Project.findByPk(req.params.id);
+  // Retorna um erro se o projeto não existir
+  if (!project) {
+    return res.status(404).send('Projeto não encontrado');
+  }
+
+  // Buscar todos os funcionários para exibir no formulário
   const employees = await Employee.findAll({
     include: [Role],
   });
 
-  // Renderiza a página de criação dos funcionários no final da requisição 
+  // Retorna a página com o form para a criação de alocações
   res.render(`pages/assignment/new`, {
     employees,
     project,
@@ -23,20 +29,22 @@ exports.newAssignment = async (req, res) => {
   });
 };
 
+// Esse método recebe os dados do formulário de cadastro de alocação e salva no banco de dados
 exports.createAssignment = async (req, res) => {
-  // verificar se o projeto existe
+  // verificar se o projeto existe e retornar um erro se não existir
   const project = await Project.findByPk(req.body.projectId);
   if (!project) {
     res.status(404).send('Projeto não encontrado!');
     return;
   }
-  // verificar se o funcionario existe
+  // verificar se o funcionario existe e retornar um erro se não existir
   const employee = await Employee.findByPk(req.body.employeeId);
   if (!employee) {
     res.status(404).send('Funcionário não encontrado!');
     return;
   }
 
+  // se tudo estiver certo, tentar criar uma nova alocação
   try {
     // cadastrar uma alocação para cada campo de mês do form que não estiver vazio
     for (let i = 0; i <= MONTHS.length; i++) {
@@ -57,8 +65,9 @@ exports.createAssignment = async (req, res) => {
           },
         });
 
+        // se uma alocação já existe para aquele projeto/mês/ano...
         if (!created) {
-          // se a alocação já existe, adicionar as horas na alocação existente
+          // ...adicionar as horas na alocação existente
           workHours = parseInt(assignment.workHours) + parseInt(workHours);
           await assignment.update({ workHours });
         }
@@ -71,6 +80,7 @@ exports.createAssignment = async (req, res) => {
   }
 };
 
+// Esse método recebe os dados do formulário de edição de alocação e salva no banco de dados
 exports.updateAssignment = async (req, res) => {
   const assignment = await Assignment.findByPk(req.params.id);
 
@@ -99,13 +109,17 @@ exports.updateAssignment = async (req, res) => {
   }
 };
 
+// Esse método recebe o ID de uma alocação e a exclui do banco de dados
 exports.deleteAssignment = async (req, res) => {
+  // verificar se a alocação existe
   const assignment = await Assignment.findByPk(req.params.id);
 
   if (assignment) {
+    // se a alocação existir, excluir
     await assignment.destroy();
     res.send('Alocação excluída com sucesso!');
   } else {
+    // se não existir, retornar um erro
     res.status(404).send('Alocação não encontrada!');
   }
 };
