@@ -55,12 +55,12 @@
       <div>
         <form method="get" action="/employees">
           <fieldset>
-            <legend>Mês e Ano (Obrigatório)</legend>
+            <legend>Mês e Ano</legend>
             <div class="row">
               <div class="col form-group mb-3">
                 <label for="filter-month">Mês:</label>
                 <select class="form-control" id="filter-month" name="month">
-                  <option value="">---</option>
+                  <option value="" hidden selected>---</option>
                   <option value="0">Janeiro</option>
                   <option value="1">Fevereiro</option>
                   <option value="2">Março</option>
@@ -78,7 +78,7 @@
               <div class="col form-group mb-3">
                 <label for="filter-year">Ano:</label>
                 <select class="form-control" id="filter-year" name="year">
-                  <option value="">---</option>
+                  <option value="" hidden selected>---</option>
                   <option value="2022">2022</option>
                   <option value="2023">2023</option>
                   <option value="2024">2024</option>
@@ -87,7 +87,7 @@
             </div>
           </fieldset>
           <fieldset>
-            <legend>Outros Filtros (Opcionais)</legend>
+            <legend>Filtros</legend>
             <div class="row">
               <div class="col form-group mb-3">
                 <label for="filter">Nome:</label>
@@ -191,6 +191,16 @@
     document.querySelector('#filter-department').value = "<%= departmentId %>";
     document.querySelector('#filter-location').value = "<%= locationId %>";
     document.querySelector('#filter-outsourced').value = "<%= isOutsourced %>";
+
+    // Enviar automaticamente o formulário quando o usuário selecionar um ano ou mês
+    document.querySelector('#filter-year').addEventListener('change', function(e) {
+      e.preventDefault();
+      this.form.submit();
+    });
+    document.querySelector('#filter-month').addEventListener('change', function(e) {
+      e.preventDefault();
+      this.form.submit();
+    });
   </script>
 </body>
 

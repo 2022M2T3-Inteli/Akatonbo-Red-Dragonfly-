@@ -5,7 +5,9 @@ const Department = require('../models').Department;
 const Location = require('../models').Location;
 const Role = require('../models').Role;
 
+// Esse método retorna todos os funcionários, com ou sem filtro
 exports.getAllEmployees = async (req, res) => {
+  // Parâmetros da query string, usados para o filtro ou notificação
   const {
     name,
     departmentId,
@@ -15,16 +17,28 @@ exports.getAllEmployees = async (req, res) => {
     toastColor,
     toastMessage,
   } = req.query;
-  let { month, year } = req.query;
+
+  let month, year;
+  if (req.query.month) {
+    month = parseInt(req.query.month);
+  } else {
+    month = new Date().getMonth();
+  }
+
+  if (req.query.year) {
+    year = parseInt(req.query.year);
+  } else {
+    year = new Date().getFullYear();
+  }
 
   const whereStatement = {};
   if (name) whereStatement.name = { [Op.like]: `%${name}%` };
   if (departmentId) whereStatement.departmentId = parseInt(departmentId);
   if (locationId) whereStatement.locationId = parseInt(locationId);
   if (isOutsourced) whereStatement.isOutsourced = !!parseInt(isOutsourced);
-  month = month ? parseInt(month) : '';
-  year = year ? parseInt(year) : '';
 
+  console.log(month);
+  console.log(year);
   const employees = await Employee.findAll({
     where: whereStatement,
     include: [{ all: true }],
