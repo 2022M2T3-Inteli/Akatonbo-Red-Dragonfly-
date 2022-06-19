@@ -1,3 +1,5 @@
+# Arquivo de configuração gerado automaticamente pelo Git, não mexer
+
 # Logs
 logs
 *.log
@@ -102,3 +104,10 @@ dist
 
 # TernJS port file
 .tern-port
+
+# MacOS Files
+.DS_Store
+
+# SQLite Files
+*.sqlite
+*.sqlite3
