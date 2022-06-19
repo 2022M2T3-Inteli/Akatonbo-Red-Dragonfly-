@@ -26,6 +26,9 @@ exports.newAssignment = async (req, res) => {
     employees,
     project,
     MONTHS,
+    showToast: req.query.showToast,
+    toastMessage: req.query.toastMessage,
+    toastColor: req.query.toastColor,
   });
 };
 
@@ -74,9 +77,13 @@ exports.createAssignment = async (req, res) => {
       }
     }
 
-    res.send('Alocação(ões) cadastrada(s) com sucesso!');
+    res.redirect(
+      `/projects/${req.body.projectId}?showToast=true&toastMessage=Alocação(ões) criada(s) com sucesso!&toastColor=success`
+    );
   } catch (err) {
-    res.send(err.errors[0].message);
+    res.redirect(
+      `/assignments/new/${req.body.projectId}?showToast=true&toastMessage=${err.errors[0].message}&toastColor=danger`
+    );
   }
 };
 

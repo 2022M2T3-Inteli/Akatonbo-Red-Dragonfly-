@@ -50,6 +50,8 @@
     </nav>
 
     <main class="flex-fill p-5">
+      <%- include('../../partials/toast.ejs') %>
+
       <h1 class="text-center mb-4">Cadastrar Função</h1>
 
       <form action="/roles" method="POST">
@@ -59,9 +61,10 @@
         </div>
         <div class="mb-3">
           <label for="defaultWorkload" class="form-label">Carga horária padrão</label>
-          <input type="number" class="form-control" id="defaultWorkload" name="defaultWorkload" required>
+          <input type="number" class="form-control" id="defaultWorkload" name="defaultWorkload" step="1" min="0"
+            max="744" required>
         </div>
-        <button type="submit" class="btn btn-primary"> Cadastrar </button>
+        <button type="submit" class="btn btn-primary">Cadastrar</button>
       </form>
     </main>
   </div>

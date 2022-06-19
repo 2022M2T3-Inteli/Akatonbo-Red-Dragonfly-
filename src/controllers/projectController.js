@@ -23,6 +23,9 @@ exports.getAllProjects = async (req, res) => {
     dayjs,
     departments,
     locations,
+    showToast: req.query.showToast,
+    toastMessage: req.query.toastMessage,
+    toastColor: req.query.toastColor,
   });
 };
 
@@ -37,6 +40,9 @@ exports.newProject = async (req, res) => {
     // Passa os dados do projeto para a view
     departments,
     locations,
+    showToast: req.query.showToast,
+    toastMessage: req.query.toastMessage,
+    toastColor: req.query.toastColor,
   });
 };
 
@@ -44,9 +50,14 @@ exports.newProject = async (req, res) => {
 exports.createProject = async (req, res) => {
   try {
     await Project.create(req.body);
-    res.send('Projeto cadastrado com sucesso!');
+
+    res.redirect(
+      '/projects?showToast=true&toastMessage=Projeto criado com sucesso!&toastColor=success'
+    );
   } catch (err) {
-    res.send(err.errors[0].message);
+    res.redirect(
+      `/projects/new?showToast=true&toastMessage=${err.errors[0].message}&toastColor=danger`
+    );
   }
 };
 
@@ -80,6 +91,9 @@ exports.getProject = async (req, res) => {
       projectHours,
       dayjs,
       MONTHS,
+      showToast: req.query.showToast,
+      toastMessage: req.query.toastMessage,
+      toastColor: req.query.toastColor,
     });
   } else {
     res.status(404).send('Projeto não encontrado!');

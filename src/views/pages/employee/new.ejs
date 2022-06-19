@@ -49,6 +49,9 @@
       </a>
     </nav>
     <main class="flex-fill p-5">
+      <!-- Mostrar toast de sucesso / erro -->
+      <%- include('../../partials/toast.ejs') %>
+
       <h1 class="text-center mb-4">Cadastrar Funcionário</h1>
 
       <form action="/employees" method="post">
@@ -59,13 +62,13 @@
 
         <div class="mb-3">
           <label for="email" class="form-label">Email</label>
-          <input class="form-control" id="email" type="text" name="email" required>
+          <input class="form-control" id="email" type="email" name="email" required>
         </div>
 
         <div class="mb-3">
-          <label for="filter-location"> Sede: </label>
-          <select class="form-control" id="filter-location" name="locationId" required>
-            <option value = ""> Todos </option>
+          <label for="location"> Sede: </label>
+          <select class="form-control" id="location" name="locationId" required>
+            <option value = "" readonly="true" hidden="true" selected> Selecione o local </option>
             <% locations.forEach(location => {%>
             <option value="<%= location.id %>"><%= location.name %></option>
             <% }) %>
@@ -73,9 +76,9 @@
         </div>
 
         <div class="mb-3">
-          <label for="filter-department"> Departamento: </label>
-          <select class="form-select" id="filter-department" name="departmentId" required>
-            <option value="" readonly="true" hidden="true" selected> Todos </option>
+          <label for="department"> Departamento: </label>
+          <select class="form-select" id="department" name="departmentId" required>
+            <option value="" readonly="true" hidden="true" selected> Selecione o departamento </option>
             <% departments.forEach(department => {%>
             <option value="<%= department.id %>"><%= department.name %></option>
             <% }) %>
@@ -83,8 +86,8 @@
         </div>
 
         <div class="mb-3">
-          <label for="filter-role"> Função: </label>
-          <select class="form-select" id="filter-role" name="roleId" required>
+          <label for="role"> Função: </label>
+          <select class="form-select" id="role" name="roleId" required>
             <option value="" readonly="true" hidden="true" selected>Selecione a função</option>
             <% roles.forEach(role => {%>
             <option value="<%= role.id %>"><%= role.name %></option>
@@ -93,13 +96,13 @@
         </div>
 
         <div class="mb-3">
-          <label class="form-label" for="employee-capacity">Carga Horária Contratual:</label>
-          <input class="form-control" id="employee-capacity" type="number" step="1" name="contractedHours" required placeholder="h/mês">
+          <label class="form-label" for="contractedHours">Carga Horária Contratual:</label>
+          <input class="form-control" id="contractedHours" type="number" step="1" min="0" max="744" name="contractedHours" required placeholder="h/mês">
         </div>
 
         <div class="mb-3">
-          <label class="form-label" for="employee-capacity">Horas Disponíveis para Projeto:</label>
-          <input class="form-control" id="employee-capacity" type="number" step="1" name="customWorkload" required placeholder="h/mês">
+          <label class="form-label" for="customWorkload">Customizar horas disponíveis para projetos (Opcional, sobrepõe o padrão da função):</label>
+          <input class="form-control" id="customWorkload" type="number" step="1" min="0" max="744" name="customWorkload" placeholder="h/mês">
         </div>
 
         <div class="mb-3">

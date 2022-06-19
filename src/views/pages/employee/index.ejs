@@ -49,6 +49,8 @@
       </a>
     </nav>
     <main class="flex-fill p-5">
+      <%- include('../../partials/toast.ejs') %>
+
       <h1 class="text-center mb-4">Gestão de Funcionários</h1>
       <div>
         <form method="get" action="/employees">
@@ -182,6 +184,7 @@
     </main>
   </div>
   <script>
+    // Popular valores dos filtros, se presentes na query string
     document.querySelector('#filter-month').value = "<%= month %>";
     document.querySelector('#filter-year').value = "<%= year %>";
     document.querySelector('#filter-name').value = "<%= name %>";

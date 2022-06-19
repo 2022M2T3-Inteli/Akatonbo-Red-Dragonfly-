@@ -47,10 +47,10 @@ module.exports = (sequelize, DataTypes) => {
         allowNull: false,
         validate: {
           notEmpty: {
-            msg: 'O nome do funcionário não pode ser vazio',
+            msg: 'O nome do funcionário não pode estar vazio',
           },
           notNull: {
-            msg: 'O nome do funcionário não pode ser nulo',
+            msg: 'O nome do funcionário não pode estar nulo',
           },
         },
       },
@@ -61,11 +61,11 @@ module.exports = (sequelize, DataTypes) => {
         validate: {
           min: {
             args: [0],
-            msg: 'O workload do funcionário não pode ser menor que 0',
+            msg: 'A carga horária mensal do funcionário não pode ser menor que 0 horas',
           },
           max: {
             args: [744], // 744 horas em um mês
-            msg: 'O workload do funcionário não pode ser maior que 744',
+            msg: 'A carga horária mensal do funcionário não pode ser maior que 744 horas',
           },
         },
       },
@@ -74,11 +74,11 @@ module.exports = (sequelize, DataTypes) => {
         validate: {
           min: {
             args: [0],
-            msg: 'As horas contratadas do funcionário não pode ser menor que 0',
+            msg: 'As horas contratuais do funcionário não podem ser menores que 0 horas',
           },
           max: {
             args: [744], // 744 horas em um mês
-            msg: 'As horas contratadas do funcionário não pode ser maior que 744',
+            msg: 'As horas contratuais do funcionário não podem exceder 744 horas',
           },
         },
       },

@@ -49,6 +49,8 @@
       </a>
     </nav>
     <main class="flex-fill p-5">
+      <%- include('../../partials/toast.ejs') %>
+
       <h1 class="text-center mb-4">Cadastrar Alocação</h1>
 
       <form action="/assignments" method="post">
@@ -58,7 +60,7 @@
         <div class="mb-3">
           <label for="employee">Funcionário: </label>
           <select class="form-control" id="employee" name="employeeId" required>
-            <option value=""></option>
+            <option value="" hidden selected></option>
             <% employees.forEach((employee)=> {%>
               <option value="<%= employee.id %>">
                 <%= employee.name %> (<%= employee.Role.name %>)
@@ -69,7 +71,7 @@
         <div class="col mb-3">
           <label for="year">Ano: </label>
           <select class="form-control" id="year" name="year" required>
-            <option value=""></option>
+            <option value="" hidden selected></option>
             <option value="2022">2022</option>
             <option value="2023">2023</option>
             <option value="2024">2024</option>
@@ -78,11 +80,11 @@
         <div class="row">
           <h5 class="text-center">Horas de Trabalho por Mês</h5>
           <% MONTHS.forEach((month, index)=> {%>
-            <div class="col mb-3">
+            <div class="col-3 mb-3">
               <label for="<%= month %>>">
                 <%= month %>:
               </label>
-              <input id="<%= month %>" type="number" name="workHours[<%= index %>]" min="1">
+              <input class="form-control" id="<%= month %>" type="number" name="workHours[<%= index %>]" step="1" min="1" >
             </div>
             <% }) %>
         </div>

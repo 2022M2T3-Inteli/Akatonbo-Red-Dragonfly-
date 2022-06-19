@@ -6,23 +6,35 @@ exports.getAllRoles = async (req, res) => {
   // Usa sequelize para achar todos os roles no BD
   const roles = await Role.findAll();
   // Manda resposta para o front
-  res.render('pages/role/index', { roles });
+  res.render('pages/role/index', {
+    roles,
+    showToast: req.query.showToast,
+    toastMessage: req.query.toastMessage,
+    toastColor: req.query.toastColor,
+  });
 };
 
 exports.newRole = async (req, res) => {
   // Acessa o form html para criar o novo role
-  res.render('pages/role/new');
+  res.render('pages/role/new', {
+    showToast: req.query.showToast,
+    toastMessage: req.query.toastMessage,
+    toastColor: req.query.toastColor,
+  });
 };
 
 exports.createRole = async (req, res) => {
   // Testa se todos os requisitos do BD foram atendidos
   try {
     // Executa a requisição de crate acessando o Model (BD)
-    console.log(req.body);
     await Role.create(req.body);
-    res.redirect('/roles');
+    res.redirect(
+      '/roles?showToast=true&toastColor=success&toastMessage=Função criada com sucesso!'
+    );
   } catch (err) {
-    res.send(err.errors[0].message);
+    res.redirect(
+      `roles/new?showToast=true&toastColor=danger&toastMessage=${err.errors[0].message}`
+    );
   }
 };
 

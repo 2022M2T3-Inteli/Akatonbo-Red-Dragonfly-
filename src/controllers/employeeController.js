@@ -6,7 +6,15 @@ const Location = require('../models').Location;
 const Role = require('../models').Role;
 
 exports.getAllEmployees = async (req, res) => {
-  const { name, departmentId, locationId, isOutsourced } = req.query;
+  const {
+    name,
+    departmentId,
+    locationId,
+    isOutsourced,
+    showToast,
+    toastColor,
+    toastMessage,
+  } = req.query;
   let { month, year } = req.query;
 
   const whereStatement = {};
@@ -35,10 +43,15 @@ exports.getAllEmployees = async (req, res) => {
     departmentId,
     locationId,
     isOutsourced,
+    showToast,
+    toastMessage,
+    toastColor,
   });
 };
 
 exports.newEmployee = async (req, res) => {
+  const { showToast, toastColor, toastMessage } = req.query;
+
   const departments = await Department.findAll();
   const locations = await Location.findAll();
   const roles = await Role.findAll();
@@ -46,15 +59,26 @@ exports.newEmployee = async (req, res) => {
     departments,
     locations,
     roles,
+    showToast,
+    toastMessage,
+    toastColor,
   });
 };
 
 exports.createEmployee = async (req, res) => {
   try {
     await Employee.create(req.body);
-    res.send('Funcionário cadastrado com sucesso!');
+
+    res.redirect(
+      '/employees?showToast=true&toastMessage=Funcionário criado com sucesso!&toastColor=success'
+    );
   } catch (err) {
-    res.send(err.errors[0].message);
+    // encode url
+    const errorMessage = err.errors[0].message;
+
+    res.redirect(
+      `/employees/new?showToast=true&toastMessage=${errorMessage}&toastColor=danger`
+    );
   }
 };
 
