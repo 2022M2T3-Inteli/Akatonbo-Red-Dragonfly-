@@ -50,6 +50,17 @@
     </nav>
     <main class="flex-fill p-5">
       <h1 class="text-center mb-4">Dashboard | Gráfico</h1>
+      <form method="get" action="/dashboard/chart">
+          <div class="col form-group mb-3">
+            <label for="filter-year">Ano:</label>
+            <select class="form-control" id="filter-year" name="year">
+              <option value="" selected hidden>---</option>
+              <option value="2022">2022</option>
+              <option value="2023">2023</option>
+              <option value="2024">2024</option>
+            </select>
+          </div>
+      </form>
       <div>
         <a class="btn btn-secondary" href="/dashboard/table">Tabela</a>
         <a class="btn btn-primary" href="#">Gráfico</a>
@@ -60,6 +71,16 @@
   <script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.1/dist/chart.min.js"
     integrity="sha256-ErZ09KkZnzjpqcane4SCyyHsKAXMvID9/xwbl/Aq1pc=" crossorigin="anonymous"></script>
   <script>
+    // Popular o formulário com o ano atual
+    document.querySelector('#filter-year').value = '<%= year %>';
+    // Enviar automaticamente o formulário quando o usuário selecionar um ano
+    document.querySelector('#filter-year').addEventListener('change', function(e) {
+      e.preventDefault();
+      this.form.submit();
+    });
+
+    // Abaixo segue a configuração do chart.js, biblioteca usada para criar o gráfico do dashboard
+    // A documentação do chart.js está disponível em: https://www.chartjs.org/docs/latest/ (em inglês)
     const labels = "<%= MONTHS %>".split(',');
 
     const ctx = document.getElementById("hrChart").getContext("2d");

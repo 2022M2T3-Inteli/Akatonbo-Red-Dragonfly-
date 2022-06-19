@@ -50,6 +50,17 @@
     </nav>
     <main class="flex-fill p-5">
       <h1 class="text-center mb-4">Dashboard | Tabela</h1>
+      <form method="get" action="/dashboard/table">
+        <div class="col form-group mb-3">
+          <label for="filter-year">Ano:</label>
+          <select class="form-control" id="filter-year" name="year">
+            <option value="" selected hidden>---</option>
+            <option value="2022">2022</option>
+            <option value="2023">2023</option>
+            <option value="2024">2024</option>
+          </select>
+        </div>
+      </form>
       <div>
         <a class="btn btn-primary" href="#">Tabela</a>
         <a class="btn btn-secondary" href="/dashboard/chart">Gráfico</a>
@@ -111,6 +122,15 @@
       </table>
     </main>
   </div>
+  <script>
+    // Popular o formulário com o ano atual
+    document.querySelector('#filter-year').value = '<%= year %>';
+    // Enviar automaticamente o formulário quando o usuário selecionar um ano
+    document.querySelector('#filter-year').addEventListener('change', function(e) {
+      e.preventDefault();
+      this.form.submit();
+    });
+  </script>
 </body>
 
 </html>

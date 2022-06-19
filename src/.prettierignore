@@ -1,0 +1,2 @@
+# Esses arquivos estavam quebrando quando o prettier era executado, optamos por ignorá-los
+controllers/dashboardController.js
