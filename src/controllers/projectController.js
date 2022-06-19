@@ -125,7 +125,9 @@ exports.deleteProject = async (req, res) => {
   // Se o projeto existir, exclui o projeto
   if (project) {
     await project.destroy();
-    res.send('Projeto excluído com sucesso!');
+    res.redirect(
+      '/projects?showToast=true&toastMessage=Projeto excluído com sucesso!&toastColor=success'
+    );
   } else {
     // Se o projeto não existir, exibe um erro
     res.status(404).send('Projeto não encontrado!');

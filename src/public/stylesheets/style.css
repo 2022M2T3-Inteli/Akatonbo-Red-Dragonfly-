@@ -14,6 +14,10 @@ p, td, th, label {
   font-family: 'Roboto', sans-serif;
 }
 
+td {
+  vertical-align: middle;
+}
+
 /*
   CORES (Referência)
   Background: #c3c4ca

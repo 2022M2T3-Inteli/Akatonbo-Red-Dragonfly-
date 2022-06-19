@@ -1,6 +1,6 @@
 <!-- Mostrar toast de sucesso / erro -->
 <% if (showToast) { %>
-  <div class="toast align-items-center text-white bg-<%= toastColor %> border-0" role="alert" aria-live="assertive" aria-atomic="true">
+  <div class="toast position-fixed align-items-center text-white bg-<%= toastColor %> border-0" role="alert" aria-live="assertive" aria-atomic="true">
     <div class="d-flex">
       <div class="toast-body">
         <%= toastMessage %>

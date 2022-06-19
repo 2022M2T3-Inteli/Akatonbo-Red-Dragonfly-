@@ -124,7 +124,10 @@ exports.deleteAssignment = async (req, res) => {
   if (assignment) {
     // se a alocação existir, excluir
     await assignment.destroy();
-    res.send('Alocação excluída com sucesso!');
+    // Redirecionar para a página do projeto com uma notificação de sucesso
+    res.redirect(
+      `/projects/${assignment.projectId}?showToast=true&toastMessage=Alocação excluída com sucesso!&toastColor=success`
+    );
   } else {
     // se não existir, retornar um erro
     res.status(404).send('Alocação não encontrada!');

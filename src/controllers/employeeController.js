@@ -128,7 +128,9 @@ exports.deleteEmployee = async (req, res) => {
 
   if (employee) {
     await employee.destroy();
-    res.send('Funcionário excluído com sucesso!');
+    res.redirect(
+      '/employees?showToast=true&toastMessage=Funcionário excluído com sucesso!&toastColor=success'
+    );
   } else {
     res.status(404).send('Funcionário não encontrado!');
   }

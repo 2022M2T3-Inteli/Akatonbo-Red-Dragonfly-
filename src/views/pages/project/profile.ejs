@@ -123,6 +123,13 @@
                 <td>
                   <%= assignment.workHours %>
                 </td>
+                <td>
+                  <form action="/assignments/<%= assignment.id %>?_method=DELETE" method="POST" class="d-inline">
+                    <button type="submit" class="btn btn-danger" onclick="return confirm('Você deseja mesmo deletar essa alocação?')">
+                      <i class="bi bi-trash"></i>
+                    </button>
+                  </form>
+                </td>
               </tr>
               <% }) %>
           </tbody>
@@ -131,7 +138,10 @@
       <div class="position-absolute top-0 end-0 my-5 mx-5">
         <a href="edit.html" href="" class="btn btn-warning"><i class="bi bi-plus-lg"></i> Editar Projeto</a>
         <form action="/projects/<%= project.id %>?_method=DELETE" method="POST" class="d-inline">
-          <button type="submit" class="btn btn-danger"><i class="bi bi-trash"></i> Excluir Projeto</button>
+
+          <button type="submit" class="btn btn-danger" onclick="return confirm('Você deseja mesmo deletar esse projeto?')">
+            <i class="bi bi-trash"></i> Excluir Projeto
+          </button>
         </form>
       </div>
     </main>
