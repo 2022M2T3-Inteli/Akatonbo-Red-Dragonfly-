@@ -66,6 +66,19 @@ exports.getAllEmployees = async (req, res) => {
   });
 };
 
+// Método para renderizar o perfil de um funcionário
+exports.getEmployee = async (req, res) => {
+  const employee = await Employee.findByPk(req.params.id, {
+    include: [Department, Location, Role],
+  });
+
+  if (employee) {
+    res.render('pages/employee/profile', { employee });
+  } else {
+    res.status(404).send('Funcionário não encontrado!');
+  }
+};
+
 // Método para renderizar o formulário HTML de criação de um novo funcionário
 exports.newEmployee = async (req, res) => {
   const { showToast, toastColor, toastMessage } = req.query;
@@ -88,40 +101,56 @@ exports.createEmployee = async (req, res) => {
   try {
     await Employee.create(req.body);
 
+    // Redirecionar para a lista de funcionários
     res.redirect(
       '/employees?showToast=true&toastMessage=Funcionário criado com sucesso!&toastColor=success'
     );
   } catch (err) {
-    // encode url
-    const errorMessage = err.errors[0].message;
-
+    // Se ocorrer um erro, renderizar o formulário de criação novamente
     res.redirect(
-      `/employees/new?showToast=true&toastMessage=${errorMessage}&toastColor=danger`
+      `/employees/new?showToast=true&toastMessage=${err.errors[0].message}&toastColor=danger`
     );
   }
 };
 
+
 // Método para renderizar o formulário HTML de edição de um funcionário
-exports.getEmployee = async (req, res) => {
+exports.editEmployee = async (req, res) => {
+  // Buscar o funcionário pelo id
   const employee = await Employee.findByPk(req.params.id, {
     include: [Department, Location, Role],
   });
 
+  // verificar se o funcionário existe
   if (employee) {
-    res.render('pages/employee/profile', { employee });
+    // Buscar todos os departamentos, locais e funções no banco de dados para o formulário de edição
+    const departments = await Department.findAll();
+    const locations = await Location.findAll();
+    const roles = await Role.findAll();
+
+    // Renderizar o formulário de edição
+    res.render('pages/employee/edit', {
+      employee,
+      departments,
+      locations,
+      roles,
+    });
   } else {
     res.status(404).send('Funcionário não encontrado!');
   }
-};
+}
 
-// Método para renderizar o formulário HTML de edição de um funcionário
+// Método para atualizar um funcionário no banco de dados
 exports.updateEmployee = async (req, res) => {
+  // Buscar o funcionário pelo id
   const employee = await Employee.findByPk(req.params.id);
 
   if (employee) {
     try {
       await employee.update(req.body);
-      res.send('Funcionário atualizado com sucesso!');
+      res.redirect(
+        '/employees?showToast=true&toastMessage=Funcionário atualizado com sucesso!&toastColor=success'
+      );
     } catch (err) {
       res.send(err.errors[0].message);
     }
@@ -132,14 +161,18 @@ exports.updateEmployee = async (req, res) => {
 
 // Método para excluir um funcionário do banco de dados
 exports.deleteEmployee = async (req, res) => {
+  // Buscar o funcionário pelo id
   const employee = await Employee.findByPk(req.params.id);
 
   if (employee) {
+    // Excluir o funcionário
     await employee.destroy();
+    // Redirecionar para a lista de funcionários
     res.redirect(
       '/employees?showToast=true&toastMessage=Funcionário excluído com sucesso!&toastColor=success'
     );
   } else {
+    // Se o funcionário não existir, exibir um erro
     res.status(404).send('Funcionário não encontrado!');
   }
 };

@@ -52,59 +52,82 @@
     <main class="flex-fill p-5">
       <h1 class="text-center mb-4">Editar Funcionário</h1>
 
-      <form name="add-new-employee" action="/employees/1" method="get">
+      <form action="/employees/<%=employee.id %>?_method=PATCH" method="POST">
         <div class="mb-3">
-          <label for="name" class="form-label">Nome:</label>
-          <input class="form-control" id="name" type="text" required value="Bruno Liao">
+          <label for="name" class="form-label">Nome Completo</label>
+          <input class="form-control" id="name" type="text" name="name" required value="<%= employee.name %>">
         </div>
 
         <div class="mb-3">
-          <label for="email" class="form-label">Email:</label>
-          <input class="form-control" id="email" type="email" required value="bruno.liao@sou.inteli.edu.br">
+          <label for="email" class="form-label">Email</label>
+          <input class="form-control" id="email" type="email" name="email" required value="<%= employee.email %>">
         </div>
 
         <div class="mb-3">
-          <p>Unidade:</p>
-          <div class="row g-0">
-            <div class="col form-check">
-              <input id="sp" class="form-check-input" type="checkbox" checked>
-              <label class="form-check-label" for="sp">São Paulo</label>
-            </div>
-            <div class="col form-check">
-              <input id="manaus" class="form-check-input" type="checkbox">
-              <label class="form-check-label" for="manaus">Manaus</label>
-            </div>
-          </div>
-        </div>
-
-        <div class="mb-3">
-          <p>Área:</p>
-          <select class="form-select" required>
-            <option value="" readonly="true" hidden="true">Selecione a área</option>
-            <option value="1">Project Manager</option>
-            <option value="2" selected>Analista de Banco de Dados</option>
-            <option value="3">Programador Backend Python</option>
+          <label for="location"> Sede: </label>
+          <select class="form-control" id="location" name="locationId" required>
+            <option value="" readonly="true" hidden="true" selected> Selecione o local </option>
+            <% locations.forEach(location => {%>
+            <option value="<%= location.id %>"><%= location.name %></option>
+            <% }) %>
           </select>
         </div>
 
         <div class="mb-3">
-          <label class="form-label" for="employee-capacity">Capacidade horária:</label>
-          <input class="form-control" id="employee-capacity" type="number" step="10" required placeholder="h/mês" value="190">
+          <label for="department"> Departamento: </label>
+          <select class="form-select" id="department" name="departmentId" required>
+            <option value="" readonly="true" hidden="true" selected> Selecione o departamento </option>
+            <% departments.forEach(department => {%>
+            <option value="<%= department.id %>"><%= department.name %></option>
+            <% }) %>
+          </select>
+        </div>
+
+        <div class="mb-3">
+          <label for="role"> Função: </label>
+          <select class="form-select" id="role" name="roleId" required>
+            <option value="" readonly="true" hidden="true" selected>Selecione a função</option>
+            <% roles.forEach(role => {%>
+            <option value="<%= role.id %>"><%= role.name %></option>
+            <% }) %>
+          </select>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="contractedHours">Carga Horária Contratual:</label>
+          <input class="form-control" id="contractedHours" type="number" step="1" min="0" max="744" name="contractedHours" required placeholder="h/mês" value="<%= employee.contractedHours %>">
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="customWorkload">Customizar horas disponíveis para projetos (Opcional, sobrepõe o padrão da função):</label>
+          <input class="form-control" id="customWorkload" type="number" step="1" min="0" max="744" name="customWorkload" placeholder="h/mês" value="<%= employee.customWorkload %>">
         </div>
 
         <div class="mb-3">
           <div class="form-check form-switch">
-            <input class="form-check-input" type="checkbox" id="outsourced">
             <label class="form-check-label" for="outsourced">Funcionário Externo</label>
+            <input class="form-check-input" value="1" type="checkbox" id="outsourced" name="isOutsourced" <%= employee.isOutsourced ? 'checked' : '' %>>
           </div>
         </div>
 
         <div class="mb-3">
-          <input type="submit" id="save-new-employee" class="btn btn-primary" value="Cadastrar">
+          <input type="submit" id="update-employee" class="btn btn-primary" value="Atualizar">
         </div>
       </form>
     </main>
   </div>
+  <script>
+    // Preencher os campos select do formulário, não é possível fazer isso diretamente no HTML
+    window.onload = function() {
+      const location = document.getElementById('location');
+      const department = document.getElementById('department');
+      const role = document.getElementById('role');
+
+      location.value = "<%= employee.locationId %>";
+      department.value = "<%= employee.departmentId %>";
+      role.value = "<%= employee.roleId %>";
+    }
+  </script>
 </body>
 
 </html>

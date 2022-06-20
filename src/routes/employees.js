@@ -22,5 +22,7 @@ router
   .patch(employeeController.updateEmployee) // PATCH /employees/:id
   .delete(employeeController.deleteEmployee); // DELETE /employees/:id
 
+router.route('/:id/edit/').get(employeeController.editEmployee); // GET /employees/edit/:id
+
 // Exporta as rotas para serem utilizadas pelo app.js
 module.exports = router;
