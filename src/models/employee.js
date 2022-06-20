@@ -58,6 +58,7 @@ module.exports = (sequelize, DataTypes) => {
       isOutsourced: DataTypes.BOOLEAN,
       customWorkload: {
         type: DataTypes.INTEGER,
+        allowNull: true, // pode ser nulo, caso seja serão aplicadas as horas padrão da função do funcionário
         validate: {
           min: {
             args: [0],
@@ -71,6 +72,7 @@ module.exports = (sequelize, DataTypes) => {
       },
       contractedHours: {
         type: DataTypes.INTEGER,
+        allowNull: false, // não pode ser nulo, o funcionário deve ter horas contratuais (CLT ou PJ)
         validate: {
           min: {
             args: [0],
