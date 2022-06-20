@@ -57,6 +57,23 @@
         <!-- Campo escondido com id do projeto, preenchido automaticamente a partir do ID da URL -->
         <input type="hidden" name="projectId" value="<%= project.id %>">
 
+        <table class="table table-striped table-hover">
+          <thead>
+            <tr>
+              <th>Projeto</th>
+              <th>Data de Início</th>
+              <th>Data de Conclusão</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><%= project.name %></td>
+              <td><%= project.startDate %></td>
+              <td><%= project.endDate %></td>
+            </tr>
+          </tbody>
+        </table>
+
         <div class="mb-3">
           <label for="employee">Funcionário: </label>
           <select class="form-control" id="employee" name="employeeId" required>
