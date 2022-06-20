@@ -1,3 +1,6 @@
+// Importa o day.js para formatar datas
+const dayjs = require('dayjs')
+
 // Importa o arquivo de meses a serem referenciados
 const MONTHS = require('../public/javascripts/months');
 
@@ -26,6 +29,7 @@ exports.newAssignment = async (req, res) => {
     employees,
     project,
     MONTHS,
+    dayjs,
     showToast: req.query.showToast,
     toastMessage: req.query.toastMessage,
     toastColor: req.query.toastColor,

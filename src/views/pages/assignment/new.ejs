@@ -68,8 +68,8 @@
           <tbody>
             <tr>
               <td><%= project.name %></td>
-              <td><%= project.startDate %></td>
-              <td><%= project.endDate %></td>
+              <td><%= dayjs(project.startDate).format('DD/MM/YYYY') %></td>
+              <td><%= dayjs(project.endDate).format('DD/MM/YYYY') %></td>
             </tr>
           </tbody>
         </table>
