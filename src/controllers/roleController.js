@@ -35,7 +35,7 @@ exports.createRole = async (req, res) => {
     );
   } catch (err) {
     res.redirect(
-      `roles/new?showToast=true&toastColor=danger&toastMessage=${err.errors[0].message}`
+      `roles/new?showToast=true&toastColor=danger&toastMessage=${err.message}`
     );
   }
 };
@@ -51,7 +51,7 @@ exports.updateRole = async (req, res) => {
       await role.update(req.body);
       res.send('Função atualizada com sucesso!');
     } catch (err) {
-      res.send(err.errors[0].message);
+      res.send(err.message);
     }
   } else {
     res.status(404).send('Função não encontrada!');

@@ -59,7 +59,7 @@ exports.createProject = async (req, res) => {
     );
   } catch (err) {
     res.redirect(
-      `/projects/new?showToast=true&toastMessage=${err.errors[0].message}&toastColor=danger`
+      `/projects/new?showToast=true&toastMessage=${err.message}&toastColor=danger`
     );
   }
 };
@@ -151,7 +151,7 @@ exports.updateProject = async (req, res) => {
     } catch (err) {
       // Se houver um erro, redireciona para o formulário de edição do projeto
       res.redirect(
-        `/projects/${req.params.id}/edit?showToast=true&toastMessage=${err.errors[0].message}&toastColor=danger`
+        `/projects/${req.params.id}/edit?showToast=true&toastMessage=${err.message}&toastColor=danger`
       );
     }
   } else {

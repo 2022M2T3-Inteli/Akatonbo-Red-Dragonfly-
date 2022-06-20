@@ -8,7 +8,7 @@ exports.createDepartment = async (req, res) => {
     await Department.create(req.body);
     res.send('Departamento criado com sucesso!');
   } catch (err) {
-    res.send(err.errors[0].message);
+    res.send(err.message);
   }
 };
 
@@ -21,7 +21,7 @@ exports.updateDepartment = async (req, res) => {
       await department.update(req.body);
       res.send('Departamento atualizado com sucesso!');
     } catch (err) {
-      res.send(err.errors[0].message);
+      res.send(err.message);
     }
   } else {
     res.status(404).send('Departamento não encontrado!');

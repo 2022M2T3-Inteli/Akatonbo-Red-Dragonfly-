@@ -82,7 +82,7 @@ exports.createAssignment = async (req, res) => {
     );
   } catch (err) {
     res.redirect(
-      `/assignments/new/${req.body.projectId}?showToast=true&toastMessage=${err.errors[0].message}&toastColor=danger`
+      `/assignments/new/${req.body.projectId}?showToast=true&toastMessage=${err.message}&toastColor=danger`
     );
   }
 };

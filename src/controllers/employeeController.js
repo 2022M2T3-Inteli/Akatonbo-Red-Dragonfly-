@@ -108,7 +108,7 @@ exports.createEmployee = async (req, res) => {
   } catch (err) {
     // Se ocorrer um erro, renderizar o formulário de criação novamente
     res.redirect(
-      `/employees/new?showToast=true&toastMessage=${err.errors[0].message}&toastColor=danger`
+      `/employees/new?showToast=true&toastMessage=${err.message}&toastColor=danger`
     );
   }
 };
@@ -152,7 +152,9 @@ exports.updateEmployee = async (req, res) => {
         '/employees?showToast=true&toastMessage=Funcionário atualizado com sucesso!&toastColor=success'
       );
     } catch (err) {
-      res.send(err.errors[0].message);
+      res.redirect(
+        `/employees/${req.params.id}/edit?showToast=true&toastMessage=${err.message}&toastColor=danger`
+      );
     }
   } else {
     res.status(404).send('Funcionário não encontrado!');
