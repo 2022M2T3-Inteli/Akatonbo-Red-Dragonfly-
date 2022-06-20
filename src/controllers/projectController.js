@@ -10,7 +10,7 @@ const Department = require('../models').Department;
 const Location = require('../models').Location;
 const Role = require('../models').Role;
 
-// Método que renderiza a view de listagem de projetos(todos)
+// Método que renderiza a view de listagem de todos os projetos
 exports.getAllProjects = async (req, res) => {
   // Carrega todos os projetos do banco de dados
   const projects = await Project.findAll({ include: [Department, Location] });
@@ -29,11 +29,11 @@ exports.getAllProjects = async (req, res) => {
   });
 };
 
-// Método que renderiza a view de cadastro de projeto
+// Método que renderiza um form HTML para cadastro de projeto
 exports.newProject = async (req, res) => {
-  // Carrega todos os departamentos do banco de dados
+  // Carrega todos os departamentos do banco de dados para mostrar no formulário
   const departments = await Department.findAll();
-  // Carrega todos os locais do banco de dados
+  // Carrega todos os locais do banco de dados para mostrar no formulário
   const locations = await Location.findAll();
 
   res.render('pages/project/new', {
@@ -100,18 +100,55 @@ exports.getProject = async (req, res) => {
   }
 };
 
+// Método que renderiza um formulário HTML para editar os dados de um projeto
+exports.editProject = async (req, res) => {
+  // Carrega todos os departamentos do banco de dados para mostrar no formulário
+  const departments = await Department.findAll();
+
+  // Carrega todos os locais do banco de dados para mostrar no formulário
+  const locations = await Location.findAll();
+
+  // Seleciona o projeto a ser editado pelo usuário pelo PK (Primary Key)
+  const project = await Project.findByPk(req.params.id, {
+    include: [Department, Location],
+  });
+
+  // Verifica se o projeto existe
+  if (project) {
+    // Retorna um formulário HTML com os dados do projeto existente
+    res.render('pages/project/edit', {
+      project,
+      locations,
+      departments,
+      showToast: req.query.showToast,
+      toastMessage: req.query.toastMessage,
+      toastColor: req.query.toastColor,
+    });
+  } else {
+    // Se o projeto não existir, exibe um erro
+    res.status(404).send('Projeto não encontrado!');
+  }
+};
+
+// Método que atualiza os dados do projeto no banco de dados
 exports.updateProject = async (req, res) => {
   // Seleciona o projeto requisitado pelo usuário pelo PK (Primary Key)
-  const project = await Project.findByPk(req.params.id);
-
+  const project = await Project.findByPk(req.body.id);
+  console.log(project);
+  // Verifica se o projeto existe
   if (project) {
-    // Executa a requisição update do projeto selecionado
     try {
+      // Atualiza o projeto selecionado no banco de dados
       await project.update(req.body);
-      res.send('Projeto atualizado com sucesso!');
+      // Redireciona para a listagem de projetos
+      res.redirect(
+        `/projects/${req.params.id}?showToast=true&toastMessage=Projeto atualizado com sucesso!&toastColor=success`
+      );
     } catch (err) {
-      // Se ocorrer um erro, exibe o erro
-      res.send(err.errors[0].message);
+      // Se houver um erro, redireciona para o formulário de edição do projeto
+      res.redirect(
+        `/projects/${req.params.id}/edit?showToast=true&toastMessage=${err.errors[0].message}&toastColor=danger`
+      );
     }
   } else {
     // Se o projeto não existir, exibe um erro

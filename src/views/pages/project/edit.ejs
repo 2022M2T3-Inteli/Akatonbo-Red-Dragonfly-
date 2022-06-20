@@ -50,18 +50,21 @@
       </a>
     </nav>
     <main class="flex-fill p-5">
+      <%- include('../../partials/toast.ejs') %>
+
       <h1>Editar Projeto</h1>
-      <form action="/projects" method="POST">
+      <form action="/projects/<%= project.id %>?_method=PATCH" method="POST">
+        <input type="hidden" name="id" value="<%= project.id %>">
 
         <div class="mb-3">
           <label for="name" class="form-label">Nome:</label>
-          <input id="name" class="form-control" type="text" name="name" required>
+          <input id="name" class="form-control" type="text" name="name" value="<%= project.name %>" required>
         </div>
 
         <div class="mb-3">
           <label for="filter-location"> Unidade Requerente: </label>
-          <select class="form-control" id="filter-location" name="locationId" required>
-            <option value = "" hidden="true" selected> Selecione o local </option>
+          <select class="form-control" id="filter-location" name="locationId" required">
+            <option value="" hidden="true" selected> Selecione o local </option>
             <% locations.forEach(location => {%>
             <option value="<%= location.id %>"><%= location.name %></option>
             <% }) %>
@@ -81,20 +84,27 @@
         <div class="row mb-3">
           <div class="col">
             <label class="form-label" for="startDate">Data de Inicio:</label>
-            <input class="form-control" id="startDate" type="date" required placeholder="h/mês" name="startDate" required>
+            <input class="form-control" id="startDate" type="date" required placeholder="h/mês" name="startDate" required value="<%= project.startDate %>">
           </div>
           <div class="col">
             <label class="form-label" for="endDate">Data Estimada de Conclusão:</label>
-            <input class="form-control" id="endDate" type="date" required placeholder="h/mês" name="endDate" required>
+            <input class="form-control" id="endDate" type="date" required placeholder="h/mês" name="endDate" required value="<%= project.endDate %>">
           </div>
         </div>
 
         <div>
-           <button type="submit" class="btn btn-primary"> Cadastrar </button>
+           <button type="submit" class="btn btn-primary">Atualizar</button>
         </div>
       </form>
     </main>
   </div>
+  <script>
+    // Preencher o select de unidades e departamentos, não é possível fazer isso diretamente no html
+    window.onload = function () {
+      document.getElementById('filter-location').value = "<%= project.locationId %>";
+      document.getElementById('filter-department').value = "<%= project.departmentId %>";
+    };
+  </script>
 </body>
 
 </html>
