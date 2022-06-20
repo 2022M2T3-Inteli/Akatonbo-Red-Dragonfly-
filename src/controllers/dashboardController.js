@@ -1,10 +1,12 @@
+// Importa os models necessários
 const Assignment = require('../models').Assignment;
 const Role = require('../models').Role;
 const Employee = require('../models').Employee;
 
+// Arquivo contendo os nomes dos meses
 const MONTHS = require('../public/javascripts/months');
 
-// Esse método retorna uma página HTML com a tabela do dashboard
+// Método que renderiza uma página HTML com a tabela do dashboard
 exports.getTable = async (req, res) => {
   // Obter o ano que está sendo exibido
   const year = req.query.year || new Date().getFullYear();
@@ -30,7 +32,7 @@ exports.getTable = async (req, res) => {
   res.render('pages/dashboard/table', { roles, year });
 };
 
-// Esse método retorna uma página HTML com o gráfico do dashboard
+// Método que retorna uma página HTML com o gráfico do dashboard
 exports.getChart = async (req, res) => {
   // Obter o ano que está sendo exibido
   const year = req.query.year || new Date().getFullYear();

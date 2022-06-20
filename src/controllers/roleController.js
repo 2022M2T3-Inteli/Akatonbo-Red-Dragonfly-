@@ -1,7 +1,7 @@
 // Importa o index.js do Model gerado automaticamente pelo Sequelize
 const Role = require('../models').Role;
 
-// Exporta o método de requisição para ser referenciado pelo Router
+// Método que renderiza uma página HTML listando todas as funções dos funcionários
 exports.getAllRoles = async (req, res) => {
   // Usa sequelize para achar todos os roles no BD
   const roles = await Role.findAll();
@@ -14,6 +14,7 @@ exports.getAllRoles = async (req, res) => {
   });
 };
 
+// Método que renderiza um form HTML para cadastro de uma nova função
 exports.newRole = async (req, res) => {
   // Acessa o form html para criar o novo role
   res.render('pages/role/new', {
@@ -23,6 +24,7 @@ exports.newRole = async (req, res) => {
   });
 };
 
+// Método que salva a função no banco de dados
 exports.createRole = async (req, res) => {
   // Testa se todos os requisitos do BD foram atendidos
   try {
@@ -38,6 +40,7 @@ exports.createRole = async (req, res) => {
   }
 };
 
+// Método que atualiza um projeto no banco de dados
 exports.updateRole = async (req, res) => {
   // Seleciona o Role requisitado pelo usuário pelo PK (Primary Key)
   const role = await Role.findByPk(req.params.id);
@@ -55,6 +58,7 @@ exports.updateRole = async (req, res) => {
   }
 };
 
+// Método que exclui um projeto do banco de dados
 exports.deleteRole = async (req, res) => {
   const role = await Role.findByPk(req.params.id);
 

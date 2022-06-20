@@ -7,7 +7,7 @@ const Employee = require('../models').Employee;
 const Project = require('../models').Project;
 const Role = require('../models').Role;
 
-// Esse método retorna um formulário HTML para o cadastro de uma nova alocação
+// Método que retorna um formulário HTML para o cadastro de uma nova alocação
 exports.newAssignment = async (req, res) => {
   // Buscar o projeto pelo ID passado na URL
   const project = await Project.findByPk(req.params.id);
@@ -32,7 +32,7 @@ exports.newAssignment = async (req, res) => {
   });
 };
 
-// Esse método recebe os dados do formulário de cadastro de alocação e salva no banco de dados
+// Método que recebe os dados do formulário de cadastro de alocação e salva no banco de dados
 exports.createAssignment = async (req, res) => {
   // verificar se o projeto existe e retornar um erro se não existir
   const project = await Project.findByPk(req.body.projectId);
@@ -87,7 +87,7 @@ exports.createAssignment = async (req, res) => {
   }
 };
 
-// Esse método recebe os dados do formulário de edição de alocação e salva no banco de dados
+// Método que atualiza uma alocação no banco de dados
 exports.updateAssignment = async (req, res) => {
   const assignment = await Assignment.findByPk(req.params.id);
 
@@ -116,11 +116,12 @@ exports.updateAssignment = async (req, res) => {
   }
 };
 
-// Esse método recebe o ID de uma alocação e a exclui do banco de dados
+// Método que deleta uma alocação do banco de dados
 exports.deleteAssignment = async (req, res) => {
-  // verificar se a alocação existe
+  // Obter a alocação no banco de dados pelo ID passado na URL
   const assignment = await Assignment.findByPk(req.params.id);
 
+  // verificar se a alocação existe
   if (assignment) {
     // se a alocação existir, excluir
     await assignment.destroy();

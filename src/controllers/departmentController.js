@@ -1,7 +1,7 @@
-// Importa o index.js do Model gerado automaticamente pelo Sequelize
+// Importa os models necessários
 const Department = require('../models').Department;
 
-// Exporta o método de requisição para ser referenciado pelo Router
+// Método para criar um novo departamento no banco de dados
 exports.createDepartment = async (req, res) => {
   // Usa sequelize para usar o método POST par criar um novo departamento
   try {
@@ -12,6 +12,7 @@ exports.createDepartment = async (req, res) => {
   }
 };
 
+// Método para atualizar um departamento no banco de dados
 exports.updateDepartment = async (req, res) => {
   const department = await Department.findByPk(req.params.id);
   // Se conseguir achar o departamento pela Pk, executa o método PATCH
@@ -27,6 +28,7 @@ exports.updateDepartment = async (req, res) => {
   }
 };
 
+// Método para excluir um departamento do banco de dados
 exports.deleteDepartment = async (req, res) => {
   const department = await Department.findByPk(req.params.id);
   // Se conseguir achar o departamento pela Pk, executa o método DELETE

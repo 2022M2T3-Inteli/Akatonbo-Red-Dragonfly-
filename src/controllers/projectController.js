@@ -3,6 +3,7 @@ const dayjs = require('dayjs');
 // Importa os meses do ano
 const MONTHS = require('../public/javascripts/months');
 
+// Importa os models necessários
 const Project = require('../models').Project;
 const Assignment = require('../models').Assignment;
 const Employee = require('../models').Employee;
@@ -14,7 +15,9 @@ const Role = require('../models').Role;
 exports.getAllProjects = async (req, res) => {
   // Carrega todos os projetos do banco de dados
   const projects = await Project.findAll({ include: [Department, Location] });
+  // Carrega todos os departamentos do banco de dados
   const departments = await Department.findAll();
+  // Carrega todos os locais do banco de dados
   const locations = await Location.findAll();
 
   // Renderiza a view com os dados do projeto
@@ -61,6 +64,7 @@ exports.createProject = async (req, res) => {
   }
 };
 
+// Método que renderiza uma página HTML com o perfil de um projeto
 exports.getProject = async (req, res) => {
   // Seleciona o projeto requisitado pelo usuário pelo PK (Primary Key)
   const project = await Project.findByPk(req.params.id, {
@@ -156,6 +160,7 @@ exports.updateProject = async (req, res) => {
   }
 };
 
+// Método que exclui um projeto do banco de dados
 exports.deleteProject = async (req, res) => {
   // Seleciona o projeto requisitado pelo usuário pelo PK (Primary Key)
   const project = await Project.findByPk(req.params.id);
