@@ -50,7 +50,7 @@ module.exports = (sequelize, DataTypes) => {
             msg: 'O nome do funcionário não pode estar vazio',
           },
           notNull: {
-            msg: 'O nome do funcionário não pode estar nulo',
+            msg: 'O nome do funcionário não pode estar vazio',
           },
         },
       },
@@ -60,6 +60,9 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.INTEGER,
         allowNull: true, // pode ser nulo, caso seja serão aplicadas as horas padrão da função do funcionário
         validate: {
+          isInt: {
+            msg: 'A carga horária mensal do funcionário deve ser um número inteiro',
+          },
           min: {
             args: [0],
             msg: 'A carga horária mensal do funcionário não pode ser menor que 0 horas',
@@ -74,6 +77,9 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.INTEGER,
         allowNull: false, // não pode ser nulo, o funcionário deve ter horas contratuais (CLT ou PJ)
         validate: {
+          isInt: {
+            msg: 'As horas contratuais do funcionário devem ser um número inteiro',
+          },
           min: {
             args: [0],
             msg: 'As horas contratuais do funcionário não podem ser menores que 0 horas',
@@ -81,6 +87,9 @@ module.exports = (sequelize, DataTypes) => {
           max: {
             args: [744], // 744 horas em um mês
             msg: 'As horas contratuais do funcionário não podem exceder 744 horas',
+          },
+          notNull: {
+            msg: 'As horas contratuais do funcionário não podem estar vazias',
           },
         },
       },

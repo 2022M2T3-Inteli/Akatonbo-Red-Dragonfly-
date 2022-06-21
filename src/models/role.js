@@ -26,7 +26,7 @@ module.exports = (sequelize, DataTypes) => {
         allowNull: false,
         validate: {
           isInt: {
-            msg: 'O workload padrão deve ser um número inteiro',
+            msg: 'A carga horária padrão deve ser um número inteiro',
           },
           min: {
             args: [0],

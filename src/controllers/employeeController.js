@@ -68,10 +68,12 @@ exports.getAllEmployees = async (req, res) => {
 
 // Método para renderizar o perfil de um funcionário
 exports.getEmployee = async (req, res) => {
+  // Buscar o funcionário pelo id
   const employee = await Employee.findByPk(req.params.id, {
     include: [Department, Location, Role],
   });
 
+  // verificar se o funcionário existe
   if (employee) {
     res.render('pages/employee/profile', { employee });
   } else {
@@ -83,9 +85,11 @@ exports.getEmployee = async (req, res) => {
 exports.newEmployee = async (req, res) => {
   const { showToast, toastColor, toastMessage } = req.query;
 
+  // Buscar todos os departamentos, locais e funções no banco de dados para o formulário de criação
   const departments = await Department.findAll();
   const locations = await Location.findAll();
   const roles = await Role.findAll();
+  // Renderizar o formulário de criação
   res.render('pages/employee/new', {
     departments,
     locations,
@@ -98,7 +102,15 @@ exports.newEmployee = async (req, res) => {
 
 // Método para criar um novo funcionário no banco de dados
 exports.createEmployee = async (req, res) => {
+  // Verificar se alguma string vazia foi enviada e transformar em null
+  for (const key in req.body) {
+    if (req.body[key] === '') {
+      req.body[key] = null;
+    }
+  }
+
   try {
+    // Criar um novo funcionário no banco de dados
     await Employee.create(req.body);
 
     // Redirecionar para a lista de funcionários
@@ -112,7 +124,6 @@ exports.createEmployee = async (req, res) => {
     );
   }
 };
-
 
 // Método para renderizar o formulário HTML de edição de um funcionário
 exports.editEmployee = async (req, res) => {
@@ -136,16 +147,25 @@ exports.editEmployee = async (req, res) => {
       roles,
     });
   } else {
+    // Se o funcionário não existir, redirecionar para a lista de funcionários
     res.status(404).send('Funcionário não encontrado!');
   }
-}
+};
 
 // Método para atualizar um funcionário no banco de dados
 exports.updateEmployee = async (req, res) => {
   // Buscar o funcionário pelo id
   const employee = await Employee.findByPk(req.params.id);
 
+  // Verificar se o funcionário existe
   if (employee) {
+    // Verificar se alguma string vazia foi enviada e transformar em null (para campos opcionais)
+    for (const key in req.body) {
+      if (req.body[key] === '') {
+        req.body[key] = null;
+      }
+    }
+
     try {
       await employee.update(req.body);
       res.redirect(
