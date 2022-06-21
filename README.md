@@ -7,8 +7,7 @@
 
 # Yamaha Planning System
 
-## Turma 3 - Grupo 4
-## Grupo Akatonbo (Red Dragonfly)
+## Akatonbo (Red Dragonfly)
 <div align="center">
 <img src="https://yamavale.com.br/wp-content/uploads/2020/12/red_dragonfly-desktop2-1024x664-1.jpg">
 <a href="https://www3.yamaha-motor.com.br/r%C3%A9plica-red-dragonfly/product/6" target="_blank">Fonte: Página oficial da Yamaha Motors do Brasil</a>
@@ -25,7 +24,7 @@
 
 ## 🏍 Descrição
 
-Yamaha Planning System é uma aplicação web de gestão de capacidade ("capacity planning") dos recursos humanos nos projetos da Yamaha.
+[Yamaha Planning System](https://yamaha-planning-system.herokuapp.com/) é uma aplicação web de gestão de capacidade ("capacity planning") dos recursos humanos nos projetos da Yamaha.
 <br><br>
 Seu principal objetivo é facilitar o processo de análise de disponibilidade de horas dos recursos humanos da Yamaha para projetos e otimizar a alocação dos funcionários em projetos existentes. O sistema Web pode ser utilizado por um gerente para cadastrar funções, funcionários, projetos e alocações. Também pode ser usado para visualizar de forma analítica a situação atual da empresa, em relação aos projetos e as alocação de funcionários, para assim embasar a tomada de decisões.
 <br><br>
@@ -40,7 +39,8 @@ Seu principal objetivo é facilitar o processo de análise de disponibilidade de
 -Raiz<br>
 |<br>
 |-->documentos<br>
-  &emsp;|WAD - Yamaha Planning System.pdf<br>
+  &emsp;|T3_G4_V05_Web_application_document.pdf<br>
+  &emsp;|T3_G4_V05_Web_application_document.docx<br>
 |-->src<br>
   &emsp;|-->bin<br>
     &emsp;&emsp;|www (arquivo usado pelo express para iniciar o app)<br>
@@ -62,20 +62,21 @@ Seu principal objetivo é facilitar o processo de análise de disponibilidade de
   &emsp;|package-lock.json (arquivo de configuração do npm)<br>
   &emsp;|package.json (arquivo de configuração do npm)<br>
 
-##  🧑‍💻 Instalação
+## 💻 Configuração para desenvolvimento
 
-Para instalar o servidor localmente em seu computador, primeiro clone o repositório em sua máquina. Também é necessário ter o `npm` instalado. Após essas configurações, siga os passos abaixo:
+### Instalação
 
-1. Abra a pasta `src` deste projeto no VSCode ou na sua IDE preferida.
-2. Se estiver usando MacOS ou Linux:
+Para instalar o servidor localmente em seu computador, primeiro clone esse repositório em sua máquina. Após, siga os passos abaixo:
+
+1. Baixe e instale a versão [16.14.2 do Node](https://nodejs.org/ru/blog/release/v16.14.2/)
+2. Abra a pasta `src` deste projeto no VSCode ou na sua IDE preferida.
+3. Se estiver usando MacOS ou Linux:
     - Abra o terminal e digite: `npm install`
     - Após, digite no terminal: `npm run serverstart`
-3. Se estiver usando Windows:
+4. Se estiver usando Windows:
     - Abra o prompt de comando padrão do windows (`cmd`, não use o Powershell) e digite: `npm install`
     - Após, digite no terminal: `npm run startwindows`
-4. Se tudo der certo, a aplicação deve rodar na URL `localhost:3000`. Acesse preferencialmente usando o navegador Google Chrome.
-
-## 💻 Configuração para desenvolvimento
+5. Se tudo der certo, a aplicação deve estar acessível na URL `localhost:3000`. Acesse preferencialmente usando o navegador Google Chrome.
 
 ### Prettier e ESLint
 
