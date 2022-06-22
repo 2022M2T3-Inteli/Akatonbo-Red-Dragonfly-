@@ -7,7 +7,7 @@
 
 # Yamaha Planning System
 
-## Akatonbo (Red Dragonfly)
+## Grupo 4: Akatonbo (Red Dragonfly)
 <div align="center">
 <img src="https://yamavale.com.br/wp-content/uploads/2020/12/red_dragonfly-desktop2-1024x664-1.jpg">
 <a href="https://www3.yamaha-motor.com.br/r%C3%A9plica-red-dragonfly/product/6" target="_blank">Fonte: Página oficial da Yamaha Motors do Brasil</a>
