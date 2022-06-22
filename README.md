@@ -43,6 +43,8 @@ Seu principal objetivo é facilitar o processo de análise de disponibilidade de
     - <a href=""><img src="https://user-images.githubusercontent.com/99209356/174968001-e5dfbc94-09e5-43d3-a5ab-60a684e673b3.svg" width="18px" height="18px"></a> T3_G4_V05_Web_application_document.docx<br>
 
     - 📂 Outros<br>
+      - Manual de Manutenção do Código<br>
+      - Manual do Usuário.pdf<br>
 
   - <a href=""><img src="https://user-images.githubusercontent.com/99209356/174968635-a4e7428f-1dec-4a79-a653-746679793d88.svg" width="18px" height="18px"></a> imagens<br>
 
@@ -50,10 +52,10 @@ Seu principal objetivo é facilitar o processo de análise de disponibilidade de
 
     - <a href="https://github.com/2022M2T3/Projeto4/tree/main/src/bin"><img src="https://user-images.githubusercontent.com/99209356/174969247-e2a48e94-6ad8-4456-aee7-a96e1ef4bd76.svg" width="18px" height="18px"></a> bin<br>
     &emsp;&emsp;|www (arquivo usado pelo express para iniciar o app)<br>
-    
+
     - <a href="https://github.com/2022M2T3/Projeto4/tree/main/src/config"><img src="https://user-images.githubusercontent.com/99209356/174970674-d64a742b-23cc-4170-bc9a-e8c1dec21b9e.svg" width="18px" height="18px"></a> config<br>
     &emsp;&emsp;|config.json (configurações do banco de dados)<br>
-    
+
     - <a href="https://github.com/2022M2T3/Projeto4/tree/main/src/controllers"><img src="https://user-images.githubusercontent.com/99209356/174970790-bd7000fa-c7a3-4244-b3e2-abb74368220d.svg" width="18px" height="18px"></a> controllers (pasta com os arquivos de controllers - C do MVC)<br>
 
     - 📂 migrations (migrações para criar a estrutura do banco de dados do zero)<br>
