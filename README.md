@@ -38,48 +38,46 @@ Seu principal objetivo é facilitar o processo de análise de disponibilidade de
 
 - 📁 Raiz<br>
   - 📂 documentos<br>
-    - <img src="https://user-images.githubusercontent.com/99209356/174968401-abc5cae1-7a1e-4f06-aca6-c859c993c038.svg" width="18px" height="18px"> T3_G4_V05_Web_application_document.pdf<br>
+    - <a href="https://github.com/2022M2T3/Projeto4/blob/main/documentos/WAD%20-%20Yamaha%20Planning%20System.pdf"><img src="https://user-images.githubusercontent.com/99209356/174968401-abc5cae1-7a1e-4f06-aca6-c859c993c038.svg" width="18px" height="18px"></a> T3_G4_V05_Web_application_document.pdf<br>
 
-    - <img src="https://user-images.githubusercontent.com/99209356/174968001-e5dfbc94-09e5-43d3-a5ab-60a684e673b3.svg" width="18px" height="18px"> T3_G4_V05_Web_application_document.docx<br>
+    - <a href=""><img src="https://user-images.githubusercontent.com/99209356/174968001-e5dfbc94-09e5-43d3-a5ab-60a684e673b3.svg" width="18px" height="18px"></a> T3_G4_V05_Web_application_document.docx<br>
 
     - 📂 Outros<br>
 
-  - <img src="https://user-images.githubusercontent.com/99209356/174968635-a4e7428f-1dec-4a79-a653-746679793d88.svg" width="18px" height="18px"> imagens<br>
+  - <a href=""><img src="https://user-images.githubusercontent.com/99209356/174968635-a4e7428f-1dec-4a79-a653-746679793d88.svg" width="18px" height="18px"></a> imagens<br>
 
-  - <img src="https://user-images.githubusercontent.com/99209356/174962579-d242f1e5-3902-4de1-9236-0aba4d48513c.svg" width="18px" height="18px"> src<br>
+  - <a href="https://github.com/2022M2T3/Projeto4/tree/main/src"><img src="https://user-images.githubusercontent.com/99209356/174962579-d242f1e5-3902-4de1-9236-0aba4d48513c.svg" width="18px" height="18px"></a> src<br>
 
-
-
-    - <img src="https://user-images.githubusercontent.com/99209356/174969247-e2a48e94-6ad8-4456-aee7-a96e1ef4bd76.svg" width="18px" height="18px"> bin<br>
+    - <a href="https://github.com/2022M2T3/Projeto4/tree/main/src/bin"><img src="https://user-images.githubusercontent.com/99209356/174969247-e2a48e94-6ad8-4456-aee7-a96e1ef4bd76.svg" width="18px" height="18px"></a> bin<br>
     &emsp;&emsp;|www (arquivo usado pelo express para iniciar o app)<br>
     
-    - <img src="https://user-images.githubusercontent.com/99209356/174970674-d64a742b-23cc-4170-bc9a-e8c1dec21b9e.svg" width="18px" height="18px"> config<br>
+    - <a href="https://github.com/2022M2T3/Projeto4/tree/main/src/config"><img src="https://user-images.githubusercontent.com/99209356/174970674-d64a742b-23cc-4170-bc9a-e8c1dec21b9e.svg" width="18px" height="18px"></a> config<br>
     &emsp;&emsp;|config.json (configurações do banco de dados)<br>
     
-    - <img src="https://user-images.githubusercontent.com/99209356/174970790-bd7000fa-c7a3-4244-b3e2-abb74368220d.svg" width="18px" height="18px"> controllers (pasta com os arquivos de controllers - C do MVC)<br>
+    - <a href="https://github.com/2022M2T3/Projeto4/tree/main/src/controllers"><img src="https://user-images.githubusercontent.com/99209356/174970790-bd7000fa-c7a3-4244-b3e2-abb74368220d.svg" width="18px" height="18px"></a> controllers (pasta com os arquivos de controllers - C do MVC)<br>
 
     - 📂 migrations (migrações para criar a estrutura do banco de dados do zero)<br>
 
-    - <img src="https://user-images.githubusercontent.com/99209356/174971499-3f304517-1323-45e1-97db-bdded4be4fd2.svg" width="18px" height="18px"> models (pasta com os arquivos de models - M do MVC)<br>
+    - <a href="https://github.com/2022M2T3/Projeto4/tree/main/src/models"><img src="https://user-images.githubusercontent.com/99209356/174971499-3f304517-1323-45e1-97db-bdded4be4fd2.svg" width="18px" height="18px"></a> models (pasta com os arquivos de models - M do MVC)<br>
 
-    - <img src="https://user-images.githubusercontent.com/99209356/174971704-e43b03b0-6ab0-43a4-bda7-24f1d4924d1b.svg" width="18px" height="18px"> public<br>
+    - <a href="https://github.com/2022M2T3/Projeto4/tree/main/src/public"><img src="https://user-images.githubusercontent.com/99209356/174971704-e43b03b0-6ab0-43a4-bda7-24f1d4924d1b.svg" width="18px" height="18px"></a> public<br>
 
-      - <img src="https://user-images.githubusercontent.com/99209356/174968635-a4e7428f-1dec-4a79-a653-746679793d88.svg" width="18px" height="18px"> images (imagens usadas no frontend)<br>
-      - <img src="https://user-images.githubusercontent.com/99209356/174971959-ca0bd45f-d955-4e95-bd3f-ba77a0f7bb0f.svg" width="18px" height="18px"> javascripts (scripts usados no frontend)<br>
-      - <img src="https://user-images.githubusercontent.com/99209356/174972093-a6a93361-ca03-445a-a30d-69a65375dd0a.svg" width="18px" height="18px"> stylesheets (css usados no frontend)<br>
+      - <a href="https://github.com/2022M2T3/Projeto4/tree/main/src/public/images"><img src="https://user-images.githubusercontent.com/99209356/174968635-a4e7428f-1dec-4a79-a653-746679793d88.svg" width="18px" height="18px"></a> images (imagens usadas no frontend)<br>
+      - <a href="https://github.com/2022M2T3/Projeto4/tree/main/src/public/javascripts"><img src="https://user-images.githubusercontent.com/99209356/174971959-ca0bd45f-d955-4e95-bd3f-ba77a0f7bb0f.svg" width="18px" height="18px"></a> javascripts (scripts usados no frontend)<br>
+      - <a href="https://github.com/2022M2T3/Projeto4/tree/main/src/public/stylesheets"><img src="https://user-images.githubusercontent.com/99209356/174972093-a6a93361-ca03-445a-a30d-69a65375dd0a.svg" width="18px" height="18px"></a> stylesheets (css usados no frontend)<br>
 
-    - <img src="https://user-images.githubusercontent.com/99209356/174972394-95260ecf-951e-4465-ab70-8862acce0076.svg" width="18px" height="18px"> routes (pasta com os arquivos de rotas da aplicação)<br>
+    - <a href="https://github.com/2022M2T3/Projeto4/tree/main/src/routes"><img src="https://user-images.githubusercontent.com/99209356/174972394-95260ecf-951e-4465-ab70-8862acce0076.svg" width="18px" height="18px"></a> routes (pasta com os arquivos de rotas da aplicação)<br>
 
     - 📂 seeders (arquivos padrão para popular o banco de dados do zero)<br>
 
-    - <img src="https://user-images.githubusercontent.com/99209356/174972490-d6536781-e076-4850-bb80-0df3527983f6.svg" width="18px" height="18px"> views (pasta com os arquivos EJS da aplicação - V do MVC)<br>
+    - <a href="https://github.com/2022M2T3/Projeto4/tree/main/src/views"><img src="https://user-images.githubusercontent.com/99209356/174972490-d6536781-e076-4850-bb80-0df3527983f6.svg" width="18px" height="18px"></a> views (pasta com os arquivos EJS da aplicação - V do MVC)<br>
 
 
-  |<img src="https://user-images.githubusercontent.com/99209356/174972960-c1e7054f-337c-4e8d-901a-e8496115b88a.svg" width="18px" height="18px"> .eslintrc.json (arquivo de configuração do eslint)<br>
-  |<img src="https://user-images.githubusercontent.com/99209356/174973048-9c246d14-1087-4c57-8494-11a354e613d0.svg" width="18px" height="18px"> .prettierrc.json (arquivo de configuração do prettier)<br>
-  |<img src="https://user-images.githubusercontent.com/99209356/174973155-42b2009c-9cf7-4d10-8694-fec95d77f77e.svg" width="18px" height="18px"> app.js (arquivo de configuração do express)<br>
-  |<img src="https://user-images.githubusercontent.com/99209356/174973445-bee77a26-9132-498f-8326-bc47bbb89d69.svg" width="18px" height="18px"> package-lock.json (arquivo de configuração do npm)<br>
-  |<img src="https://user-images.githubusercontent.com/99209356/174973445-bee77a26-9132-498f-8326-bc47bbb89d69.svg" width="18px" height="18px"> package.json (arquivo de configuração do npm)<br>
+  |<a href="https://github.com/2022M2T3/Projeto4/blob/main/src/.eslintrc.json"><img src="https://user-images.githubusercontent.com/99209356/174972960-c1e7054f-337c-4e8d-901a-e8496115b88a.svg" width="18px" height="18px"></a> .eslintrc.json (arquivo de configuração do eslint)<br>
+  |<a href="https://github.com/2022M2T3/Projeto4/blob/main/src/.prettierrc"><img src="https://user-images.githubusercontent.com/99209356/174973048-9c246d14-1087-4c57-8494-11a354e613d0.svg" width="18px" height="18px"></a> .prettierrc.json (arquivo de configuração do prettier)<br>
+  |<a href="https://github.com/2022M2T3/Projeto4/blob/main/src/app.js"><img src="https://user-images.githubusercontent.com/99209356/174973155-42b2009c-9cf7-4d10-8694-fec95d77f77e.svg" width="18px" height="18px"></a> app.js (arquivo de configuração do express)<br>
+  |<a href="https://github.com/2022M2T3/Projeto4/blob/main/src/package-lock.json"><img src="https://user-images.githubusercontent.com/99209356/174973445-bee77a26-9132-498f-8326-bc47bbb89d69.svg" width="18px" height="18px"></a> package-lock.json (arquivo de configuração do npm)<br>
+  |<a href="https://github.com/2022M2T3/Projeto4/blob/main/src/package.json"><img src="https://user-images.githubusercontent.com/99209356/174973445-bee77a26-9132-498f-8326-bc47bbb89d69.svg" width="18px" height="18px"></a> package.json (arquivo de configuração do npm)<br>
 
 
 ## 💻 Configuração para desenvolvimento
