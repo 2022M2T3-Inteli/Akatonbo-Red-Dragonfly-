@@ -7,7 +7,6 @@ module.exports = {
     await queryInterface.bulkInsert('Projects', [
       {
         name: 'Projeto 001',
-        id: 1,
         locationId: 1,
         departmentId: 1,
         startDate: '2022-06-01',
@@ -17,7 +16,6 @@ module.exports = {
       },
       {
         name: 'Projeto 002',
-        id: 2,
         locationId: 1,
         departmentId: 1,
         startDate: '2022-06-01',
@@ -27,7 +25,6 @@ module.exports = {
       },
       {
         name: 'Projeto 003',
-        id: 3,
         locationId: 1,
         departmentId: 1,
         startDate: '2022-09-01',
@@ -37,7 +34,6 @@ module.exports = {
       },
       {
         name: 'Projeto 005',
-        id: 4,
         locationId: 1,
         departmentId: 2,
         startDate: '2022-01-14',
@@ -47,7 +43,6 @@ module.exports = {
       },
       {
         name: 'Projeto 006',
-        id: 5,
         locationId: 1,
         departmentId: 3,
         startDate: '2021-10-01',
@@ -57,7 +52,6 @@ module.exports = {
       },
       {
         name: 'Projeto 007',
-        id: 6,
         locationId: 2,
         departmentId: 4,
         startDate: '2022-01-03',
@@ -67,7 +61,6 @@ module.exports = {
       },
       {
         name: 'Projeto 010',
-        id: 7,
         locationId: 2,
         departmentId: 5,
         startDate: '2022-03-01',
@@ -77,7 +70,6 @@ module.exports = {
       },
       {
         name: 'Projeto 011',
-        id: 8,
         locationId: 1,
         departmentId: 6,
         startDate: '2021-09-01',
@@ -87,7 +79,6 @@ module.exports = {
       },
       {
         name: 'Projeto 013',
-        id: 9,
         locationId: 2,
         departmentId: 7,
         startDate: '2021-09-13',
@@ -97,7 +88,6 @@ module.exports = {
       },
       {
         name: 'Projeto 014',
-        id: 10,
         locationId: 1,
         departmentId: 8,
         startDate: '2022-05-01',
@@ -107,7 +97,6 @@ module.exports = {
       },
       {
         name: 'Projeto 016',
-        id: 11,
         locationId: 2,
         departmentId: 5,
         startDate: '2022-08-04',
@@ -117,7 +106,6 @@ module.exports = {
       },
       {
         name: 'Projeto 020',
-        id: 12,
         locationId: 1,
         departmentId: 4,
         startDate: '2022-01-01',
@@ -127,7 +115,6 @@ module.exports = {
       },
       {
         name: 'Projeto 021',
-        id: 13,
         locationId: 1,
         departmentId: 4,
         startDate: '2022-01-01',
@@ -137,7 +124,6 @@ module.exports = {
       },
       {
         name: 'Projeto 022',
-        id: 14,
         locationId: 1,
         departmentId: 9,
         startDate: '2021-01-01',
@@ -147,7 +133,6 @@ module.exports = {
       },
       {
         name: 'Projeto 024',
-        id: 15,
         locationId: 1,
         departmentId: 10,
         startDate: '2022-01-01',
@@ -157,7 +142,6 @@ module.exports = {
       },
       {
         name: 'Projeto 025',
-        id: 16,
         locationId: 1,
         departmentId: 9,
         startDate: '2022-05-01',
@@ -167,7 +151,6 @@ module.exports = {
       },
       {
         name: 'Projeto 026',
-        id: 17,
         locationId: 3,
         departmentId: 11,
         startDate: '2022-02-07',
@@ -177,7 +160,6 @@ module.exports = {
       },
       {
         name: 'Projeto 027',
-        id: 18,
         locationId: 2,
         departmentId: 12,
         startDate: '2022-08-04',
@@ -187,7 +169,6 @@ module.exports = {
       },
       {
         name: 'Projeto 028',
-        id: 19,
         locationId: 1,
         departmentId: 13,
         startDate: '2021-08-02',
@@ -197,7 +178,6 @@ module.exports = {
       },
       {
         name: 'Projeto 030',
-        id: 20,
         locationId: 1,
         departmentId: 14,
         startDate: '2022-03-01',
@@ -207,7 +187,6 @@ module.exports = {
       },
       {
         name: 'Projeto 031',
-        id: 21,
         locationId: 1,
         departmentId: 6,
         startDate: '2022-05-01',
@@ -217,7 +196,6 @@ module.exports = {
       },
       {
         name: 'Projeto 032',
-        id: 22,
         locationId: 3,
         departmentId: 11,
         startDate: '2021-09-01',
@@ -227,7 +205,6 @@ module.exports = {
       },
       {
         name: 'Projeto 035',
-        id: 23,
         locationId: 1,
         departmentId: 4,
         startDate: '2022-01-01',
@@ -237,7 +214,6 @@ module.exports = {
       },
       {
         name: 'Projeto 036',
-        id: 24,
         locationId: 1,
         departmentId: 15,
         startDate: '2022-02-01',
@@ -247,7 +223,6 @@ module.exports = {
       },
       {
         name: 'Projeto 037',
-        id: 25,
         locationId: 1,
         departmentId: 9,
         startDate: '2022-05-01',
@@ -257,7 +232,6 @@ module.exports = {
       },
       {
         name: 'Projeto 039',
-        id: 26,
         locationId: 1,
         departmentId: 15,
         startDate: '2021-11-01',
@@ -267,7 +241,6 @@ module.exports = {
       },
       {
         name: 'Projeto 041',
-        id: 27,
         locationId: 1,
         departmentId: 14,
         startDate: '2022-01-01',
@@ -277,7 +250,6 @@ module.exports = {
       },
       {
         name: 'Projeto 042',
-        id: 28,
         locationId: 1,
         departmentId: 10,
         startDate: '2021-09-01',
@@ -287,7 +259,6 @@ module.exports = {
       },
       {
         name: 'Projeto 043',
-        id: 29,
         locationId: 1,
         departmentId: 16,
         startDate: '2022-05-01',
@@ -297,7 +268,6 @@ module.exports = {
       },
       {
         name: 'Projeto 044',
-        id: 30,
         locationId: 1,
         departmentId: 2,
         startDate: '2022-01-01',
@@ -307,7 +277,6 @@ module.exports = {
       },
       {
         name: 'Projeto 045',
-        id: 31,
         locationId: 1,
         departmentId: 2,
         startDate: '2022-06-01',
@@ -317,7 +286,6 @@ module.exports = {
       },
       {
         name: 'Projeto 048',
-        id: 32,
         locationId: 1,
         departmentId: 17,
         startDate: '2021-09-01',
@@ -327,7 +295,6 @@ module.exports = {
       },
       {
         name: 'Projeto 049',
-        id: 33,
         locationId: 1,
         departmentId: 18,
         startDate: '2022-01-01',
@@ -337,7 +304,6 @@ module.exports = {
       },
       {
         name: 'Projeto 050',
-        id: 34,
         locationId: 2,
         departmentId: 7,
         startDate: '2022-01-01',
@@ -347,7 +313,6 @@ module.exports = {
       },
       {
         name: 'Projeto 051',
-        id: 35,
         locationId: 3,
         departmentId: 18,
         startDate: '2021-09-01',
@@ -357,7 +322,6 @@ module.exports = {
       },
       {
         name: 'Projeto 052',
-        id: 36,
         locationId: 1,
         departmentId: 6,
         startDate: '2021-01-03',
@@ -367,7 +331,6 @@ module.exports = {
       },
       {
         name: 'Projeto 053',
-        id: 37,
         locationId: 1,
         departmentId: 19,
         startDate: '2022-06-01',
@@ -377,7 +340,6 @@ module.exports = {
       },
       {
         name: 'Projeto 054',
-        id: 38,
         locationId: 3,
         departmentId: 6,
         startDate: '2022-01-01',
@@ -387,7 +349,6 @@ module.exports = {
       },
       {
         name: 'Projeto 055',
-        id: 39,
         locationId: 2,
         departmentId: 5,
         startDate: '2021-09-01',
@@ -397,7 +358,6 @@ module.exports = {
       },
       {
         name: 'Projeto 056',
-        id: 40,
         locationId: 2,
         departmentId: 9,
         startDate: '2022-05-01',
@@ -407,7 +367,6 @@ module.exports = {
       },
       {
         name: 'Projeto 057',
-        id: 41,
         locationId: 2,
         departmentId: 11,
         startDate: '2021-09-01',
@@ -417,7 +376,6 @@ module.exports = {
       },
       {
         name: 'Projeto 058',
-        id: 42,
         locationId: 1,
         departmentId: 14,
         startDate: '2022-03-01',
@@ -427,7 +385,6 @@ module.exports = {
       },
       {
         name: 'Projeto 059',
-        id: 43,
         locationId: 1,
         departmentId: 18,
         startDate: '2022-01-01',
@@ -437,7 +394,6 @@ module.exports = {
       },
       {
         name: 'Projeto 061',
-        id: 44,
         locationId: 3,
         departmentId: 11,
         startDate: '2021-09-20',
@@ -447,7 +403,6 @@ module.exports = {
       },
       {
         name: 'Projeto 062',
-        id: 45,
         locationId: 3,
         departmentId: 20,
         startDate: '2021-09-14',
@@ -457,7 +412,6 @@ module.exports = {
       },
       {
         name: 'Projeto 064',
-        id: 46,
         locationId: 3,
         departmentId: 3,
         startDate: '2020-09-01',
@@ -467,7 +421,6 @@ module.exports = {
       },
       {
         name: 'Projeto 066',
-        id: 47,
         locationId: 1,
         departmentId: 11,
         startDate: '2022-01-10',
@@ -477,7 +430,6 @@ module.exports = {
       },
       {
         name: 'Projeto 071',
-        id: 48,
         locationId: 1,
         departmentId: 2,
         startDate: '2022-01-01',
@@ -487,7 +439,6 @@ module.exports = {
       },
       {
         name: 'Projeto 073',
-        id: 49,
         locationId: 3,
         departmentId: 21,
         startDate: '2021-12-28',
@@ -497,7 +448,6 @@ module.exports = {
       },
       {
         name: 'Projeto 074',
-        id: 50,
         locationId: 1,
         departmentId: 9,
         startDate: '2021-09-01',
@@ -507,7 +457,6 @@ module.exports = {
       },
       {
         name: 'Projeto 075',
-        id: 51,
         locationId: 1,
         departmentId: 3,
         startDate: '2022-05-01',
@@ -517,7 +466,6 @@ module.exports = {
       },
       {
         name: 'Projeto 077',
-        id: 52,
         locationId: 1,
         departmentId: 19,
         startDate: '2021-09-13',
@@ -527,7 +475,6 @@ module.exports = {
       },
       {
         name: 'Projeto 079',
-        id: 53,
         locationId: 1,
         departmentId: 11,
         startDate: '2022-01-01',
@@ -537,7 +484,6 @@ module.exports = {
       },
       {
         name: 'Projeto 080',
-        id: 54,
         locationId: 2,
         departmentId: 7,
         startDate: '2021-09-08',
@@ -547,7 +493,6 @@ module.exports = {
       },
       {
         name: 'Projeto 081',
-        id: 55,
         locationId: 2,
         departmentId: 22,
         startDate: '2020-09-01',
@@ -557,7 +502,6 @@ module.exports = {
       },
       {
         name: 'Projeto 082',
-        id: 56,
         locationId: 2,
         departmentId: 5,
         startDate: '2021-09-11',
@@ -567,7 +511,6 @@ module.exports = {
       },
       {
         name: 'Projeto 083',
-        id: 57,
         locationId: 1,
         departmentId: 14,
         startDate: '2022-01-01',
@@ -577,7 +520,6 @@ module.exports = {
       },
       {
         name: 'Projeto 087',
-        id: 58,
         locationId: 1,
         departmentId: 9,
         startDate: '2022-01-01',
@@ -587,7 +529,6 @@ module.exports = {
       },
       {
         name: 'Projeto 089',
-        id: 59,
         locationId: 1,
         departmentId: 23,
         startDate: '2021-09-02',
@@ -597,7 +538,6 @@ module.exports = {
       },
       {
         name: 'Projeto 091',
-        id: 60,
         locationId: 2,
         departmentId: 14,
         startDate: '2022-07-01',
@@ -607,7 +547,6 @@ module.exports = {
       },
       {
         name: 'Projeto 094',
-        id: 61,
         locationId: 2,
         departmentId: 5,
         startDate: '2022-01-01',
@@ -617,7 +556,6 @@ module.exports = {
       },
       {
         name: 'Projeto 095',
-        id: 62,
         locationId: 2,
         departmentId: 24,
         startDate: '2022-07-01',
@@ -627,7 +565,6 @@ module.exports = {
       },
       {
         name: 'Projeto 097',
-        id: 63,
         locationId: 1,
         departmentId: 3,
         startDate: '2022-06-01',
@@ -637,7 +574,6 @@ module.exports = {
       },
       {
         name: 'Projeto 098',
-        id: 64,
         locationId: 1,
         departmentId: 11,
         startDate: '2022-01-01',
@@ -647,7 +583,6 @@ module.exports = {
       },
       {
         name: 'Projeto 099',
-        id: 65,
         locationId: 3,
         departmentId: 3,
         startDate: '2022-07-30',
@@ -657,7 +592,6 @@ module.exports = {
       },
       {
         name: 'Projeto 100',
-        id: 66,
         locationId: 1,
         departmentId: 25,
         startDate: '2021-11-12',
@@ -667,7 +601,6 @@ module.exports = {
       },
       {
         name: 'Projeto 101',
-        id: 67,
         locationId: 1,
         departmentId: 14,
         startDate: '2021-09-14',
@@ -677,7 +610,6 @@ module.exports = {
       },
       {
         name: 'Projeto 102',
-        id: 68,
         locationId: 1,
         departmentId: 14,
         startDate: '2022-01-01',
@@ -687,7 +619,6 @@ module.exports = {
       },
       {
         name: 'Projeto 103',
-        id: 69,
         locationId: 2,
         departmentId: 18,
         startDate: '2022-08-30',
@@ -697,7 +628,6 @@ module.exports = {
       },
       {
         name: 'Projeto 105',
-        id: 70,
         locationId: 1,
         departmentId: 4,
         startDate: '2022-10-01',
@@ -707,7 +637,6 @@ module.exports = {
       },
       {
         name: 'Projeto 109',
-        id: 71,
         locationId: 1,
         departmentId: 14,
         startDate: '2022-01-01',
@@ -717,7 +646,6 @@ module.exports = {
       },
       {
         name: 'Projeto 110',
-        id: 72,
         locationId: 2,
         departmentId: 14,
         startDate: '2022-02-01',
@@ -727,7 +655,6 @@ module.exports = {
       },
       {
         name: 'Projeto 111',
-        id: 73,
         locationId: 1,
         departmentId: 14,
         startDate: '2022-01-01',
@@ -737,7 +664,6 @@ module.exports = {
       },
       {
         name: 'Projeto 112',
-        id: 74,
         locationId: 2,
         departmentId: 14,
         startDate: '2022-08-01',
@@ -747,7 +673,6 @@ module.exports = {
       },
       {
         name: 'Projeto 113',
-        id: 75,
         locationId: 1,
         departmentId: 14,
         startDate: '2022-08-01',
@@ -757,7 +682,6 @@ module.exports = {
       },
       {
         name: 'Projeto 115',
-        id: 76,
         locationId: 1,
         departmentId: 18,
         startDate: '2022-01-01',

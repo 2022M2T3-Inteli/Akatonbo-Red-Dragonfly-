@@ -55,6 +55,9 @@ module.exports = (sequelize, DataTypes) => {
           notNull: {
             msg: 'A data de início do projeto não pode ser vazia',
           },
+          isDate: {
+            msg: 'A data de início do projeto deve ser uma data válida',
+          },
         },
       },
       endDate: {
@@ -63,6 +66,9 @@ module.exports = (sequelize, DataTypes) => {
         validate: {
           notNull: {
             msg: 'A data de término do projeto não pode ser vazia',
+          },
+          isDate: {
+            msg: 'A data de término do projeto deve ser uma data válida',
           },
         },
       },
