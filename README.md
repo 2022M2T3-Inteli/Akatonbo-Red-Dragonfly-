@@ -37,16 +37,14 @@ Seu principal objetivo é facilitar o processo de análise de disponibilidade de
 ## 📁 Estrutura de pastas
 
 - 📁 Raiz<br>
-  - 📂 documentos<br>
-    - <a href="https://github.com/2022M2T3/Projeto4/tree/main/documentos"><img src="https://user-images.githubusercontent.com/99209356/174968401-abc5cae1-7a1e-4f06-aca6-c859c993c038.svg" width="18px" height="18px"></a> T3_G4_V05_Web_application_document.pdf<br>
+  - <a href="https://github.com/2022M2T3/Projeto4/tree/main/documentos">📂 documentos</a><br>
+    - <a href="https://github.com/2022M2T3/Projeto4/blob/main/documentos/T3_G4_V05_Web_application_document.pdf"><img src="https://user-images.githubusercontent.com/99209356/174968401-abc5cae1-7a1e-4f06-aca6-c859c993c038.svg" width="18px" height="18px"></a> T3_G4_V05_Web_application_document.pdf<br>
 
-    - <a href="https://github.com/2022M2T3/Projeto4/tree/main/documentos"><img src="https://user-images.githubusercontent.com/99209356/174968001-e5dfbc94-09e5-43d3-a5ab-60a684e673b3.svg" width="18px" height="18px"></a> T3_G4_V05_Web_application_document.docx<br>
+    - <a href=""><img src="https://user-images.githubusercontent.com/99209356/174968001-e5dfbc94-09e5-43d3-a5ab-60a684e673b3.svg" width="18px" height="18px"></a> T3_G4_V05_Web_application_document.docx<br>
 
     - <a href="https://github.com/2022M2T3/Projeto4/tree/main/documentos/outros">📂</a> Outros<br>
       - Manual de Manutenção do Código<br>
       - Manual do Usuário.pdf<br>
-
-  - <a href=""><img src="https://user-images.githubusercontent.com/99209356/174968635-a4e7428f-1dec-4a79-a653-746679793d88.svg" width="18px" height="18px"></a> imagens<br>
 
   - <a href="https://github.com/2022M2T3/Projeto4/tree/main/src"><img src="https://user-images.githubusercontent.com/99209356/174962579-d242f1e5-3902-4de1-9236-0aba4d48513c.svg" width="18px" height="18px"></a> src<br>
 
