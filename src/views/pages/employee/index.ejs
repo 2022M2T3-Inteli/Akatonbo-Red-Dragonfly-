@@ -130,7 +130,7 @@
       </div>
       <div>
         <!-- legenda -->
-        <p><strong>Legenda (Cores):</strong> <em>Verde</em> = Horas Alocadas (HA) < 80% das Horas Disponíveis (HD) || <em>Amarelo</em> = 80% HD < HA < 100% HD || <em>Vermelho</em> = HA > 100% HD </p>
+        <p><strong>Legenda (Cores):</strong> <em>Verde</em> = Horas Alocadas (HA) < 80% das Horas Disponíveis (HD) || <em>Amarelo</em> = 90% HD <= HA <= 100% HD || <em>Vermelho</em> = HA > 100% HD </p>
         <table class="table table-hover">
             <tr>
               <th>Nome Completo</th>
@@ -155,9 +155,9 @@
                 .filter((assignment) => assignment.year === year && assignment.month === month)
                 .reduce((acc, curr) => acc + curr.workHours, 0) %>
               <tr class=
-                <% if (totalHours >= 1 * workload) { %>
+                <% if (totalHours > workload) { %>
                   "table-danger"
-                <% } else if (totalHours >= 0.8 * workload) { %>
+                <% } else if (totalHours >= 0.9 * workload) { %>
                   "table-warning"
                 <% } else { %>
                   "table-success"

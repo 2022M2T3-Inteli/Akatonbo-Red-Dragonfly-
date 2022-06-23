@@ -65,7 +65,7 @@
         <a class="btn btn-primary" href="#">Tabela</a>
         <a class="btn btn-secondary" href="/dashboard/chart">Gráfico</a>
       </div>
-      <p class="my-3"><strong>Legenda (Cores):</strong> <em>Verde</em> = Horas Alocadas (HA) < 80% das Horas Disponíveis Padrão da Função (HD) || <em>Amarelo</em> = 80% HD < HA < 100% HD || <em>Vermelho</em> = HA > 100% HD </p>
+      <p class="my-3"><strong>Legenda (Cores):</strong> <em>Verde</em> = Horas Alocadas (HA) < 80% das Horas Disponíveis Padrão da Função (HD) || <em>Amarelo</em> = 90% HD <= HA <= 100% HD || <em>Vermelho</em> = HA > 100% HD </p>
       <table class="table table-bordered mt-3">
         <thead>
           <tr>
@@ -109,9 +109,9 @@
               <% const average = monthlyAssignmentsHours / (role.Employees.length || 1) %>
               <!-- Verificar se vai mostrar verde, amarelo ou vermelho -->
               <% const roleWorkload = role.defaultWorkload %>
-              <% if (average >= roleWorkload) { %>
+              <% if (average > roleWorkload) { %>
                 <td class="table-danger"><%= average.toFixed(0) %></td>
-              <% } else if (average >= 0.8 * roleWorkload) { %>
+              <% } else if (average >= 0.9 * roleWorkload) { %>
                 <td class="table-warning"><%= average.toFixed(0) %></td>
               <% } else { %>
                 <td class="table-success"><%= average.toFixed(0) %></td>
