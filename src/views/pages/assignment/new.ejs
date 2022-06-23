@@ -135,12 +135,15 @@
         if (year < startYear || year > endYear) {
           // Esconder input se o ano está fora do período do projeto
           input.classList.add('invisible');
+          input.value = '';
         } else if (year === startYear && month < startMonth) {
           // Esconder input se o mês está antes do período do projeto
           input.classList.add('invisible');
+          input.value = '';
         } else if (year === endYear && month > endMonth) {
           // Esconder input se o mês está além do período do projeto
           input.classList.add('invisible');
+          input.value = '';
         } else {
           // Exibir input se o ano e mês estão dentro do período do projeto
           input.classList.remove('invisible');
