@@ -30,15 +30,30 @@ module.exports = (sequelize, DataTypes) => {
           },
         },
       },
+      departmentId: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+        validate: {
+          notNull: {
+            msg: 'Departamento não pode estar vazio',
+          },
+        },
+      },
+      locationId: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+        validate: {
+          notNull: {
+            msg: 'Localização não pode estar vazio',
+          },
+        },
+      },
       startDate: {
         type: DataTypes.DATEONLY,
         allowNull: false,
         validate: {
           notNull: {
             msg: 'A data de início do projeto não pode ser vazia',
-          },
-          isDate: {
-            msg: 'A data de início do projeto deve ser uma data válida',
           },
         },
       },
@@ -48,9 +63,6 @@ module.exports = (sequelize, DataTypes) => {
         validate: {
           notNull: {
             msg: 'A data de término do projeto não pode ser vazia',
-          },
-          isDate: {
-            msg: 'A data de início do projeto deve ser uma data válida',
           },
         },
       },
