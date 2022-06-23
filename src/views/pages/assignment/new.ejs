@@ -68,8 +68,8 @@
           <tbody>
             <tr>
               <td><%= project.name %></td>
-              <td><%= dayjs(project.startDate).format('DD/MM/YYYY') %></td>
-              <td><%= dayjs(project.endDate).format('DD/MM/YYYY') %></td>
+              <td id="start-date"><%= dayjs(project.startDate).format('DD/MM/YYYY') %></td>
+              <td id="end-date"><%= dayjs(project.endDate).format('DD/MM/YYYY') %></td>
             </tr>
           </tbody>
         </table>
@@ -98,10 +98,10 @@
           <h5 class="text-center">Horas de Trabalho por Mês</h5>
           <% MONTHS.forEach((month, index)=> {%>
             <div class="col-3 mb-3">
-              <label for="<%= month %>>">
+              <label for="<%= index %>>">
                 <%= month %>:
               </label>
-              <input class="form-control" id="<%= month %>" type="number" name="workHours[<%= index %>]" step="1" min="1" >
+              <input class="form-control" id="<%= index %>" type="number" name="workHours[<%= index %>]" step="1" min="1" >
             </div>
             <% }) %>
         </div>
@@ -112,6 +112,42 @@
       </form>
     </main>
   </div>
+  <script>
+    // Script para esconder campos de data fora do período do projeto
+
+    // Obter data de início e fim do projeto
+    const startDate = document.getElementById('start-date');
+    const startMonth = parseInt(startDate.innerText.split('/')[1]) - 1;
+    const startYear = parseInt(startDate.innerText.split('/')[2]);
+    const endDate = document.getElementById('end-date');
+    const endMonth = parseInt(endDate.innerText.split('/')[1]) - 1;
+    const endYear = parseInt(endDate.innerText.split('/')[2]);
+
+    // Obter inputs de horas de trabalho
+    const yearInput = document.getElementById('year');
+    const workHoursInputs = document.querySelectorAll('input[name^=workHours]');
+
+    // Reaplicar filtro sempre que um ano for escolhido no formulário
+    yearInput.addEventListener('change', () => {
+      const year = parseInt(yearInput.value); // Obter ano escolhido
+      workHoursInputs.forEach((input) => {
+        const month = parseInt(input.id); // Obter mês do input
+        if (year < startYear || year > endYear) {
+          // Esconder input se o ano está fora do período do projeto
+          input.classList.add('invisible');
+        } else if (year === startYear && month < startMonth) {
+          // Esconder input se o mês está antes do período do projeto
+          input.classList.add('invisible');
+        } else if (year === endYear && month > endMonth) {
+          // Esconder input se o mês está além do período do projeto
+          input.classList.add('invisible');
+        } else {
+          // Exibir input se o ano e mês estão dentro do período do projeto
+          input.classList.remove('invisible');
+        }
+      });
+    });
+  </script>
 </body>
 
 </html>
