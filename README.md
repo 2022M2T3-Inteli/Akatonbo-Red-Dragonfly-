@@ -38,11 +38,11 @@ Seu principal objetivo é facilitar o processo de análise de disponibilidade de
 
 - 📁 Raiz<br>
   - 📂 documentos<br>
-    - <a href="https://github.com/2022M2T3/Projeto4/blob/main/documentos/WAD%20-%20Yamaha%20Planning%20System.pdf"><img src="https://user-images.githubusercontent.com/99209356/174968401-abc5cae1-7a1e-4f06-aca6-c859c993c038.svg" width="18px" height="18px"></a> T3_G4_V05_Web_application_document.pdf<br>
+    - <a href="https://github.com/2022M2T3/Projeto4/tree/main/documentos"><img src="https://user-images.githubusercontent.com/99209356/174968401-abc5cae1-7a1e-4f06-aca6-c859c993c038.svg" width="18px" height="18px"></a> T3_G4_V05_Web_application_document.pdf<br>
 
-    - <a href=""><img src="https://user-images.githubusercontent.com/99209356/174968001-e5dfbc94-09e5-43d3-a5ab-60a684e673b3.svg" width="18px" height="18px"></a> T3_G4_V05_Web_application_document.docx<br>
+    - <a href="https://github.com/2022M2T3/Projeto4/tree/main/documentos"><img src="https://user-images.githubusercontent.com/99209356/174968001-e5dfbc94-09e5-43d3-a5ab-60a684e673b3.svg" width="18px" height="18px"></a> T3_G4_V05_Web_application_document.docx<br>
 
-    - 📂 Outros<br>
+    - <a href="https://github.com/2022M2T3/Projeto4/tree/main/documentos/outros">📂</a> Outros<br>
       - Manual de Manutenção do Código<br>
       - Manual do Usuário.pdf<br>
 
@@ -58,7 +58,7 @@ Seu principal objetivo é facilitar o processo de análise de disponibilidade de
 
     - <a href="https://github.com/2022M2T3/Projeto4/tree/main/src/controllers"><img src="https://user-images.githubusercontent.com/99209356/174970790-bd7000fa-c7a3-4244-b3e2-abb74368220d.svg" width="18px" height="18px"></a> controllers (pasta com os arquivos de controllers - C do MVC)<br>
 
-    - 📂 migrations (migrações para criar a estrutura do banco de dados do zero)<br>
+    - <a href="https://github.com/2022M2T3/Projeto4/tree/main/src/migrations">📂</a> migrations (migrações para criar a estrutura do banco de dados do zero)<br>
 
     - <a href="https://github.com/2022M2T3/Projeto4/tree/main/src/models"><img src="https://user-images.githubusercontent.com/99209356/174971499-3f304517-1323-45e1-97db-bdded4be4fd2.svg" width="18px" height="18px"></a> models (pasta com os arquivos de models - M do MVC)<br>
 
@@ -70,7 +70,7 @@ Seu principal objetivo é facilitar o processo de análise de disponibilidade de
 
     - <a href="https://github.com/2022M2T3/Projeto4/tree/main/src/routes"><img src="https://user-images.githubusercontent.com/99209356/174972394-95260ecf-951e-4465-ab70-8862acce0076.svg" width="18px" height="18px"></a> routes (pasta com os arquivos de rotas da aplicação)<br>
 
-    - 📂 seeders (arquivos padrão para popular o banco de dados do zero)<br>
+    - <a href="https://github.com/2022M2T3/Projeto4/tree/main/src/seeders">📂</a> seeders (arquivos padrão para popular o banco de dados do zero)<br>
 
     - <a href="https://github.com/2022M2T3/Projeto4/tree/main/src/views"><img src="https://user-images.githubusercontent.com/99209356/174972490-d6536781-e076-4850-bb80-0df3527983f6.svg" width="18px" height="18px"></a> views (pasta com os arquivos EJS da aplicação - V do MVC)<br>
 
