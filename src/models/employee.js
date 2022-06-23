@@ -1,8 +1,10 @@
 'use strict';
 const { Model } = require('sequelize');
 
+// Modelo de Employees, gerencia a tabela de funcionários no banco de dados
 module.exports = (sequelize, DataTypes) => {
   class Employee extends Model {
+    // Define as relações/cardinalidade (associações) entre tabelas do DB
     static associate(models) {
       Employee.hasMany(models.Assignment, {
         foreignKey: 'employeeId',

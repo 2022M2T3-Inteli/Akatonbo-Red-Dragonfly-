@@ -1,4 +1,5 @@
 'use strict';
+// Arquivo para criar a tabela de funcionários ('Employees') no banco de dados
 module.exports = {
   async up(queryInterface, Sequelize) {
     await queryInterface.createTable('Employees', {

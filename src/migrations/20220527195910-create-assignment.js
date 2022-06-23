@@ -1,4 +1,5 @@
 'use strict';
+// Arquivo para criar a tabela de alocações ('Assignments') no banco de dados
 module.exports = {
   async up(queryInterface, Sequelize) {
     await queryInterface.createTable('Assignments', {

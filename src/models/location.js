@@ -2,9 +2,10 @@
 // Declara o uso do Sequelize
 const { Model } = require('sequelize');
 
+// Modelo de Locations, gerencia a tabela de locais no banco de dados
 module.exports = (sequelize, DataTypes) => {
   class Location extends Model {
-    // Define as relações/cardinalidade da tabela locations com as outras
+    // Define as relações/cardinalidade (associações) entre tabelas do DB
     static associate(models) {
       Location.hasMany(models.Employee, { foreignKey: 'locationId' });
       Location.hasMany(models.Project, { foreignKey: 'locationId' });

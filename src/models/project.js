@@ -1,9 +1,10 @@
 'use strict';
 const { Model } = require('sequelize');
 
+// Modelo de Projects, gerencia a tabela de projetos no banco de dados
 module.exports = (sequelize, DataTypes) => {
   class Project extends Model {
-    // Define as relações/cadinalidade entre tabelas do banco de dados
+    // Define as relações/cardinalidade (associações) entre tabelas do DB
     static associate(models) {
       Project.hasMany(models.Assignment, {
         foreignKey: 'projectId',

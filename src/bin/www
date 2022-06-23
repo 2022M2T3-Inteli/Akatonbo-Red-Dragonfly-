@@ -1,7 +1,12 @@
 #!/usr/bin/env node
 
 /**
- * Module dependencies.
+ *  Arquivo de configuração para iniciar um servidor web, criado automaticamente pelo express-generator
+ *  Documentação disponível em: https://expressjs.com/en/starter/generator.html
+* /
+
+/**
+ * Dependências.
  */
 
 var app = require('../app');
@@ -9,20 +14,20 @@ var debug = require('debug')('yamaha-planning:server');
 var http = require('http');
 
 /**
- * Get port from environment and store in Express.
+ * Obter porta das variáveis de ambiente ou definir porta padrão.
  */
 
 var port = normalizePort(process.env.PORT || '3000');
 app.set('port', port);
 
 /**
- * Create HTTP server.
+ * Criar servidor HTTP.
  */
 
 var server = http.createServer(app);
 
 /**
- * Listen on provided port, on all network interfaces.
+ * Ouvir a porta selecionada.
  */
 
 server.listen(port);
@@ -30,7 +35,7 @@ server.on('error', onError);
 server.on('listening', onListening);
 
 /**
- * Normalize a port into a number, string, or false.
+ * Normalizar a port em um número, string, ou false.
  */
 
 function normalizePort(val) {
@@ -50,7 +55,7 @@ function normalizePort(val) {
 }
 
 /**
- * Event listener for HTTP server "error" event.
+ * Event listener para servidor HTTP -- evento de "error".
  */
 
 function onError(error) {
@@ -62,7 +67,7 @@ function onError(error) {
     ? 'Pipe ' + port
     : 'Port ' + port;
 
-  // handle specific listen errors with friendly messages
+  // lidar com erros específicos com mensagens amigáveis
   switch (error.code) {
     case 'EACCES':
       console.error(bind + ' requires elevated privileges');
@@ -78,7 +83,7 @@ function onError(error) {
 }
 
 /**
- * Event listener for HTTP server "listening" event.
+ * Event listener para servidor HTTP -- evento de "listening".
  */
 
 function onListening() {

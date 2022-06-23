@@ -1,4 +1,5 @@
 'use strict';
+// Arquivo para criar a tabela de funções ('Roles') no banco de dados
 module.exports = {
   async up(queryInterface, Sequelize) {
     await queryInterface.createTable('Roles', {

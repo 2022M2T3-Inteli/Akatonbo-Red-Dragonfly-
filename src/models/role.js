@@ -2,9 +2,10 @@
 // Declara o uso do Sequelize
 const { Model } = require('sequelize');
 
+// Modelo de Roles, gerencia a tabela de funções no banco de dados
 module.exports = (sequelize, DataTypes) => {
   class Role extends Model {
-    // Define as relações/cadinalidade (associações) entre tabelas do DB
+    // Define as relações/cardinalidade (associações) entre tabelas do DB
     static associate(models) {
       Role.hasMany(models.Employee, { foreignKey: 'roleId' });
     }
